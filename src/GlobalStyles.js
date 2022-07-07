@@ -46,6 +46,7 @@ export const GlobalStyles = theme => css`
     flex-direction: column;
     min-height: 100vh;
     font-family: 'Verdana';
+    font-size: 14px;
     background-color: ${theme.backgrounds.bodyPrimary};
     color: ${theme.fontColors.primary};
   }
@@ -83,5 +84,10 @@ export const GlobalStyles = theme => css`
 
   a {
     text-decoration: none;
+    outline: none;
+  }
+
+  button {
+    padding: 0;
   }
 `;
