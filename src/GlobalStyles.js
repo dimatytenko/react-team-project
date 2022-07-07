@@ -46,7 +46,8 @@ export const GlobalStyles = theme => css`
     flex-direction: column;
     min-height: 100vh;
     font-family: 'Verdana';
-    background-color: ${theme.backgrounds.primary};
+    background-color: ${theme.backgrounds.bodyPrimary};
+    color: ${theme.fontColors.primary};
   }
 
   h1,
