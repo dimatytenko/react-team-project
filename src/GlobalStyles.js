@@ -42,6 +42,9 @@ export const GlobalStyles = theme => css`
   }
 
   body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     font-family: 'Verdana';
     background-color: ${theme.backgrounds.primary};
   }
@@ -55,6 +58,12 @@ export const GlobalStyles = theme => css`
   p {
     margin-top: 0;
     margin-bottom: 0;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
   }
 
   ul,
