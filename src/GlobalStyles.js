@@ -1,9 +1,9 @@
 import { css } from '@emotion/react';
 
-import Verdana from './fonts/Verdana.ttf';
-import VerdanaBold from './fonts/Verdana-Bold.ttf';
-import GothamproBold from './fonts/gothampro_bold.ttf';
-import GothamproLight from './fonts/gothampro_light.ttf';
+import Verdana from './assets/fonts/Verdana.ttf';
+import VerdanaBold from './assets/fonts/Verdana-Bold.ttf';
+import GothamproBold from './assets/fonts/gothampro_bold.ttf';
+import GothamproLight from './assets/fonts/gothampro_light.ttf';
 
 export const GlobalStyles = theme => css`
   *,
