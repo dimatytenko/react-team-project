@@ -3,7 +3,7 @@ import { createTheme } from '@mui/material/styles';
 export const ThemeLight = createTheme({
   palette: { mode: 'light' },
   backgrounds: {
-    bodyPrimary: '#E5E5E5',
+    bodyPrimary: '#ffffff',
     buttonPrimary: '#FC842D',
     buttonSecondary: '#ffffff',
   },
