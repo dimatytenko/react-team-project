@@ -1,7 +1,16 @@
-import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { authSelectors } from '../../redux/auth';
-import { BurgerMenu } from '../BurgerMenu';
+import {
+  NavListSigned,
+  NavListNotSigned,
+  NavItem,
+  NavLinkBlack,
+  NavLinkGrey,
+  NavListDrawer,
+  NavItemDrawer,
+  NavLinkDrawerGrey,
+  NavLinkDrawerWhite,
+} from './Navigation.styled';
 
 export const NavInHeader = () => {
   const isLoggedIn = useSelector(
@@ -10,55 +19,52 @@ export const NavInHeader = () => {
 
   return (
     <nav>
-      {isLoggedIn ? (
-        <ul>
-          <li>
-            <NavLink to="/login" exact="true">
+      {!isLoggedIn ? (
+        <NavListNotSigned>
+          <NavItem>
+            <NavLinkBlack to="/login" exact="true">
               sign in
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/register" exact="true">
+            </NavLinkBlack>
+          </NavItem>
+          <NavItem>
+            <NavLinkGrey to="/register" exact="true">
               registration
-            </NavLink>
-          </li>
-        </ul>
+            </NavLinkGrey>
+          </NavItem>
+        </NavListNotSigned>
       ) : (
-        <div>
-          <BurgerMenu />
-          <ul>
-            <li>
-              <NavLink to="/diary" exact="true">
-                diary
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/calculator" exact="true">
-                calculator
-              </NavLink>
-            </li>
-          </ul>
-        </div>
+        <NavListSigned>
+          <NavItem>
+            <NavLinkBlack to="/diary" exact="true">
+              diary
+            </NavLinkBlack>
+          </NavItem>
+          <NavItem>
+            <NavLinkGrey to="/calculator" exact="true">
+              calculator
+            </NavLinkGrey>
+          </NavItem>
+        </NavListSigned>
       )}
     </nav>
   );
 };
 
-export const NavInOverlay = () => {
+export const NavInDrawer = () => {
   return (
     <nav>
-      <ul>
-        <li>
-          <NavLink to="/diary" exact="true">
+      <NavListDrawer>
+        <NavItemDrawer>
+          <NavLinkDrawerGrey to="/diary" exact="true">
             diary
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/calculator" exact="true">
+          </NavLinkDrawerGrey>
+        </NavItemDrawer>
+        <NavItemDrawer>
+          <NavLinkDrawerWhite to="/calculator" exact="true">
             calculator
-          </NavLink>
-        </li>
-      </ul>
+          </NavLinkDrawerWhite>
+        </NavItemDrawer>
+      </NavListDrawer>
     </nav>
   );
 };
