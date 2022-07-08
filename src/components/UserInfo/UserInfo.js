@@ -1,8 +1,12 @@
-// import {
-//   authSelectors,
-//   authOperations,
-// } from '../../redux/auth';
-// import { useSelector, useDispatch } from 'react-redux';
+import {
+  // useSelector,
+  useDispatch,
+} from 'react-redux';
+
+import {
+  // authSelectors,
+  authOperations,
+} from '../../redux/auth';
 
 import {
   UserInfowrapper,
@@ -11,7 +15,7 @@ import {
 } from './UserInfo.styled';
 
 export function UserInfo() {
-  //   const dispatch = useDispatch();
+  const dispatch = useDispatch();
   // const nameUser = useSelector(authSelectors.getUsername);
 
   return (
@@ -21,7 +25,7 @@ export function UserInfo() {
         {/* {nameUser} */}
       </UserName>
       <UserButton
-        // onClick={() => dispatch(authOperations.logOut())}
+        onClick={() => dispatch(authOperations.logOut())}
         type="button"
       >
         Exit

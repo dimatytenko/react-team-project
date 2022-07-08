@@ -12,6 +12,7 @@ import {
 import storage from 'redux-persist/lib/storage';
 
 import { themeReducer } from './theme';
+import { authReducer } from './auth';
 
 //* config theme persist
 const themePersistConfig = {
@@ -22,6 +23,7 @@ const themePersistConfig = {
 
 export const store = configureStore({
   reducer: {
+    auth: authReducer.auth,
     theme: persistReducer(
       themePersistConfig,
       themeReducer.theme
