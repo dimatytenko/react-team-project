@@ -5,11 +5,23 @@ export const UserInfowrapper = styled.div`
   gap: 30px;
 `;
 
-export const UserName = styled.div`
+export const UserName = styled.button`
   position: relative;
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
   font-family: 'GothamproBold';
   letter-spacing: 0.04em;
   color: ${props => props.theme.fontColors.secondary};
+  transition: color
+      ${props => props.theme.transitions.primary},
+    font-size ${props => props.theme.transitions.primary};
+
+  &:hover,
+  &:focus {
+    color: ${props => props.theme.hovers.primary};
+  }
 
   &::after {
     content: '';
