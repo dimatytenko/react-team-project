@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 
 import { Container } from '../../components/Container';
 
-export default function RegistrationPage(props) {
+export default function NotFoundPage(props) {
   return (
     <Container>
-      <div> RegistrationPage</div>
+      <div> NotFoundPage</div>
     </Container>
   );
 }
 
-RegistrationPage.propTypes = {};
+NotFoundPage.propTypes = {};

@@ -1,1 +1,1 @@
-export * from './CalculatorPage';
+export { default } from './CalculatorPage';

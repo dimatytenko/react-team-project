@@ -1,1 +1,1 @@
-export * from './DiaryPage';
+export { default } from './DiaryPage';

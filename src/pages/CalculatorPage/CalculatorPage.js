@@ -1,12 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 import { Container } from '../../components/Container';
 
-export function CalculatorPage(props) {
+export default function CalculatorPage(props) {
   return (
     <Container>
-      <div>CalculatorPage</div>;
+      <div>CalculatorPage</div>
     </Container>
   );
 }
