@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+
 import { NavLink } from 'react-router-dom';
 import {
   mediaPhone,
@@ -7,9 +8,7 @@ import {
 } from '../../functions/media';
 
 export const NavListSigned = styled.ul`
-  ${mediaPhone(`
-      display: none;
-  `)}
+  display: none;
 
   ${mediaDesktop(
     `position: relative;
@@ -20,6 +19,7 @@ export const NavListSigned = styled.ul`
     content: '';
     position: absolute;
     top: 50%;
+    left: -19%;
     height: 2px;
     width: 32px;
     background-color: #e0e0e0;
@@ -36,9 +36,11 @@ export const NavListNotSigned = styled.ul`
   &::before {
     ${mediaPhone(`display: none;`)}
     ${mediaDesktop(`
+    display: block;
     content: '';
     position: absolute;
     top: 50%;
+    left: -19%;
     height: 2px;
     width: 32px;
     background-color: #e0e0e0;
@@ -54,7 +56,7 @@ export const NavItem = styled.li`
 `;
 
 export const NavLinkBlack = styled(NavLink)`
-  font-family: 'Gotham Pro';
+  font-family: 'GothamproBold';
   font-style: normal;
   font-weight: 700;
   font-size: 14px;
@@ -62,6 +64,15 @@ export const NavLinkBlack = styled(NavLink)`
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: ${props => props.theme.fontColors.secondary};
+  transition: color
+      ${props => props.theme.transitions.primary},
+    font-size ${props => props.theme.transitions.primary};
+
+  &:hover,
+  &:focus {
+    color: ${props => props.theme.hovers.primary};
+  }
+
   &.active {
     color: ${props => props.theme.fontColors.modify};
   }

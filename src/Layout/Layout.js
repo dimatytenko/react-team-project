@@ -1,19 +1,14 @@
 import { Outlet } from 'react-router-dom';
+// import { SwitchTheme } from '../components/SwitchTheme';
 
-import { Container } from '../components/Container';
-import { SwitchTheme } from '../components/SwitchTheme';
-import { UserInfo } from '../components/UserInfo';
+import { Header } from '../components/Header';
 
 export function Layout() {
   return (
     <>
-      <Container>
-        <SwitchTheme />
-        <UserInfo />
-      </Container>
+      {/* <SwitchTheme /> */}
+      <Header />
       <Outlet />
     </>
   );
 }
-
-Layout.propTypes = {};
