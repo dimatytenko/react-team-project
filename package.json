@@ -13,7 +13,6 @@
     "axios": "^0.27.2",
     "formik": "^2.2.9",
     "modern-normalize": "^1.1.0",
-    "prettier": "^2.7.1",
     "react": "^17.0.0",
     "react-datetime": "^3.1.1",
     "react-dom": "^17.0.0",
@@ -54,6 +53,7 @@
   "devDependencies": {
     "husky": "^4.3.8",
     "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1",
     "prop-types": "^15.8.1"
   }
 }
