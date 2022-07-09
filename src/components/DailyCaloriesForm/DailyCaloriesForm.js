@@ -1,15 +1,26 @@
 import React from 'react';
-import { Formik, Form } from 'formik';
+import { Formik } from 'formik';
 import * as Yup from 'yup';
 import {
   MyTextInput,
   MyRadioButton,
 } from '../../functions/formikFunctions';
+import {
+  FormContainer,
+  FormTitle,
+  FormFlexContainer,
+  FormFlexContainerLeft,
+  RadioButtonsTitle,
+  CalculatorForm,
+  Button,
+} from './DailyCaloriesForm.styled';
 
 export const DailyCaloriesForm = ({ onFormSubmit }) => {
   return (
-    <div>
-      <h1>Calculate your daily calorie intake right now</h1>
+    <FormContainer>
+      <FormTitle>
+        Calculate your daily calories intake right now
+      </FormTitle>
       <Formik
         initialValues={{
           height: '',
@@ -19,7 +30,7 @@ export const DailyCaloriesForm = ({ onFormSubmit }) => {
           blood: 1,
         }}
         validationSchema={Yup.object({
-          height: Yup.number()
+          height: Yup.number('Only numbers allowed')
             .positive()
             .min(100, 'Height must be more than 100cm')
             .max(250, 'Height must be less than 250cm')
@@ -49,65 +60,69 @@ export const DailyCaloriesForm = ({ onFormSubmit }) => {
           onFormSubmit(values);
         }}
       >
-        <Form>
-          <div>
-            <MyTextInput
-              label="Height *"
-              name="height"
-              type="number"
-            />
-            <MyTextInput
-              label="Age *"
-              name="age"
-              type="number"
-            />
-            <MyTextInput
-              label="Current weight *"
-              name="weight_current"
-              type="number"
-            />
-          </div>
-          <div>
-            <MyTextInput
-              label="Desired weight *"
-              name="weight_desired"
-              type="number"
-            />
-            <p id="my-radio-group">Blood type *</p>
-            <div
-              role="group"
-              aria-labelledby="my-radio-group"
-            >
-              <MyRadioButton
-                label="1"
-                id="bloodTypeChoice"
-                name="blood"
-                value="1"
-                checked
+        <CalculatorForm>
+          <FormFlexContainer>
+            <FormFlexContainerLeft>
+              <MyTextInput
+                label="Height *"
+                name="height"
+                type="number"
               />
-              <MyRadioButton
-                label="2"
-                id="bloodTypeChoice"
-                name="blood"
-                value="2"
+              <MyTextInput
+                label="Age *"
+                name="age"
+                type="number"
               />
-              <MyRadioButton
-                label="3"
-                id="bloodTypeChoice"
-                name="blood"
-                value="3"
+              <MyTextInput
+                label="Current weight *"
+                name="weight_current"
+                type="number"
               />
-              <MyRadioButton
-                label="4"
-                id="bloodTypeChoice"
-                name="blood"
-                value="4"
+            </FormFlexContainerLeft>
+            <div>
+              <MyTextInput
+                label="Desired weight *"
+                name="weight_desired"
+                type="number"
               />
+              <RadioButtonsTitle id="my-radio-group">
+                Blood type *
+              </RadioButtonsTitle>
+              <div
+                role="group"
+                aria-labelledby="my-radio-group"
+              >
+                <MyRadioButton
+                  label="1"
+                  id="bloodTypeChoice"
+                  name="blood"
+                  value="1"
+                  checked
+                />
+                <MyRadioButton
+                  label="2"
+                  id="bloodTypeChoice"
+                  name="blood"
+                  value="2"
+                />
+                <MyRadioButton
+                  label="3"
+                  id="bloodTypeChoice"
+                  name="blood"
+                  value="3"
+                />
+                <MyRadioButton
+                  label="4"
+                  id="bloodTypeChoice"
+                  name="blood"
+                  value="4"
+                />
+              </div>
             </div>
-          </div>
-          <button type="submit">Start losing weight</button>
-        </Form>
+          </FormFlexContainer>
+          <Button type="submit">Start losing weight</Button>
+        </CalculatorForm>
       </Formik>
-    </div>
+    </FormContainer>
   );
 };
