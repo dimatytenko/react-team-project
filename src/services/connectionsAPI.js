@@ -11,6 +11,13 @@ export const token = {
   },
 };
 
+export async function fetchLogIn(userData) {
+  const data = await axios
+    .post('/users/login',userData)
+    .then(res => res.data);
+  return data;
+}
+
 export async function fetchLogOut() {
   const data = await axios
     .post('/users/logout')

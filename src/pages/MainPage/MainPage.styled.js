@@ -1,20 +1,21 @@
 import styled from '@emotion/styled';
-import strawberry from '../../images/bg-pictures/tablet/strawberry.png';
-import banana from '../../images/bg-pictures/tablet/banana.png';
-import leaves from '../../images/bg-pictures/tablet/leaves.png';
-import stain from '../../images/bg-pictures/tablet/stain.svg';
 
-import leaves_main from '../../images/bg-pictures/desktop/leaves_main.png';
-import strawberry_desk from '../../images/bg-pictures/desktop/strawberry_desk.png';
-import banana_desk from '../../images/bg-pictures/desktop/banana_desk.png';
-import stain_desk from '../../images/bg-pictures/desktop/stain_desk.svg';
+import strawberry from '../../assets/images/bg-pictures/tablet/strawberry.png';
+import banana from '../../assets/images/bg-pictures/tablet/banana.png';
+import leaves from '../../assets/images/bg-pictures/tablet/leaves.png';
+import stain from '../../assets/images/bg-pictures/tablet/stain.svg';
+
+import leaves_main from '../../assets/images/bg-pictures/desktop/leaves_main.png';
+import strawberry_desk from '../../assets/images/bg-pictures/desktop/strawberry_desk.png';
+import banana_desk from '../../assets/images/bg-pictures/desktop/banana_desk.png';
+import stain_desk from '../../assets/images/bg-pictures/desktop/stain_desk.svg';
 
 export const MainBox = styled.div`
   width: 100%;
   height: 648px;
   padding-top: 300px;
   @media (min-width: 768px) {
-    height: 1024px;
+    
     background-image: url(${strawberry}), url(${banana}),
       url(${leaves}), url(${stain});
     background-size: 308px 303px, 491px 431px, 602px 531px,
