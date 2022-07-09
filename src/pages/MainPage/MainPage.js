@@ -5,6 +5,7 @@ import { Container } from '../../components/Container';
 import { MainBox } from './MainPage.styled';
 import { DailyCaloriesForm } from '../../components/DailyCaloriesForm';
 import { getKcal } from '../../services/connectionsAPI';
+
 import { Modal } from '../../components/Modal/Modal';
 
 export default function MainPage(props) {

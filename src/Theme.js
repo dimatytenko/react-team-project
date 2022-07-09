@@ -6,6 +6,8 @@ export const ThemeLight = createTheme({
     bodyPrimary: '#ffffff',
     buttonPrimary: '#FC842D',
     buttonSecondary: '#ffffff',
+    loaderPrimary: '#FC842D',
+    backdrop: 'rgba(0, 0, 0, 0.55)',
   },
   fontColors: {
     primary: '#9B9FAA',
@@ -26,6 +28,10 @@ export const ThemeDark = createTheme({
   palette: { mode: 'dark' },
   backgrounds: {
     bodyPrimary: '#4f4c4c',
+    buttonPrimary: '#FC842D',
+    buttonSecondary: '#ffffff',
+    loaderPrimary: '#ffffff',
+    backdrop: 'rgba(0, 0, 0, 0.00)',
   },
   fontColors: {
     primary: '#9B9FAA',

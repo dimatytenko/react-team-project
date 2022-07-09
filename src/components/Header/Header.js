@@ -5,6 +5,7 @@ import { BurgerMenu } from '../BurgerMenu';
 import { UserInfo } from '../UserInfo';
 import { useSelector } from 'react-redux';
 import { authSelectors } from '../../redux/auth';
+import { SwitchTheme } from '../../components/SwitchTheme';
 
 import {
   NavWrapper,
@@ -36,6 +37,7 @@ export const Header = () => {
             </>
           )}
         </NavWrapper>
+        <SwitchTheme />
       </Container>
     </HeaderStyled>
   );
