@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
 import { authSelectors } from '../../redux/auth';
+import { Container } from '../Container';
 import {
   NavListSigned,
   NavListNotSigned,
@@ -10,7 +11,9 @@ import {
   NavItemDrawer,
   NavLinkDrawerGrey,
   NavLinkDrawerWhite,
+  NavDrawerWrapper,
 } from './Navigation.styled';
+import propTypes from 'prop-types';
 
 export const NavInHeader = () => {
   const isLoggedIn = useSelector(
@@ -50,21 +53,41 @@ export const NavInHeader = () => {
   );
 };
 
-export const NavInDrawer = () => {
+export const NavInDrawer = ({
+  setMenuOpen,
+  isMenuOpen,
+}) => {
   return (
-    <nav>
-      <NavListDrawer>
-        <NavItemDrawer>
-          <NavLinkDrawerGrey to="/diary" exact="true">
-            diary
-          </NavLinkDrawerGrey>
-        </NavItemDrawer>
-        <NavItemDrawer>
-          <NavLinkDrawerWhite to="/calculator" exact="true">
-            calculator
-          </NavLinkDrawerWhite>
-        </NavItemDrawer>
-      </NavListDrawer>
-    </nav>
+    <Container>
+      <NavDrawerWrapper>
+        <nav>
+          <NavListDrawer>
+            <NavItemDrawer>
+              <NavLinkDrawerGrey
+                to="/diary"
+                exact="true"
+                onClick={event => setMenuOpen(!isMenuOpen)}
+              >
+                diary
+              </NavLinkDrawerGrey>
+            </NavItemDrawer>
+            <NavItemDrawer>
+              <NavLinkDrawerWhite
+                to="/calculator"
+                exact="true"
+                onClick={event => setMenuOpen(!isMenuOpen)}
+              >
+                calculator
+              </NavLinkDrawerWhite>
+            </NavItemDrawer>
+          </NavListDrawer>
+        </nav>
+      </NavDrawerWrapper>
+    </Container>
   );
+};
+
+NavInDrawer.propTypes = {
+  isMenuOpen: propTypes.bool.isRequired,
+  setMenuOpen: propTypes.func.isRequired,
 };
