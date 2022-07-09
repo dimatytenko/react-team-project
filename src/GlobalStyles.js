@@ -51,6 +51,14 @@ export const GlobalStyles = theme => css`
     color: ${theme.fontColors.primary};
   }
 
+  main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+  }
+
   h1,
   h2,
   h3,

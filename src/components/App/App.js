@@ -55,7 +55,6 @@ export function App() {
                 path="calculator"
                 element={<CalculatorPage />}
               />
-
               <Route path="*" element={<NotFoundPage />} />
             </Route>
           </Routes>

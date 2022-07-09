@@ -8,7 +8,9 @@ export function Layout() {
     <>
       {/* <SwitchTheme /> */}
       <Header />
-      <Outlet />
+      <main>
+        <Outlet />
+      </main>
     </>
   );
 }

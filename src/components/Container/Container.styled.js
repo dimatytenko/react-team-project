@@ -10,7 +10,7 @@ export const ContainerBody = styled.div`
   padding: 0 10px;
   margin: 0 auto;
 
-  ${mediaTablet(` width: 724px;`)}
+  ${mediaTablet(`width: 724px;`)}
 
   ${mediaDesktop(`width: 1268px;`)}
 `;

@@ -17,35 +17,18 @@ import {
 
 export const MainBackground = styled.div`
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
 
-  background-image: url(${strawberry});
-  background-size: 308px 303px;
-  background-position: right -145px bottom 155px;
-  background-repeat: no-repeat;
-
-  ${mediaTablet(`
   background-image: url(${strawberry}), url(${banana}),
-      url(${leaves});
-    background-size: 308px 303px, 491px 431px, 602px 531px;
-    background-position: right 24px bottom 168px,
-      right 0 bottom 0, right 166px bottom -130px;
-    background-repeat: no-repeat;
-  `)}
-
-  ${mediaDesktop(`background-image: url(${leaves_main}),
-      url(${banana_desk}), url(${strawberry_desk}),
-      url(${stain_desk});
-    background-size: 746px 820px, 715px 510px, 386px 379px,
-      715px 849px;
-    background-position: right 195px top -30px,
-      right -247px top -50px, right -8px top 470px,
-      right -113px top 70px;
-    background-repeat: no-repeat;`)}
+    url(${leaves});
+  background-size: 308px 303px, 491px 431px, 602px 531px;
+  background-position: right 24px bottom 168px,
+    right 0 bottom 0, right 166px bottom -130px;
+  background-repeat: no-repeat;
 `;
 
 export const NotFoundContainer = styled.div`
-  padding-top: 130px;
+  padding-top: 140px;
 
   ${mediaDesktop(`padding-top: 230px;`)}
 `;
@@ -63,7 +46,7 @@ export const NotFoundImg = styled.div`
 export const NotFoundBoxContent = styled.div`
   display: flex;
   gap: 20px;
-  margin-bottom: 25px;
+  // margin-bottom: 25px;
 
   ${mediaTablet(`
   align-items: center;
@@ -71,7 +54,7 @@ export const NotFoundBoxContent = styled.div`
   `)}
 
   ${mediaDesktop(`
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   `)}
 `;
 
