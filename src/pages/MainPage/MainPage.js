@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 
 import { Container } from '../../components/Container';
 import { MainBox } from './MainPage.styled';
-import { DailyCaloriesForm } from '../../components/DailyCaloriesForm';
+import { DailyCaloriesForm } from '../../components/DailyCaloriesForm/DailyCaloriesForm.js';
 import { getKcal } from '../../services/connectionsAPI';
 
 import { Modal } from '../../components/Modal/Modal';
@@ -20,6 +20,7 @@ export default function MainPage(props) {
       'calculatingData',
       JSON.stringify(calculatingData)
     );
+    setCalculatingData({});
   };
 
   useEffect(() => {
