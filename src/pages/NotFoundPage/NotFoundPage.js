@@ -1,14 +1,31 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-
 import { Container } from '../../components/Container';
+import {
+  MainBackground,
+  NotFoundImg,
+  NotFoundContainer,
+  NotFoundBoxContent,
+  NotFoundContentMod,
+  NotFoundContent,
+} from './NotFoundPage.styled';
+import meditation from '../../assets/images/notFound/meditation.png';
 
-export default function NotFoundPage(props) {
+export default function NotFoundPage() {
   return (
-    <Container>
-      <div> NotFoundPage</div>
-    </Container>
+    <MainBackground>
+      <Container>
+        <NotFoundContainer>
+          <NotFoundBoxContent>
+            <NotFoundContentMod>Oops!</NotFoundContentMod>
+            <NotFoundContent>
+              We can't seem to find the page you're looking
+              for.
+            </NotFoundContent>
+          </NotFoundBoxContent>
+        </NotFoundContainer>
+        <NotFoundImg>
+          <img src={meditation} alt={'slim mom'} />
+        </NotFoundImg>
+      </Container>
+    </MainBackground>
   );
 }
-
-NotFoundPage.propTypes = {};

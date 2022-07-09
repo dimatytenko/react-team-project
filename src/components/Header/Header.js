@@ -50,6 +50,7 @@ export const Header = () => {
               </>
             )}
           </NavWrapper>
+          <SwitchTheme />
         </Container>
       </HeaderStyled>
       <BurgerDrawer

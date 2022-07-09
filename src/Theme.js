@@ -35,7 +35,7 @@ export const ThemeDark = createTheme({
   },
   fontColors: {
     primary: '#9B9FAA',
-    secondary: '#212121',
+    secondary: '#ffffff',
     modify: '#FC842D',
     buttonPrimary: '#ffffff',
     buttonSecondary: '#FC842D',
