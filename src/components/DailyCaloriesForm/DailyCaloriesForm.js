@@ -14,9 +14,9 @@ export const DailyCaloriesForm = ({ onFormSubmit }) => {
         initialValues={{
           height: '',
           age: '',
-          currentWeight: '',
-          desiredWeight: '',
-          bloodType: '1',
+          weight_current: '',
+          weight_desired: '',
+          blood: 1,
         }}
         validationSchema={Yup.object({
           height: Yup.number()
@@ -30,17 +30,17 @@ export const DailyCaloriesForm = ({ onFormSubmit }) => {
             .min(18, 'Age must be over 18 years old')
             .max(100, 'Age must be less than 100 years old')
             .required('Required'),
-          currentWeight: Yup.number()
+          weight_current: Yup.number()
             .positive()
             .min(20, 'Weight must be more than 20kg')
             .max(500, 'Weight must be less than 500kg')
             .required('Required'),
-          desiredWeight: Yup.number()
+          weight_desired: Yup.number()
             .positive()
             .min(20, 'Weight must be more than 20kg')
             .max(500, 'Weight must be less than 500kg')
             .required('Required'),
-          bloodType: Yup.string().oneOf(
+          blood: Yup.string().oneOf(
             ['1', '2', '3', '4'],
             'Invalid Blood Type'
           ),
@@ -54,24 +54,24 @@ export const DailyCaloriesForm = ({ onFormSubmit }) => {
             <MyTextInput
               label="Height *"
               name="height"
-              type="text"
+              type="number"
             />
             <MyTextInput
               label="Age *"
               name="age"
-              type="text"
+              type="number"
             />
             <MyTextInput
               label="Current weight *"
-              name="currentWeight"
-              type="text"
+              name="weight_current"
+              type="number"
             />
           </div>
           <div>
             <MyTextInput
               label="Desired weight *"
-              name="desiredWeight"
-              type="text"
+              name="weight_desired"
+              type="number"
             />
             <p id="my-radio-group">Blood type *</p>
             <div
@@ -81,26 +81,26 @@ export const DailyCaloriesForm = ({ onFormSubmit }) => {
               <MyRadioButton
                 label="1"
                 id="bloodTypeChoice"
-                name="bloodType"
+                name="blood"
                 value="1"
                 checked
               />
               <MyRadioButton
                 label="2"
                 id="bloodTypeChoice"
-                name="bloodType"
+                name="blood"
                 value="2"
               />
               <MyRadioButton
                 label="3"
                 id="bloodTypeChoice"
-                name="bloodType"
+                name="blood"
                 value="3"
               />
               <MyRadioButton
                 label="4"
                 id="bloodTypeChoice"
-                name="bloodType"
+                name="blood"
                 value="4"
               />
             </div>
