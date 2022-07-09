@@ -6,6 +6,7 @@ export const ThemeLight = createTheme({
     bodyPrimary: '#ffffff',
     buttonPrimary: '#FC842D',
     buttonSecondary: '#ffffff',
+    loaderPrimary: '#FC842D',
   },
   fontColors: {
     primary: '#9B9FAA',
@@ -26,6 +27,9 @@ export const ThemeDark = createTheme({
   palette: { mode: 'dark' },
   backgrounds: {
     bodyPrimary: '#4f4c4c',
+    buttonPrimary: '#FC842D',
+    buttonSecondary: '#ffffff',
+    loaderPrimary: '#ffffff',
   },
   fontColors: {
     primary: '#9B9FAA',
