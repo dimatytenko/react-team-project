@@ -12,6 +12,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.27.2",
     "formik": "^2.2.9",
+    "hamburger-react": "^2.5.0",
     "modern-normalize": "^1.1.0",
     "react": "^17.0.0",
     "react-datetime": "^3.1.1",

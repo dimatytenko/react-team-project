@@ -6,18 +6,11 @@ import {
 } from '../../functions/media';
 
 export const ContainerBody = styled.div`
-  width: 100%;
-  max-width: 320px;
-  padding: 0 20px;
+  width: 300px;
+  padding: 0 10px;
   margin: 0 auto;
 
-  ${mediaTablet(
-    ` max-width: 768px;
-      padding: 0 30px;`
-  )}
+  ${mediaTablet(` width: 724px;`)}
 
-  ${mediaDesktop(`
-      max-width: 1280px;
-      padding: 0 20px;
-  `)}
+  ${mediaDesktop(`width: 1268px;`)}
 `;
