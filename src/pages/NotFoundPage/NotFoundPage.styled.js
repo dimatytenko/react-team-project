@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
 
-import strawberry from '../../images/bg-pictures/tablet/strawberry.png';
-import banana from '../../images/bg-pictures/tablet/banana.png';
-import leaves from '../../images/bg-pictures/tablet/leaves.png';
+import strawberry from '../../assets/images/bg-pictures/tablet/strawberry.png';
+import banana from '../../assets/images/bg-pictures/tablet/banana.png';
+import leaves from '../../assets/images/bg-pictures/tablet/leaves.png';
 
 import {
   mediaTablet,
