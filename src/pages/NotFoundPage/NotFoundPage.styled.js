@@ -35,7 +35,7 @@ export const NotFoundContainer = styled.div`
 
 export const NotFoundImg = styled.div`
   ${mediaDesktop(`
-    margin-left: 0px;
+    margin-left: 30px;
 
    & img {
     width: 420px;
@@ -46,11 +46,11 @@ export const NotFoundImg = styled.div`
 export const NotFoundBoxContent = styled.div`
   display: flex;
   gap: 20px;
-  // margin-bottom: 25px;
+  margin-bottom: 25px;
 
   ${mediaTablet(`
   align-items: center;
-  margin-bottom: -10px;
+  margin-bottom: 10px;
   `)}
 
   ${mediaDesktop(`

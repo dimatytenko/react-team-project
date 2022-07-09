@@ -27,7 +27,7 @@ export const ThemeLight = createTheme({
 export const ThemeDark = createTheme({
   palette: { mode: 'dark' },
   backgrounds: {
-    bodyPrimary: '#4f4c4c',
+    bodyPrimary: '#292e4b',
     buttonPrimary: '#FC842D',
     buttonSecondary: '#ffffff',
     loaderPrimary: '#ffffff',
