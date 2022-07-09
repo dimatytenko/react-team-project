@@ -5,10 +5,15 @@ import { Container } from '../../components/Container';
 import { MainBox } from './MainPage.styled';
 import { DailyCaloriesForm } from '../../components/DailyCaloriesForm';
 import { getKcal } from '../../services/connectionsAPI';
+
+import { Modal } from '../../components/Modal/Modal';
+
 export default function MainPage(props) {
+  const [modalData, setModalData] = useState({});
   const [calculatingData, setCalculatingData] = useState(
     {}
   );
+
   const calculatorSubmitHandler = calculatingData => {
     setCalculatingData(calculatingData);
     window.localStorage.setItem(
@@ -18,20 +23,29 @@ export default function MainPage(props) {
   };
 
   useEffect(() => {
-    const getCardsItem = async () => {
+    const getCalculatingData = async () => {
       if (Object.keys(calculatingData).length === 0) {
         return;
       } else {
         try {
           const dataKcal = await getKcal(calculatingData);
-          console.log(dataKcal);
+          setModalData(dataKcal.data);
         } catch (error) {
           console.log(error);
         }
       }
     };
-    getCardsItem();
+    getCalculatingData();
   }, [calculatingData]);
+
+  const modalClose = e => {
+    if (e.currentTarget === e.target) {
+      setModalData({});
+    }
+  };
+  const modalCloseBtn = e => {
+    setModalData({});
+  };
 
   return (
     <>
@@ -40,6 +54,13 @@ export default function MainPage(props) {
           <DailyCaloriesForm
             onFormSubmit={calculatorSubmitHandler}
           />
+          {Object.keys(modalData).length !== 0 && (
+            <Modal
+              modalData={modalData}
+              onClick={modalClose}
+              modalCloseBtn={modalCloseBtn}
+            />
+          )}
         </Container>
       </MainBox>
     </>
