@@ -6,7 +6,6 @@ import GothamproBold from './assets/fonts/gothampro_bold.ttf';
 import GothamproLight from './assets/fonts/gothampro_light.ttf';
 
 export const GlobalStyles = theme => css`
-  *,
   *::before,
   *::after {
     box-sizing: inherit;

@@ -42,12 +42,12 @@ export function App() {
             <Route path="/" element={<Layout />}>
               <Route index element={<MainPage />} />
 
+              <Route path="login" element={<LoginPage />} />
+
               <Route
                 path="register"
                 element={<RegistrationPage />}
               />
-
-              <Route path="login" element={<LoginPage />} />
 
               <Route path="diary" element={<DiaryPage />} />
 

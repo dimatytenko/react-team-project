@@ -25,12 +25,10 @@ export const NavInHeader = () => {
       {!isLoggedIn ? (
         <NavListNotSigned>
           <NavItem>
-            <NavLinkBlack to="/login" exact="true">
-              sign in
-            </NavLinkBlack>
+            <NavLinkBlack to="/login">sign in</NavLinkBlack>
           </NavItem>
           <NavItem>
-            <NavLinkGrey to="/register" exact="true">
+            <NavLinkGrey to="/register">
               registration
             </NavLinkGrey>
           </NavItem>
@@ -38,12 +36,10 @@ export const NavInHeader = () => {
       ) : (
         <NavListSigned>
           <NavItem>
-            <NavLinkBlack to="/diary" exact="true">
-              diary
-            </NavLinkBlack>
+            <NavLinkBlack to="/diary">diary</NavLinkBlack>
           </NavItem>
           <NavItem>
-            <NavLinkGrey to="/calculator" exact="true">
+            <NavLinkGrey to="/calculator">
               calculator
             </NavLinkGrey>
           </NavItem>
@@ -65,7 +61,6 @@ export const NavInDrawer = ({
             <NavItemDrawer>
               <NavLinkDrawerGrey
                 to="/diary"
-                exact="true"
                 onClick={event => setMenuOpen(!isMenuOpen)}
               >
                 diary
@@ -74,7 +69,6 @@ export const NavInDrawer = ({
             <NavItemDrawer>
               <NavLinkDrawerWhite
                 to="/calculator"
-                exact="true"
                 onClick={event => setMenuOpen(!isMenuOpen)}
               >
                 calculator

@@ -6,11 +6,11 @@ import MainPage from '../MainPage/MainPage';
 
 export default function RegistrationPage(props) {
   return (
-    <MainPage>
-    <Container>
-      <div> RegistrationPage</div>
-    </Container>
-    </MainPage>
+    <>
+      <Container>
+        <div> RegistrationPage</div>
+      </Container>
+    </>
   );
 }
 
