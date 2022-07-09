@@ -17,3 +17,10 @@ export async function fetchLogOut() {
     .then(res => res.data);
   return data;
 }
+
+export async function getKcal(dataCaloriesForm) {
+  const data = await axios
+    .post('/public/calculator', dataCaloriesForm)
+    .then(res => res.data);
+  return data;
+}
