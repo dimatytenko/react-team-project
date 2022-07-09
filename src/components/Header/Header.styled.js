@@ -26,6 +26,7 @@ export const NavWrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   ${mediaDesktop(`
+    align-items: baseline;
     justify-content: start;
   `)}
 `;

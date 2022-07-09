@@ -82,6 +82,13 @@ export const NavLinkGrey = styled(NavLinkBlack)`
   color: ${props => props.theme.fontColors.primary};
 `;
 
+export const NavDrawerWrapper = styled.div`
+  padding: 140px 0 40px 0;
+  ${mediaTablet(`
+  padding: 180px 0 40px 0;
+`)}
+`;
+
 export const NavListDrawer = styled.ul`
   text-align: center;
 `;
@@ -101,6 +108,19 @@ export const NavLinkDrawerGrey = styled(NavLink)`
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: ${props => props.theme.fontColors.primary};
+  transition: color
+      ${props => props.theme.transitions.primary},
+    font-size ${props => props.theme.transitions.primary};
+
+  &:hover,
+  &:focus {
+    color: ${props => props.theme.hovers.primary};
+  }
+
+  &.active {
+    color: ${props => props.theme.fontColors.modify};
+  }
+
   ${mediaTablet(`
   font-size: 24px;
   line-height: 1.2;
