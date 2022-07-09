@@ -3,12 +3,6 @@ import styled from '@emotion/styled';
 import strawberry from '../../images/bg-pictures/tablet/strawberry.png';
 import banana from '../../images/bg-pictures/tablet/banana.png';
 import leaves from '../../images/bg-pictures/tablet/leaves.png';
-import stain from '../../images/bg-pictures/tablet/stain.svg';
-
-import leaves_main from '../../images/bg-pictures/desktop/leaves_main.png';
-import strawberry_desk from '../../images/bg-pictures/desktop/strawberry_desk.png';
-import banana_desk from '../../images/bg-pictures/desktop/banana_desk.png';
-import stain_desk from '../../images/bg-pictures/desktop/stain_desk.svg';
 
 import {
   mediaTablet,
