@@ -7,6 +7,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import { ThemeLight, ThemeDark } from '../../Theme';
 import { GlobalStyles } from '../../GlobalStyles';
 import { themeSelectors } from '../../redux/theme';
+import { MainLoader } from '../../components/MainLoader';
 
 import { Layout } from '../../Layout';
 const MainPage = lazy(() => import('../../pages/MainPage'));
@@ -28,14 +29,15 @@ const NotFoundPage = lazy(() =>
 
 export function App() {
   const isTheme = useSelector(themeSelectors.getTheme);
+  const currentTheme = !isTheme ? ThemeLight : ThemeDark;
   return (
     <>
-      <ThemeProvider
-        theme={!isTheme ? ThemeLight : ThemeDark}
-      >
+      <ThemeProvider theme={currentTheme}>
         <Global styles={GlobalStyles} />
 
-        <Suspense fallback={<p>download...</p>}>
+        <Suspense
+          fallback={<MainLoader theme={currentTheme} />}
+        >
           <Routes>
             <Route path="/" element={<Layout />}>
               <Route index element={<MainPage />} />
