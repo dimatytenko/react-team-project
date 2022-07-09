@@ -7,6 +7,7 @@ export const ThemeLight = createTheme({
     buttonPrimary: '#FC842D',
     buttonSecondary: '#ffffff',
     loaderPrimary: '#FC842D',
+    backdrop: 'rgba(0, 0, 0, 0.55)',
   },
   fontColors: {
     primary: '#9B9FAA',
@@ -30,6 +31,7 @@ export const ThemeDark = createTheme({
     buttonPrimary: '#FC842D',
     buttonSecondary: '#ffffff',
     loaderPrimary: '#ffffff',
+    backdrop: 'rgba(0, 0, 0, 0.05)',
   },
   fontColors: {
     primary: '#9B9FAA',

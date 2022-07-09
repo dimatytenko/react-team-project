@@ -5,7 +5,6 @@ import { Container } from '../../components/Container';
 import { MainBox } from './MainPage.styled';
 import { DailyCaloriesForm } from '../../components/DailyCaloriesForm';
 import { getKcal } from '../../services/connectionsAPI';
-
 export default function MainPage(props) {
   const [calculatingData, setCalculatingData] = useState(
     {}
