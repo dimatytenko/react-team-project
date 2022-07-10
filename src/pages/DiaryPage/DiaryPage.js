@@ -6,7 +6,7 @@ import { DiaryProductsList } from '../../components/DiaryProductsList';
 import { DiaryDateCalendar } from '../../components/DiaryDateCalendar';
 import { Container } from '../../components/Container';
 import { DiaryAddProductForm } from '../../components/DiaryAddProductForm';
-import { MainWrapper } from '../MainPage/MainPage.styled';
+import { DiaryPageWrapper } from './DiaryPage.styled';
 
 //це тимчасово
 const products = [
@@ -127,7 +127,7 @@ export default function DiaryPage({ theme }) {
 
   return (
     <Container>
-      <MainWrapper>
+      <DiaryPageWrapper>
         <DiaryDateCalendar
           pickedDate={pickedDate}
           setPickedDate={setPickedDate}
@@ -138,7 +138,7 @@ export default function DiaryPage({ theme }) {
           isPickedDateToday={isPickedDateToday()}
           pickedDate={pickedDate}
         />
-      </MainWrapper>
+      </DiaryPageWrapper>
     </Container>
   );
 }

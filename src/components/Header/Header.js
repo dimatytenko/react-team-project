@@ -7,12 +7,15 @@ import { BurgerDrawer } from '../BurgerDrawer';
 import { useSelector } from 'react-redux';
 import { authSelectors } from '../../redux/auth';
 import { Logo } from '../Logo';
-import { SwitchTheme } from '../../components/SwitchTheme';
+// import { SwitchTheme } from '../../components/SwitchTheme';
 
 import {
   NavWrapper,
   BurgerWrapper,
   HeaderStyled,
+  UserInfoWrapperDesc,
+  UserInfoWrapperMobile,
+  UserBarMobile,
 } from './Header.styled';
 
 export const Header = () => {
@@ -40,7 +43,9 @@ export const Header = () => {
             <NavInHeader />
             {isLoggedIn && (
               <>
-                <UserInfo />
+                <UserInfoWrapperDesc>
+                  <UserInfo />
+                </UserInfoWrapperDesc>
                 <BurgerWrapper>
                   <BurgerMenu
                     isMenuOpen={isMenuOpen}
@@ -54,6 +59,15 @@ export const Header = () => {
           <SwitchTheme />
         </Container>
       </HeaderStyled>
+      {isLoggedIn && (
+        <UserBarMobile>
+          <Container>
+            <UserInfoWrapperMobile>
+              <UserInfo />
+            </UserInfoWrapperMobile>
+          </Container>
+        </UserBarMobile>
+      )}
       <BurgerDrawer
         setMenuOpen={setMenuOpen}
         isMenuOpen={isMenuOpen}

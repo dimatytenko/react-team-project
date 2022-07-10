@@ -5,18 +5,14 @@ import {
   authOperations,
 } from '../../redux/auth';
 
-import {
-  UserInfowrapper,
-  UserName,
-  UserButton,
-} from './UserInfo.styled';
+import { UserName, UserButton } from './UserInfo.styled';
 
 export function UserInfo() {
   const dispatch = useDispatch();
   const nameUser = useSelector(authSelectors.getUsername);
 
   return (
-    <UserInfowrapper>
+    <>
       <UserName>{nameUser}</UserName>
       <UserButton
         onClick={() => dispatch(authOperations.logOut())}
@@ -24,6 +20,6 @@ export function UserInfo() {
       >
         Exit
       </UserButton>
-    </UserInfowrapper>
+    </>
   );
 }

@@ -40,17 +40,33 @@ export const BurgerWrapper = styled.div`
   `)}
 `;
 
-// тимчасова заглушка
-export const Logo = styled.div`
-  width: 47px;
-  height: 44px;
-  background-color: tomato;
+export const UserInfoWrapperDesc = styled.div`
+  display: none;
+  gap: 30px;
   ${mediaTablet(`
-       width: 162px;
+      display: flex;
+      margin-left: auto;
   `)}
   ${mediaDesktop(`
-       width: 167px;
-       height: 66px;
-       margin-right: 40px;
+      margin-left: auto;
+      margin-right: 12px;
   `)}
+`;
+
+export const UserBarMobile = styled.div`
+  position: absolute;
+  top: 84px;
+  left: 0;
+  width: 100%;
+  padding: 15px 0 13px 0;
+  background-color: #eff1f3;
+  ${mediaTablet(`
+      display: none;
+  `)}
+`;
+
+export const UserInfoWrapperMobile = styled.div`
+  display: flex;
+  justify-content: end;
+  gap: 30px;
 `;
