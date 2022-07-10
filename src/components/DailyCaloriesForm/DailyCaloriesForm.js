@@ -94,26 +94,26 @@ export const DailyCaloriesForm = ({ onFormSubmit }) => {
               >
                 <MyRadioButton
                   label="1"
-                  id="bloodTypeChoice"
+                  id="1"
                   name="blood"
                   value="1"
                   checked
                 />
                 <MyRadioButton
                   label="2"
-                  id="bloodTypeChoice"
+                  id="2"
                   name="blood"
                   value="2"
                 />
                 <MyRadioButton
                   label="3"
-                  id="bloodTypeChoice"
+                  id="3"
                   name="blood"
                   value="3"
                 />
                 <MyRadioButton
                   label="4"
-                  id="bloodTypeChoice"
+                  id="4"
                   name="blood"
                   value="4"
                 />
