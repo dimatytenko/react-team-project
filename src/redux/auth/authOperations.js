@@ -3,11 +3,28 @@ import * as connectionsAPI from '../../services/connectionsAPI';
 
 const token = connectionsAPI.token;
 
+export const register = createAsyncThunk(
+  'auth/signup',
+  async userData => {
+    try {
+      const { data } = await connectionsAPI.fetchRegister(
+        userData
+      );
+      // token.set(data.token);
+      return data;
+    } catch (error) {
+      return error.rejectWithValue();
+    }
+  }
+);
+
 export const logIn = createAsyncThunk(
   'auth/login',
   async userData => {
     try {
-      const {data} = await connectionsAPI.fetchLogIn(userData);
+      const { data } = await connectionsAPI.fetchLogIn(
+        userData
+      );
       token.set(data.token);
       return data;
     } catch (error) {
