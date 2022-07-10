@@ -15,7 +15,6 @@ export const MainBox = styled.div`
   height: 648px;
   padding-top: 300px;
   @media (min-width: 768px) {
-    
     background-image: url(${strawberry}), url(${banana}),
       url(${leaves}), url(${stain});
     background-size: 308px 303px, 491px 431px, 602px 531px,

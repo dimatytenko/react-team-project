@@ -11,15 +11,30 @@ import {
   ContainerBtnCloseModalMobile,
   ListNotEat,
   ListNotEatItem,
+  Button,
+  LinkHome,
 } from './Modal.styled';
 import arrow from '../../images/arrow.svg';
+import { useEffect } from 'react';
 
 export function Modal({
   modalData,
   onClick,
   modalCloseBtn,
 }) {
-  console.log(modalData);
+  useEffect(() => {
+    window.addEventListener('keydown', cleanEventListener);
+  });
+
+  const cleanEventListener = e => {
+    if (e.code === 'Escape') {
+      window.removeEventListener(
+        'keydown',
+        cleanEventListener
+      );
+      modalCloseBtn();
+    }
+  };
 
   return (
     <Overlay onClick={event => onClick(event)}>
@@ -47,6 +62,11 @@ export function Modal({
             </ListNotEatItem>
           ))}
         </ListNotEat>
+        <Button type="button">
+          <LinkHome to="/register">
+            Start losing weight
+          </LinkHome>
+        </Button>
         <BtnCloseModal
           type="button"
           onClick={modalCloseBtn}
