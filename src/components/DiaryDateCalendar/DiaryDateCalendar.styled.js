@@ -24,12 +24,16 @@ export const Calendar = styled(DatePicker)`
     font-weight: 700;
     font-size: 18px;
     line-height: 1.22;
-    color: #212121;
+    color: ${props => props.theme.fontColors.secondary};
 
     ${mediaTablet(`
     font-size: 34px;
     line-height: 41px;
    `)}
+  }
+
+  & .react-date-picker__inputGroup__input {
+    color: ${props => props.theme.fontColors.secondary};
   }
 
   & .react-date-picker__button {
