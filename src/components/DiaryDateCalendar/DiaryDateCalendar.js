@@ -1,10 +1,10 @@
-import { useState } from 'react';
 import { RiCalendar2Fill } from 'react-icons/ri';
 import { Calendar } from './DiaryDateCalendar.styled';
 
-export const DiaryDateCalendar = () => {
-  const [pickedDate, setPickedDate] = useState(new Date());
-
+export const DiaryDateCalendar = ({
+  pickedDate,
+  setPickedDate,
+}) => {
   return (
     <Calendar
       onChange={setPickedDate}
@@ -12,6 +12,7 @@ export const DiaryDateCalendar = () => {
       autoFocus={false}
       clearIcon={null}
       showLeadingZeros={true}
+      maxDate={new Date()}
       calendarIcon={
         <RiCalendar2Fill color={'#9B9FAA'} size={20} />
       }
