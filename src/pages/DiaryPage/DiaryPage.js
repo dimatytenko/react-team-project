@@ -127,8 +127,7 @@ export default function DiaryPage(props) {
 
   return (
     <Container>
-     <MainWrapper>
-      <div style={{ paddingTop: 200 }}>
+      <MainWrapper>
         <DiaryDateCalendar
           pickedDate={pickedDate}
           setPickedDate={setPickedDate}
@@ -138,8 +137,6 @@ export default function DiaryPage(props) {
           isPickedDateToday={isPickedDateToday()}
           pickedDate={pickedDate}
         />
-      </div>
-
       </MainWrapper>
     </Container>
   );
