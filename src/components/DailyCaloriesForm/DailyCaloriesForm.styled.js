@@ -14,6 +14,7 @@ export const FormContainer = styled.div`
 `;
 
 export const FormTitle = styled.h1`
+  font-family: 'VerdanaBold';
   font-size: 18px;
   line-height: 26px;
   margin-bottom: 32px;
