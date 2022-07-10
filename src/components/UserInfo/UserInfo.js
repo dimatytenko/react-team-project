@@ -1,7 +1,4 @@
-import {
-  useSelector,
-  useDispatch,
-} from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import {
   authSelectors,
@@ -20,10 +17,7 @@ export function UserInfo() {
 
   return (
     <UserInfowrapper>
-      <UserName>
-        Nic
-        {nameUser} 
-      </UserName>
+      <UserName>{nameUser}</UserName>
       <UserButton
         onClick={() => dispatch(authOperations.logOut())}
         type="button"
