@@ -4,19 +4,6 @@ import {
   mediaDesktop,
 } from '../../functions/media';
 
-export const UserInfowrapper = styled.div`
-  display: none;
-  gap: 30px;
-  ${mediaTablet(`
-      display: flex;
-      margin-left: auto;
-  `)}
-  ${mediaDesktop(`
-      margin-left: auto;
-      margin-right: 12px;
-  `)}
-`;
-
 export const UserName = styled.button`
   position: relative;
   background: transparent;
