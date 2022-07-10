@@ -4,13 +4,14 @@ import * as connectionsAPI from '../../services/connectionsAPI';
 const token = connectionsAPI.token;
 
 export const register = createAsyncThunk(
-  'auth/signup',
+  'auth/register',
   async userData => {
     try {
       const { data } = await connectionsAPI.fetchRegister(
         userData
       );
       // token.set(data.token);
+      console.log(data);
       return data;
     } catch (error) {
       return error.rejectWithValue();
