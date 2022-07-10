@@ -127,19 +127,19 @@ export default function DiaryPage(props) {
 
   return (
     <Container>
-     <MainWrapper>
-      <div style={{ paddingTop: 200 }}>
-        <DiaryDateCalendar
-          pickedDate={pickedDate}
-          setPickedDate={setPickedDate}
-        />
-        <DiaryProductsList
-          data={products}
-          isPickedDateToday={isPickedDateToday()}
-          pickedDate={pickedDate}
-        />
-      </div>
-
+      <MainWrapper>
+        <div style={{ paddingTop: 200 }}>
+          <DiaryDateCalendar
+            pickedDate={pickedDate}
+            setPickedDate={setPickedDate}
+          />
+          <DiaryAddProductForm />
+          <DiaryProductsList
+            data={products}
+            isPickedDateToday={isPickedDateToday()}
+            pickedDate={pickedDate}
+          />
+        </div>
       </MainWrapper>
     </Container>
   );
