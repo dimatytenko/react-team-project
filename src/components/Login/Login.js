@@ -89,11 +89,12 @@ export default function Login(props) {
   const handleSubmit = e => {
     e.preventDefault();
     dispatch(logIn(userInfo));
+    setUserInfo(initialState)
    
   };
-  // const changePassword = () => {
-  //   setShow((prev) => (prev = !prev));
-  // };
+  const changePassword = () => {
+     setShow((prev) => (prev = !prev));
+   };
   return (
 
   <Container>
@@ -134,7 +135,7 @@ export default function Login(props) {
                   <InputAdornment position="end">
                     <IconButton
                       aria-label="toggle password visibility"
-                    // onClick={changePassword}
+                    onClick={changePassword}
                       onMouseDown={(e) => {
                         e.preventDefault();
                       }}

@@ -1,10 +1,10 @@
 import {
-  // useSelector,
+  useSelector,
   useDispatch,
 } from 'react-redux';
 
 import {
-  // authSelectors,
+  authSelectors,
   authOperations,
 } from '../../redux/auth';
 
@@ -16,13 +16,13 @@ import {
 
 export function UserInfo() {
   const dispatch = useDispatch();
-  // const nameUser = useSelector(authSelectors.getUsername);
+  const nameUser = useSelector(authSelectors.getUsername);
 
   return (
     <UserInfowrapper>
       <UserName>
         Nic
-        {/* {nameUser} */}
+        {nameUser} 
       </UserName>
       <UserButton
         onClick={() => dispatch(authOperations.logOut())}

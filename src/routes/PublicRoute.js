@@ -5,7 +5,7 @@ import { authSelectors } from '../redux/auth';
 export function PublicRoute({
   children,
   restricted = false,
-  redirectTo = '/',
+  redirectTo = '/diary',
   ...routeProps
 }) {
   const isLoggedIn = useSelector(
