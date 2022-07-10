@@ -9,6 +9,9 @@ import { GlobalStyles } from '../../GlobalStyles';
 import { themeSelectors } from '../../redux/theme';
 import { MainLoader } from '../../components/MainLoader';
 
+import {PublicRoute} from "../../routes/PublicRoute"
+import {PrivateRoute} from "../../routes/PrivateRoute"
+
 import { Layout } from '../../Layout';
 const MainPage = lazy(() => import('../../pages/MainPage'));
 const LoginPage = lazy(() =>
@@ -39,21 +42,33 @@ export function App() {
           fallback={<MainLoader theme={currentTheme} />}
         >
           <Routes>
-            <Route path="/" element={<Layout />}>
-              <Route index element={<MainPage />} />
+            <Route path="/" element={<Layout/>}>
+              <Route index element={<PublicRoute>
+              <MainPage />
+              </PublicRoute>} />
 
-              <Route path="login" element={<LoginPage />} />
+              <Route path="login" element={
+              <PublicRoute restricted
+              redirectTo="/calculator">
+                 <LoginPage />
+                 </PublicRoute>} />
 
               <Route
                 path="register"
                 element={<RegistrationPage />}
               />
 
-              <Route path="diary" element={<DiaryPage />} />
+              <Route path="diary" element={
+                <PrivateRoute redirectTo>
+              <DiaryPage />
+              </PrivateRoute>} />
 
               <Route
                 path="calculator"
-                element={<CalculatorPage />}
+                element={
+                  <PrivateRoute redirectTo>
+                    <CalculatorPage />
+                    </PrivateRoute>}
               />
               <Route path="*" element={<NotFoundPage />} />
             </Route>

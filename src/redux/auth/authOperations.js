@@ -5,11 +5,11 @@ const token = connectionsAPI.token;
 
 export const logIn = createAsyncThunk(
   'auth/login',
-  async (userData) => {
+  async userData => {
     try {
-      const result = await connectionsAPI.fetchLogIn(userData);
-      token.set(userData.token);
-      return result;
+      const {data} = await connectionsAPI.fetchLogIn(userData);
+      token.set(data.token);
+      return data;
     } catch (error) {
       return error.rejectWithValue();
     }

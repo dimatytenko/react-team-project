@@ -5,6 +5,8 @@ import format from 'date-fns/format';
 import { DiaryProductsList } from '../../components/DiaryProductsList';
 import { DiaryDateCalendar } from '../../components/DiaryDateCalendar';
 import { Container } from '../../components/Container';
+import { DiaryAddProductForm } from '../../components/DiaryAddProductForm';
+import { MainWrapper } from '../MainPage/MainPage.styled';
 
 //це тимчасово
 const products = [
@@ -125,6 +127,7 @@ export default function DiaryPage(props) {
 
   return (
     <Container>
+     <MainWrapper>
       <div style={{ paddingTop: 200 }}>
         <DiaryDateCalendar
           pickedDate={pickedDate}
@@ -136,6 +139,8 @@ export default function DiaryPage(props) {
           pickedDate={pickedDate}
         />
       </div>
+
+      </MainWrapper>
     </Container>
   );
 }

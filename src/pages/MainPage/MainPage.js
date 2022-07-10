@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 // import PropTypes from 'prop-types';
 
 import { Container } from '../../components/Container';
-import { MainBox } from './MainPage.styled';
+import { MainBox, MainWrapper } from './MainPage.styled';
 import { DailyCaloriesForm } from '../../components/DailyCaloriesForm/DailyCaloriesForm.js';
 import { getKcal } from '../../services/connectionsAPI';
 
@@ -52,16 +52,18 @@ export default function MainPage(props) {
     <>
       <MainBox>
         <Container>
-          <DailyCaloriesForm
-            onFormSubmit={calculatorSubmitHandler}
-          />
-          {Object.keys(modalData).length !== 0 && (
-            <Modal
-              modalData={modalData}
-              onClick={modalClose}
-              modalCloseBtn={modalCloseBtn}
+          <MainWrapper>
+            <DailyCaloriesForm
+              onFormSubmit={calculatorSubmitHandler}
             />
-          )}
+            {Object.keys(modalData).length !== 0 && (
+              <Modal
+                modalData={modalData}
+                onClick={modalClose}
+                modalCloseBtn={modalCloseBtn}
+              />
+            )}
+          </MainWrapper>
         </Container>
       </MainBox>
     </>

@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { IoCloseSharp } from 'react-icons/io5';
+import { Link } from 'react-router-dom';
 
 export const Overlay = styled.div`
   position: absolute;
@@ -31,6 +32,7 @@ export const ModalWindow = styled.div`
   max-height: 100%;
   z-index: 1201;
   @media (min-width: 768px) {
+    top: 0;
     position: relative;
     display: flex;
     justify-content: center;
@@ -60,7 +62,8 @@ export const BtnCloseModalMobile = styled.button`
 
 export const ListNotEat = styled.ol`
   padding-left: 20px;
-  max-width: 320px;
+  width: 280px;
+  margin-bottom: 40px;
 `;
 export const ListNotEatItem = styled.li`
   font-family: 'Verdana';
@@ -83,6 +86,12 @@ export const Title = styled.p`
   line-height: 26px;
   color: ${props => props.theme.fontColors.secondary};
   margin-bottom: 40px;
+  @media (min-width: 768px) {
+    width: 450px;
+    font-size: 26px;
+    line-height: 32px;
+    text-align: center;
+  }
 `;
 
 export const DailyRate = styled.div`
@@ -104,7 +113,7 @@ export const Kcal = styled.span`
 
 export const TitleNotEat = styled.p`
   display: block;
-  max-width: 300px;
+  max-width: 280px;
   font-family: 'Verdana';
   font-weight: 700;
   font-size: 14px;
@@ -139,4 +148,29 @@ export const ImgClose = styled(IoCloseSharp)`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  cursor: pointer;
+`;
+
+export const Button = styled.button`
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  padding: 13px 25px;
+  letter-spacing: 0.04em;
+  color: ${props => props.theme.fontColors.buttonPrimary};
+  background: ${props =>
+    props.theme.fontColors.buttonSecondary};
+  border: none;
+  box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+  border-radius: 30px;
+  transition: transform 0.2s;
+  cursor: pointer;
+  &:hover,
+  &:focus {
+    transform: scale(1.1);
+  }
+`;
+
+export const LinkHome = styled(Link)`
+  color: white;
 `;
