@@ -45,6 +45,7 @@ export const Header = () => {
                   <BurgerMenu
                     isMenuOpen={isMenuOpen}
                     setMenuOpen={setMenuOpen}
+                    toggleDrawer={toggleDrawer}
                   />
                 </BurgerWrapper>
               </>
