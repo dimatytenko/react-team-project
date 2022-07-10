@@ -10,7 +10,6 @@ export default function DiaryPage(props) {
     <Container>
       <MainWrapper>
         <div>DiaryPage</div>
-        <DiaryAddProductForm />
       </MainWrapper>
     </Container>
   );
