@@ -42,13 +42,14 @@ export function App() {
           fallback={<MainLoader theme={currentTheme} />}
         >
           <Routes>
-            <Route path="/" element={<PublicRoute><Layout /></PublicRoute>}>
+            <Route path="/" element={<Layout/>}>
               <Route index element={<PublicRoute>
               <MainPage />
               </PublicRoute>} />
 
               <Route path="login" element={
-              <PublicRoute restricted>
+              <PublicRoute restricted
+              redirectTo="/calculator">
                  <LoginPage />
                  </PublicRoute>} />
 
