@@ -18,6 +18,7 @@ export const ThemeLight = createTheme({
   },
   hovers: {
     primary: '#FC842D',
+    secondary: '#9d5623',
   },
   transitions: {
     primary: '0.5s ease 0s',
@@ -34,7 +35,7 @@ export const ThemeDark = createTheme({
     backdrop: 'rgba(0, 0, 0, 0.00)',
   },
   fontColors: {
-    primary: '#9B9FAA',
+    primary: '#ffffff',
     secondary: '#ffffff',
     modify: '#FC842D',
     buttonPrimary: '#ffffff',
@@ -42,6 +43,7 @@ export const ThemeDark = createTheme({
   },
   hovers: {
     primary: '#FC842D',
+    secondary: '#9d5623',
   },
   transitions: {
     primary: '0.5s ease 0s',

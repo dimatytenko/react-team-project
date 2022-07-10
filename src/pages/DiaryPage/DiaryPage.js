@@ -111,7 +111,7 @@ const products = [
   },
 ];
 
-export default function DiaryPage(props) {
+export default function DiaryPage({ theme }) {
   const [pickedDate, setPickedDate] = useState(new Date());
 
   const isPickedDateToday = () => {
@@ -132,7 +132,7 @@ export default function DiaryPage(props) {
           pickedDate={pickedDate}
           setPickedDate={setPickedDate}
         />
-        <DiaryAddProductForm />
+        <DiaryAddProductForm theme={theme} />
         <DiaryProductsList
           data={products}
           isPickedDateToday={isPickedDateToday()}

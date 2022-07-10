@@ -51,7 +51,7 @@ export const Header = () => {
               </>
             )}
           </NavWrapper>
-          {/* <SwitchTheme /> */}
+          <SwitchTheme />
         </Container>
       </HeaderStyled>
       <BurgerDrawer

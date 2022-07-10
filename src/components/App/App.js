@@ -9,8 +9,8 @@ import { GlobalStyles } from '../../GlobalStyles';
 import { themeSelectors } from '../../redux/theme';
 import { MainLoader } from '../../components/MainLoader';
 
-import {PublicRoute} from "../../routes/PublicRoute"
-import {PrivateRoute} from "../../routes/PrivateRoute"
+import { PublicRoute } from '../../routes/PublicRoute';
+import { PrivateRoute } from '../../routes/PrivateRoute';
 
 import { Layout } from '../../Layout';
 const MainPage = lazy(() => import('../../pages/MainPage'));
@@ -42,33 +42,49 @@ export function App() {
           fallback={<MainLoader theme={currentTheme} />}
         >
           <Routes>
-            <Route path="/" element={<Layout/>}>
-              <Route index element={<PublicRoute>
-              <MainPage />
-              </PublicRoute>} />
+            <Route path="/" element={<Layout />}>
+              <Route
+                index
+                element={
+                  <PublicRoute>
+                    <MainPage />
+                  </PublicRoute>
+                }
+              />
 
-              <Route path="login" element={
-              <PublicRoute restricted
-              redirectTo="/calculator">
-                 <LoginPage />
-                 </PublicRoute>} />
+              <Route
+                path="login"
+                element={
+                  <PublicRoute
+                    restricted
+                    redirectTo="/calculator"
+                  >
+                    <LoginPage />
+                  </PublicRoute>
+                }
+              />
 
               <Route
                 path="register"
                 element={<RegistrationPage />}
               />
 
-              <Route path="diary" element={
-                <PrivateRoute redirectTo>
-              <DiaryPage />
-              </PrivateRoute>} />
+              <Route
+                path="diary"
+                element={
+                  <PrivateRoute redirectTo>
+                    <DiaryPage theme={currentTheme} />
+                  </PrivateRoute>
+                }
+              />
 
               <Route
                 path="calculator"
                 element={
                   <PrivateRoute redirectTo>
                     <CalculatorPage />
-                    </PrivateRoute>}
+                  </PrivateRoute>
+                }
               />
               <Route path="*" element={<NotFoundPage />} />
             </Route>

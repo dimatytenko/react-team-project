@@ -28,7 +28,6 @@ export const UserName = styled.button`
   color: ${props => props.theme.fontColors.secondary};
   transition: color
       ${props => props.theme.transitions.primary},
-    font-size ${props => props.theme.transitions.primary};
 
   &:hover,
   &:focus {
