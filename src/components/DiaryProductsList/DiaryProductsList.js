@@ -1,6 +1,10 @@
-import Table from 'rc-table';
 import { useState } from 'react';
+import { GoX } from 'react-icons/go';
 // import axios from 'axios';
+import {
+  TableStyled,
+  ButtonCross,
+} from './DiaryProductsList.styled';
 
 export const DiaryProductsList = ({
   data,
@@ -15,8 +19,8 @@ export const DiaryProductsList = ({
     const rowsData = data?.reduce((acc, product) => {
       acc.push({
         title: product.title.en,
-        weight: product.weight,
-        calories: product.calories,
+        weight: `${product.weight} g`,
+        calories: `${product.calories} kcal`,
         key: product._id,
         _id: product._id,
       });
@@ -47,12 +51,12 @@ export const DiaryProductsList = ({
   const renderAction = (o, row, index) => {
     return (
       isPickedDateToday && (
-        <button
+        <ButtonCross
           type="button"
           onClick={() => removeProduct(index)}
         >
-          X
-        </button>
+          <GoX color={'#9B9FAA'} size={14} />
+        </ButtonCross>
       )
     );
   };
@@ -62,27 +66,31 @@ export const DiaryProductsList = ({
       title: 'Name',
       dataIndex: 'title',
       key: 'title',
+      className: 'column--large',
     },
     {
       title: 'Weight',
       dataIndex: 'weight',
       key: 'weight',
+      className: 'column--small',
     },
     {
       title: 'Calories',
       dataIndex: 'calories',
       key: 'calories',
+      className: 'column--medium',
     },
     {
       title: 'Operations',
       dataIndex: '',
       key: 'x',
+      className: 'column--cross',
       render: renderAction,
     },
   ];
 
   return (
-    <Table
+    <TableStyled
       columns={columns}
       data={productList}
       showHeader={false}
