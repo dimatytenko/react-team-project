@@ -19,6 +19,7 @@ export function DiaryAddProductForm(props) {
       const { data } = await axios
         .get(`/products?search=${productValue}`)
         .then(res => res.data);
+      console.log(data);
       const titleArray = await data.products.map(
         obj => obj.title.en
       );
@@ -29,20 +30,35 @@ export function DiaryAddProductForm(props) {
     fetchProducts(productValue);
   }, [productValue]);
 
+  function handleTitleClick(e) {
+    const currentTitle = e.target.outerText;
+    setProductValue(currentTitle);
+  }
+
   return (
     <div>
       <Input
         onChange={e => setProductValue(e.target.value)}
-        placeholder="Placeholder"
+        placeholder="Enter product name"
         inputProps={productValue}
-      />
-
-      {/* <TextField
-        id="standard-search"
         label="Search field"
         type="search"
-        variant="standard"
-      /> */}
+      />
+
+      {
+        <ul>
+          {titles.map(title => {
+            return (
+              <li
+                // key={}
+                onClick={e => handleTitleClick(e)}
+              >
+                {title}
+              </li>
+            );
+          })}
+        </ul>
+      }
     </div>
   );
 }

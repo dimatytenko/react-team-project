@@ -132,6 +132,7 @@ export default function DiaryPage(props) {
           pickedDate={pickedDate}
           setPickedDate={setPickedDate}
         />
+        <DiaryAddProductForm />
         <DiaryProductsList
           data={products}
           isPickedDateToday={isPickedDateToday()}
