@@ -62,11 +62,9 @@ export function Modal({
             </ListNotEatItem>
           ))}
         </ListNotEat>
-        <Button type="button">
-          <LinkHome to="/register">
-            Start losing weight
-          </LinkHome>
-        </Button>
+        <LinkHome to="/register">
+          <Button type="button">Start losing weight</Button>
+        </LinkHome>
         <BtnCloseModal
           type="button"
           onClick={modalCloseBtn}

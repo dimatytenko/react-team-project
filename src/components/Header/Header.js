@@ -6,12 +6,12 @@ import { UserInfo } from '../UserInfo';
 import { BurgerDrawer } from '../BurgerDrawer';
 import { useSelector } from 'react-redux';
 import { authSelectors } from '../../redux/auth';
+import { Logo } from '../Logo';
 import { SwitchTheme } from '../../components/SwitchTheme';
 
 import {
   NavWrapper,
   BurgerWrapper,
-  Logo,
   HeaderStyled,
 } from './Header.styled';
 

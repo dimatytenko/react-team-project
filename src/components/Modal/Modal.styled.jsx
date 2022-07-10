@@ -62,8 +62,7 @@ export const BtnCloseModalMobile = styled.button`
 
 export const ListNotEat = styled.ol`
   padding-left: 20px;
-  min-width: 280px;
-  max-width: 320px;
+  width: 280px;
   margin-bottom: 40px;
 `;
 export const ListNotEatItem = styled.li`
@@ -149,6 +148,7 @@ export const ImgClose = styled(IoCloseSharp)`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  cursor: pointer;
 `;
 
 export const Button = styled.button`
@@ -164,7 +164,7 @@ export const Button = styled.button`
   box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
   border-radius: 30px;
   transition: transform 0.2s;
-
+  cursor: pointer;
   &:hover,
   &:focus {
     transform: scale(1.1);
