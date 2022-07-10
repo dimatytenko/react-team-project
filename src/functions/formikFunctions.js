@@ -4,6 +4,7 @@ import {
   RadioButtonInput,
   RadioButtonLabel,
   RadioButtonContainer,
+  CustomRadioButton,
 } from '../components/DailyCaloriesForm/DailyCaloriesForm.styled';
 
 export const MyTextInput = ({ label, ...props }) => {
@@ -11,7 +12,7 @@ export const MyTextInput = ({ label, ...props }) => {
   return (
     <>
       <TextFieldStyled
-        htmlFor={props.id || props.name}
+        id={props.name}
         {...field}
         {...props}
         label={label}
@@ -32,13 +33,14 @@ export const MyRadioButton = ({ label, ...props }) => {
   });
   return (
     <RadioButtonContainer>
-      <RadioButtonInput
-        {...field}
-        {...props}
-        type="radio"
-      />
       <RadioButtonLabel htmlFor={props.id}>
+        <RadioButtonInput
+          {...field}
+          {...props}
+          type="radio"
+        />
         {label}
+        <CustomRadioButton></CustomRadioButton>
       </RadioButtonLabel>
       {meta.touched && meta.error ? (
         <div>{meta.error}</div>
