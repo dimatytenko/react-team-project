@@ -1,7 +1,7 @@
 import { toast } from 'react-toastify';
 
-export function createMyToast(type, text) {
-  return toast.type(text, {
+export function createToast(type, text) {
+  return toast[type](text, {
     position: 'top-center',
     autoClose: 3000,
     hideProgressBar: false,

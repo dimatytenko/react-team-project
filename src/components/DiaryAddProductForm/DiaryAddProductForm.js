@@ -39,27 +39,30 @@ export function DiaryAddProductForm(props) {
 
   return (
     <div>
-      <DebounceInput
-        minLength={2}
-        debounceTimeout={300}
-        onChange={e => setProduct(e.target.value)}
-        value={product}
-      />
+      <form>
+        <DebounceInput
+          minLength={2}
+          debounceTimeout={300}
+          onChange={e => setProduct(e.target.value)}
+          value={product}
+        />
 
-      {product !== titles[0] && (
-        <ul>
-          {titles.map(title => {
-            return (
-              <li
-                key={nanoid()}
-                onClick={e => handleTitleClick(e)}
-              >
-                {title}
-              </li>
-            );
-          })}
-        </ul>
-      )}
+        {product !== titles[0] && (
+          <ul>
+            {titles.map(title => {
+              return (
+                <li
+                  key={nanoid()}
+                  onClick={e => handleTitleClick(e)}
+                >
+                  {title}
+                </li>
+              );
+            })}
+          </ul>
+        )}
+        <input name="grams" />
+      </form>
     </div>
   );
 }
