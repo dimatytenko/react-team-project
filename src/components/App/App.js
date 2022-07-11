@@ -39,7 +39,6 @@ export function App() {
   const isRefreshing = useSelector(
     authSelectors.getIsRefreshing
   );
-  console.log(isRefreshing);
 
   const isTheme = useSelector(themeSelectors.getTheme);
   const currentTheme = !isTheme ? ThemeLight : ThemeDark;

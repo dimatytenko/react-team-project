@@ -1,4 +1,6 @@
 import styled from '@emotion/styled';
+import { DebounceInput } from 'react-debounce-input';
+import { css } from '@emotion/css';
 
 export const DiaryAddProduct = styled.div`
   position: relative;
@@ -9,20 +11,6 @@ export const FormBody = styled.div`
   display: flex;
 `;
 
-// export const FormInputProduct = styled.input`
-//   width: 240px;
-//   border: none;
-//   border-bottom: 1px solid #e0e0e0;
-//   outline: none;
-//   background-color: transparent;
-//   color: ${props => props.theme.fontColors.primary};
-
-//   ::placeholder {
-//     font-family: 'VerdanaBold';
-//     letter-spacing: 0.04em;
-//   }
-// `;
-
 export const FormInputGrams = styled.input`
   width: 106px;
   margin-left: 22px;
@@ -30,6 +18,7 @@ export const FormInputGrams = styled.input`
   border: none;
   border-bottom: 1px solid #e0e0e0;
   outline: none;
+  text-align: right;
   background-color: transparent;
   color: ${props => props.theme.fontColors.primary};
 

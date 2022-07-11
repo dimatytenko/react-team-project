@@ -5,14 +5,11 @@ import { toast } from 'react-toastify';
 import { nanoid } from 'nanoid';
 import axios from 'axios';
 import { css } from '@emotion/css';
-import { useFormik } from 'formik';
-import * as yup from 'yup';
 
 import { AddButton } from '../AddButton';
 import {
   FormBody,
   FormInputGrams,
-  // FormInputProduct,
   ProductsList,
   ProductsItem,
   DiaryAddProduct,
@@ -26,9 +23,6 @@ export function DiaryAddProductForm({ theme }) {
 
   const [titles, setTitles] = useState([]);
   const [isFocus, setIsFocus] = useState(true);
-
-  console.log(product);
-  console.log(grams);
 
   useEffect(() => {
     if (product === '') {
@@ -58,12 +52,18 @@ export function DiaryAddProductForm({ theme }) {
 
   function handleSubmit(e) {
     e.preventDefault();
+
+    // const productListRef =
+    //   document.querySelector('#productList');
+    // if (productListRef) {
+    //   return;
+    // }
     console.log(e);
   }
 
   return (
     <DiaryAddProduct>
-      <form>
+      <form onSubmit={handleSubmit}>
         <FormBody>
           <DebounceInput
             className={css`
@@ -99,14 +99,20 @@ export function DiaryAddProductForm({ theme }) {
             }}
           />
 
-          <AddButton
-            type="submit"
-            onSubmit={e => handleSubmit(e)}
-          />
+          <AddButton type="submit" />
         </FormBody>
 
         {product !== titles[0] && isFocus && (
-          <ProductsList>
+          <ProductsList id="productList">
+            {titles.length === 0 && product.length !== 0 && (
+              <ProductsItem
+                key={nanoid()}
+                onClick={e => handleTitleClick(e)}
+              >
+                not Found
+              </ProductsItem>
+            )}
+
             {titles.map(title => {
               return (
                 <ProductsItem
