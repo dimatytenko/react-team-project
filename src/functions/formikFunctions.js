@@ -33,12 +33,12 @@ export const MyRadioButton = ({ label, ...props }) => {
   });
   return (
     <RadioButtonContainer>
+      <RadioButtonInput
+        {...field}
+        {...props}
+        type="radio"
+      />
       <RadioButtonLabel htmlFor={props.id}>
-        <RadioButtonInput
-          {...field}
-          {...props}
-          type="radio"
-        />
         {label}
         <CustomRadioButton></CustomRadioButton>
       </RadioButtonLabel>
