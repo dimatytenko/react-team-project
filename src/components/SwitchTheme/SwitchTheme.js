@@ -1,4 +1,7 @@
-import { SwitchThemes } from './SwithTheme.styled';
+import {
+  SwitchThemes,
+  SwitchThemeWrapper,
+} from './SwithTheme.styled';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { themeReducer } from '../../redux/theme';
@@ -13,5 +16,12 @@ export const SwitchTheme = () => {
     dispatch(switchTheme(e.target.checked));
   }
 
-  return <SwitchThemes checked={isTheme} onClick={handleClick} />;
+  return (
+    <SwitchThemeWrapper>
+      <SwitchThemes
+        checked={isTheme}
+        onClick={handleClick}
+      />
+    </SwitchThemeWrapper>
+  );
 };

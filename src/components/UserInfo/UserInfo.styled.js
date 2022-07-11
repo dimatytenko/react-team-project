@@ -1,8 +1,4 @@
 import styled from '@emotion/styled';
-import {
-  mediaTablet,
-  mediaDesktop,
-} from '../../functions/media';
 
 export const UserName = styled.button`
   position: relative;
@@ -14,7 +10,7 @@ export const UserName = styled.button`
   letter-spacing: 0.04em;
   color: ${props => props.theme.fontColors.secondary};
   transition: color
-      ${props => props.theme.transitions.primary},
+    ${props => props.theme.transitions.primary};
 
   &:hover,
   &:focus {
