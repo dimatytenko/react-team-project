@@ -81,7 +81,14 @@ export function App() {
 
                 <Route
                   path="register"
-                  element={<RegistrationPage />}
+                  element={
+                    <PublicRoute
+                      restricted
+                      redirectTo="/calculator"
+                    >
+                      <RegistrationPage />
+                    </PublicRoute>
+                  }
                 />
 
                 <Route
