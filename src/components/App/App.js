@@ -39,6 +39,8 @@ export function App() {
   const isRefreshing = useSelector(
     authSelectors.getIsRefreshing
   );
+  console.log(isRefreshing);
+
   const isTheme = useSelector(themeSelectors.getTheme);
   const currentTheme = !isTheme ? ThemeLight : ThemeDark;
 
@@ -86,7 +88,7 @@ export function App() {
                 <Route
                   path="diary"
                   element={
-                    <PrivateRoute redirectTo>
+                    <PrivateRoute>
                       <DiaryPage theme={currentTheme} />
                     </PrivateRoute>
                   }
@@ -95,7 +97,7 @@ export function App() {
                 <Route
                   path="calculator"
                   element={
-                    <PrivateRoute redirectTo>
+                    <PrivateRoute>
                       <CalculatorPage />
                     </PrivateRoute>
                   }

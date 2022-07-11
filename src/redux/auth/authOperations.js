@@ -56,11 +56,9 @@ export const fetchCurrentUser = createAsyncThunk(
       return thunkAPI.rejectWithValue();
     }
 
-    console.log(persistedToken);
     token.set(persistedToken);
     try {
       const data = await connectionsAPI.fetchUsers();
-      console.log(data);
       return data;
     } catch (error) {
       return error.rejectWithValue();

@@ -6,6 +6,7 @@ export function PrivateRoute({ children, ...routeProps }) {
   const isLoggedIn = useSelector(
     authSelectors.getIsLoggedIn
   );
+
   return (
     <>
       {isLoggedIn ? (
