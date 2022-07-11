@@ -14,6 +14,16 @@ export const TableStyled = styled(Table)`
   line-height: 17px;
   color: ${props => props.theme.fontColors.secondary};
 
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 3px;
+    background-color: #f0f1f3;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #264061;
+  }
+
   & .column--large {
     position: relative;
     width: 130px;
@@ -27,6 +37,17 @@ export const TableStyled = styled(Table)`
     width: 240px;
     height: 52px;
 `)}
+
+    & span {
+      display: block;
+      width: 130px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      ${mediaTablet(`
+       width: 240px;
+   `)}
+    }
   }
 
   & .column--small {

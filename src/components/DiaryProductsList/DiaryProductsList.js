@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { GoX } from 'react-icons/go';
+import Tooltip from 'rc-tooltip';
+import 'rc-tooltip/assets/bootstrap.css';
 // import axios from 'axios';
 import {
   TableStyled,
@@ -67,6 +69,16 @@ export const DiaryProductsList = ({
       dataIndex: 'title',
       key: 'title',
       className: 'column--large',
+      ellipsis: {
+        showTitle: false,
+      },
+      render(title) {
+        return (
+          <Tooltip placement="topLeft" overlay={title}>
+            <span>{title}</span>
+          </Tooltip>
+        );
+      },
     },
     {
       title: 'Weight',

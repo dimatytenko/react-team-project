@@ -19,6 +19,7 @@
     "modern-normalize": "^1.1.0",
     "nanoid": "^4.0.0",
     "rc-table": "^7.25.0",
+    "rc-tooltip": "^5.1.1",
     "react": "^17.0.0",
     "react-date-picker": "^8.4.0",
     "react-datetime": "^3.1.1",
