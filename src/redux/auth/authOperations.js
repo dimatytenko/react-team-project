@@ -45,3 +45,25 @@ export const logOut = createAsyncThunk(
     }
   }
 );
+
+export const fetchCurrentUser = createAsyncThunk(
+  'auth/refresh',
+  async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const persistedToken = state.auth.token;
+
+    if (persistedToken === null) {
+      return thunkAPI.rejectWithValue();
+    }
+
+    console.log(persistedToken);
+    token.set(persistedToken);
+    try {
+      const data = await connectionsAPI.fetchUsers();
+      console.log(data);
+      return data;
+    } catch (error) {
+      return error.rejectWithValue();
+    }
+  }
+);

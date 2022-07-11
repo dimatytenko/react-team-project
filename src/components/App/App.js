@@ -1,11 +1,15 @@
-import { Suspense, lazy } from 'react';
+import { useEffect, Suspense, lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Global } from '@emotion/react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { ThemeProvider } from '@mui/material/styles';
 
 import { ThemeLight, ThemeDark } from '../../Theme';
 import { GlobalStyles } from '../../GlobalStyles';
+import {
+  authOperations,
+  authSelectors,
+} from '../../redux/auth';
 import { themeSelectors } from '../../redux/theme';
 import { MainLoader } from '../../components/MainLoader';
 
@@ -31,66 +35,80 @@ const NotFoundPage = lazy(() =>
 );
 
 export function App() {
+  const dispatch = useDispatch();
+  const isRefreshing = useSelector(
+    authSelectors.getIsRefreshing
+  );
   const isTheme = useSelector(themeSelectors.getTheme);
   const currentTheme = !isTheme ? ThemeLight : ThemeDark;
+
+  useEffect(() => {
+    dispatch(authOperations.fetchCurrentUser());
+  }, [dispatch]);
+
   return (
-    <>
-      <ThemeProvider theme={currentTheme}>
-        <Global styles={GlobalStyles} />
+    !isRefreshing && (
+      <>
+        <ThemeProvider theme={currentTheme}>
+          <Global styles={GlobalStyles} />
 
-        <Suspense
-          fallback={<MainLoader theme={currentTheme} />}
-        >
-          <Routes>
-            <Route path="/" element={<Layout />}>
-              <Route
-                index
-                element={
-                  <PublicRoute>
-                    <MainPage />
-                  </PublicRoute>
-                }
-              />
+          <Suspense
+            fallback={<MainLoader theme={currentTheme} />}
+          >
+            <Routes>
+              <Route path="/" element={<Layout />}>
+                <Route
+                  index
+                  element={
+                    <PublicRoute>
+                      <MainPage />
+                    </PublicRoute>
+                  }
+                />
 
-              <Route
-                path="login"
-                element={
-                  <PublicRoute
-                    restricted
-                    redirectTo="/calculator"
-                  >
-                    <LoginPage />
-                  </PublicRoute>
-                }
-              />
+                <Route
+                  path="login"
+                  element={
+                    <PublicRoute
+                      restricted
+                      redirectTo="/calculator"
+                    >
+                      <LoginPage />
+                    </PublicRoute>
+                  }
+                />
 
-              <Route
-                path="register"
-                element={<RegistrationPage />}
-              />
+                <Route
+                  path="register"
+                  element={<RegistrationPage />}
+                />
 
-              <Route
-                path="diary"
-                element={
-                  <PrivateRoute redirectTo>
-                    <DiaryPage theme={currentTheme} />
-                  </PrivateRoute>
-                }
-              />
+                <Route
+                  path="diary"
+                  element={
+                    <PrivateRoute redirectTo>
+                      <DiaryPage theme={currentTheme} />
+                    </PrivateRoute>
+                  }
+                />
 
-              <Route
-                path="calculator"
-                element={
-                  <PrivateRoute redirectTo>
-                    <CalculatorPage />
-                  </PrivateRoute>
-                }
-              />
-              <Route path="*" element={<NotFoundPage />} />
-            </Route>
-          </Routes>
-        </Suspense>
-      </ThemeProvider>
-    </>
+                <Route
+                  path="calculator"
+                  element={
+                    <PrivateRoute redirectTo>
+                      <CalculatorPage />
+                    </PrivateRoute>
+                  }
+                />
+                <Route
+                  path="*"
+                  element={<NotFoundPage />}
+                />
+              </Route>
+            </Routes>
+          </Suspense>
+        </ThemeProvider>
+      </>
+    )
   );
 }

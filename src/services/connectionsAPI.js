@@ -32,6 +32,13 @@ export async function fetchLogOut() {
   return data;
 }
 
+export async function fetchUsers() {
+  const data = await axios
+    .get('/users/current')
+    .then(res => res.data);
+  return data;
+}
+
 export async function getKcal(dataCaloriesForm) {
   const data = await axios
     .post('/public/calculator', dataCaloriesForm)

@@ -21,9 +21,19 @@ const themePersistConfig = {
   whitelist: ['value'],
 };
 
+//* config auth persist
+const authPersistConfig = {
+  key: 'auth',
+  storage,
+  whitelist: ['token'],
+};
+
 export const store = configureStore({
   reducer: {
-    auth: authReducer.auth,
+    auth: persistReducer(
+      authPersistConfig,
+      authReducer.auth
+    ),
     theme: persistReducer(
       themePersistConfig,
       themeReducer.theme
