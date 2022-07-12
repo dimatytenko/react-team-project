@@ -4,6 +4,7 @@ import { useState } from 'react';
 import format from 'date-fns/format';
 import { DiaryProductsList } from '../../components/DiaryProductsList';
 import { DiaryDateCalendar } from '../../components/DiaryDateCalendar';
+import { RightSideBar } from '../../components/RightSideBar';
 import { Container } from '../../components/Container';
 import { DiaryAddProductForm } from '../../components/DiaryAddProductForm';
 import { DiaryPageWrapper } from './DiaryPage.styled';
@@ -126,20 +127,23 @@ export default function DiaryPage({ theme }) {
   };
 
   return (
-    <Container>
-      <DiaryPageWrapper>
-        <DiaryDateCalendar
-          pickedDate={pickedDate}
-          setPickedDate={setPickedDate}
-        />
-        <DiaryAddProductForm theme={theme} />
-        <DiaryProductsList
-          data={products}
-          isPickedDateToday={isPickedDateToday()}
-          pickedDate={pickedDate}
-        />
-      </DiaryPageWrapper>
-    </Container>
+    <>
+      <Container>
+        <DiaryPageWrapper>
+          <DiaryDateCalendar
+            pickedDate={pickedDate}
+            setPickedDate={setPickedDate}
+          />
+          <DiaryAddProductForm theme={theme} />
+          <DiaryProductsList
+            data={products}
+            isPickedDateToday={isPickedDateToday()}
+            pickedDate={pickedDate}
+          />
+        </DiaryPageWrapper>
+      </Container>
+      <RightSideBar date="01.12.2021" />
+    </>
   );
 }
 
