@@ -1,19 +1,10 @@
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
-import { Form } from 'formik';
 import {
   mediaTablet,
   mediaDesktop,
 } from '../../functions/media';
-import {
-  Container,
-  Avatar,
-  CssBaseline,
-  TextField,
-  Grid,
-  Box,
-  Typography,
-} from '@mui/material';
+import { TextField, Box } from '@mui/material';
 
 export const FormContainer = styled.div`
   ${mediaTablet(
@@ -37,26 +28,7 @@ export const MyInput = styled(TextField)`
     letter-spacing: 0.04em;
     color: ${props => props.theme.fontColors.primary};
   }
-  /* div {
-    &::before {
-      border-bottom: none;
-    }
-    &::after {
-      border-bottom: none;
-    }
-  } */
 
-  /* input {
-    width: 240px;
-    position: relative;
-    border-bottom: 1px solid #e0e0e0;
-    padding-bottom: 7px;
-    &:hover,
-    &:focus {
-      border-bottom: 1px solid #fc842d;
-      background-color: rgba(255, 140, 0, 0.1);
-    }
-  }  */
   .css-1c2i806-MuiFormLabel-root-MuiInputLabel-root.Mui-focused {
     color: ${props =>
       props.theme.fontColors.buttonSecondary};
