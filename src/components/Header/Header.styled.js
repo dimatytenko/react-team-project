@@ -12,7 +12,7 @@ export const HeaderStyled = styled.header`
   z-index: 10000;
   padding: 18px 0 16px 0;
   background-color: ${props =>
-    props.theme.fontColors.buttonPrimary};
+    props.theme.backgrounds.bodyPrimary};
   border-bottom: 2px solid #e0e0e0;
   ${mediaDesktop(`
     padding: 80px 0 20px 0;
@@ -59,7 +59,8 @@ export const UserBarMobile = styled.div`
   left: 0;
   width: 100%;
   padding: 15px 0 13px 0;
-  background-color: #eff1f3;
+  background-color: ${props =>
+    props.theme.backgrounds.userInfo};
   ${mediaTablet(`
       display: none;
   `)}
