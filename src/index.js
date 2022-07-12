@@ -5,6 +5,7 @@ import { store, persistor } from './redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { BrowserRouter } from 'react-router-dom';
 import 'modern-normalize';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { App } from './components/App/App';
 

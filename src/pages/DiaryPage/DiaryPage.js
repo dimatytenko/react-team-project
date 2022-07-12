@@ -1,12 +1,20 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 import format from 'date-fns/format';
+
 import { DiaryProductsList } from '../../components/DiaryProductsList';
 import { DiaryDateCalendar } from '../../components/DiaryDateCalendar';
 import { Container } from '../../components/Container';
 import { DiaryAddProductForm } from '../../components/DiaryAddProductForm';
-import { DiaryPageWrapper } from './DiaryPage.styled';
+import {
+  DiaryPageWrapper,
+  DiaryAddProductFormWrapper,
+  ButtonOpenModalWrapper,
+  DiaryAddProductFormModalWrapper,
+} from './DiaryPage.styled';
+import { AddButton } from '../../components/AddButton';
+import { MainModal } from '../../components/MainModal';
 
 //це тимчасово
 const products = [
@@ -113,6 +121,11 @@ const products = [
 
 export default function DiaryPage({ theme }) {
   const [pickedDate, setPickedDate] = useState(new Date());
+  const [showModal, setShowModal] = useState(false);
+
+  const toggleModal = () => {
+    setShowModal(prevState => !prevState);
+  };
 
   const isPickedDateToday = () => {
     const formattedPickedDate = format(
@@ -132,15 +145,33 @@ export default function DiaryPage({ theme }) {
           pickedDate={pickedDate}
           setPickedDate={setPickedDate}
         />
-        <DiaryAddProductForm theme={theme} />
+        <DiaryAddProductFormWrapper>
+          <DiaryAddProductForm theme={theme} />
+        </DiaryAddProductFormWrapper>
+
         <DiaryProductsList
           data={products}
           isPickedDateToday={isPickedDateToday()}
           pickedDate={pickedDate}
         />
+
+        <ButtonOpenModalWrapper onClick={toggleModal}>
+          <AddButton type="button" />
+        </ButtonOpenModalWrapper>
+
+        {showModal && (
+          <MainModal onClose={toggleModal}>
+            <DiaryAddProductForm
+              theme={theme}
+              onClose={toggleModal}
+            />
+          </MainModal>
+        )}
       </DiaryPageWrapper>
     </Container>
   );
 }
 
-// DiaryPage.propTypes = {};
+DiaryPage.propTypes = {
+  theme: PropTypes.object,
+};
