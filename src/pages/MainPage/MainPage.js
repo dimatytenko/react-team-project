@@ -13,6 +13,7 @@ export default function MainPage(props) {
   const [calculatingData, setCalculatingData] = useState(
     {}
   );
+  const [isLoading, setIsLoading] = useState(false);
 
   const calculatorSubmitHandler = calculatingData => {
     setCalculatingData(calculatingData);
@@ -29,8 +30,10 @@ export default function MainPage(props) {
         return;
       } else {
         try {
+          setIsLoading(true);
           const dataKcal = await getKcal(calculatingData);
           setModalData(dataKcal.data);
+          setIsLoading(false);
         } catch (error) {
           console.log(error);
         }
@@ -55,6 +58,8 @@ export default function MainPage(props) {
           <MainWrapper>
             <DailyCaloriesForm
               onFormSubmit={calculatorSubmitHandler}
+              data={{}}
+              isLoading={isLoading}
             />
             {Object.keys(modalData).length !== 0 && (
               <Modal

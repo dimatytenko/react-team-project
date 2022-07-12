@@ -62,7 +62,7 @@ export const TextFieldStyled = styled(TextField)`
       background-color: rgba(255, 140, 0, 0.1);
     }
   }
-  .css-1c2i806-MuiFormLabel-root-MuiInputLabel-root.Mui-focused {
+  .css-348fk2.Mui-focused {
     color: ${props =>
       props.theme.fontColors.buttonSecondary};
   }
@@ -130,7 +130,7 @@ export const RadioButtonLabel = styled.label`
   -ms-user-select: none;
   user-select: none;
 
-  &:hover input ~ span {
+  &:hover span {
     background-color: #ccc;
   }
 `;
@@ -138,12 +138,13 @@ export const RadioButtonLabel = styled.label`
 export const RadioButtonInput = styled.input`
   position: absolute;
   opacity: 0;
-  top: 0;
-  left: 0;
-  height: 20px;
-  width: 20px;
   cursor: pointer;
-  :checked ~ span:after {
+  :checked + label {
+    color: ${props =>
+      props.theme.fontColors.buttonSecondary};
+    font-weight: 700;
+  }
+  :checked + label span:after {
     display: block;
     background: ${props =>
       props.theme.fontColors.buttonSecondary};
@@ -177,6 +178,7 @@ export const Button = styled.button`
   font-size: 14px;
   line-height: 17px;
   padding: 13px 25px;
+  width: 210px;
   letter-spacing: 0.04em;
   color: ${props => props.theme.fontColors.buttonPrimary};
   background: ${props =>

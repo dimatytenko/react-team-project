@@ -15,7 +15,19 @@ import {
   Button,
 } from './DailyCaloriesForm.styled';
 
-export const DailyCaloriesForm = ({ onFormSubmit }) => {
+export const DailyCaloriesForm = ({
+  onFormSubmit,
+  data,
+  isLoading,
+}) => {
+  const {
+    height,
+    age,
+    weight_current,
+    weight_desired,
+    blood,
+  } = data;
+
   return (
     <FormContainer>
       <FormTitle>
@@ -23,11 +35,11 @@ export const DailyCaloriesForm = ({ onFormSubmit }) => {
       </FormTitle>
       <Formik
         initialValues={{
-          height: '',
-          age: '',
-          weight_current: '',
-          weight_desired: '',
-          blood: 1,
+          height: height || '',
+          age: age || '',
+          weight_current: weight_current || '',
+          weight_desired: weight_desired || '',
+          blood: blood || 1,
         }}
         validationSchema={Yup.object({
           height: Yup.number('Only numbers allowed')
@@ -64,7 +76,7 @@ export const DailyCaloriesForm = ({ onFormSubmit }) => {
           <FormFlexContainer>
             <FormFlexContainerLeft>
               <MyTextInput
-                label="Height *"
+                label="Height, cm *"
                 name="height"
                 type="number"
               />
@@ -74,14 +86,14 @@ export const DailyCaloriesForm = ({ onFormSubmit }) => {
                 type="number"
               />
               <MyTextInput
-                label="Current weight *"
+                label="Current weight, kg *"
                 name="weight_current"
                 type="number"
               />
             </FormFlexContainerLeft>
             <div>
               <MyTextInput
-                label="Desired weight *"
+                label="Desired weight, kg *"
                 name="weight_desired"
                 type="number"
               />
@@ -120,7 +132,11 @@ export const DailyCaloriesForm = ({ onFormSubmit }) => {
               </div>
             </div>
           </FormFlexContainer>
-          <Button type="submit">Start losing weight</Button>
+          <Button type="submit">
+            {isLoading
+              ? 'Calculating...'
+              : 'Start losing weight'}
+          </Button>
         </CalculatorForm>
       </Formik>
     </FormContainer>
