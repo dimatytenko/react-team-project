@@ -9,12 +9,17 @@ import {
 
 export const MyTextInput = ({ label, ...props }) => {
   const [field, meta] = useField(props);
+  const inputProps = {
+    min: 0,
+    max: 500,
+  };
   return (
     <>
       <TextFieldStyled
         id={props.name}
         {...field}
         {...props}
+        inputProps={inputProps}
         label={label}
         variant="standard"
         color="primary"

@@ -159,6 +159,8 @@ export const CustomRadioButton = styled.span`
   width: 20px;
   border-radius: 50%;
   border: 1px solid #e0e0e0;
+  background-color: ${props =>
+    props.theme.backgrounds.buttonSecondary};
   :after {
     content: '';
     position: absolute;
@@ -186,7 +188,7 @@ export const Button = styled.button`
   border: none;
   box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
   border-radius: 30px;
-  transition: transform 0.2s;
+  transition: ${props => props.theme.transitions.primary};
 
   &:hover,
   &:focus {
