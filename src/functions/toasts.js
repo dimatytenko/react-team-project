@@ -2,7 +2,7 @@ import { toast } from 'react-toastify';
 
 export function createToast(type, text) {
   return toast[type](text, {
-    position: 'top-center',
+    position: 'bottom-center',
     autoClose: 3000,
     hideProgressBar: false,
     closeOnClick: true,

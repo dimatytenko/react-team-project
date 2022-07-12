@@ -1,22 +1,33 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { DiaryProductsList } from '../../components/DiaryProductsList';
 import { DiaryDateCalendar } from '../../components/DiaryDateCalendar';
 import { Container } from '../../components/Container';
 import { DiaryAddProductForm } from '../../components/DiaryAddProductForm';
-import { DiaryPageWrapper } from './DiaryPage.styled';
 //форматування вибраної дати для req.params у форматі (рік-місяць-день)
 import { formatDateForFetch } from '../../functions/formatDateForFetch';
 //перевірка, чи співпадає дата вибрана в календарі з сьогоднішньою
 import { isPickedDateToday } from '../../functions/isPickedDateToday';
+import {
+  DiaryPageWrapper,
+  DiaryAddProductFormWrapper,
+  ButtonOpenModalWrapper,
+  DiaryAddProductFormModalWrapper,
+} from './DiaryPage.styled';
+import { AddButton } from '../../components/AddButton';
+import { MainModal } from '../../components/MainModal';
 
 export default function DiaryPage({ theme }) {
   const [pickedDate, setPickedDate] = useState(new Date());
   const [productsForDay, setProductsForDay] = useState([]);
   const [summary, setSummary] = useState([]);
+  const [showModal, setShowModal] = useState(false);
 
+  const toggleModal = () => {
+    setShowModal(prevState => !prevState);
+  };
   //ефект при маунті або якщо змінилася дата в календарі
   useEffect(() => {
     const formattedPickedDate =
@@ -39,7 +50,6 @@ export default function DiaryPage({ theme }) {
         }
       }
     };
-
     fetchInfoForDay();
   }, [pickedDate]);
 
@@ -50,16 +60,34 @@ export default function DiaryPage({ theme }) {
           pickedDate={pickedDate}
           setPickedDate={setPickedDate}
         />
-        <DiaryAddProductForm theme={theme} />
+        <DiaryAddProductFormWrapper>
+          <DiaryAddProductForm theme={theme} />
+        </DiaryAddProductFormWrapper>
+
         <DiaryProductsList
           productsForDay={productsForDay}
           setProductsForDay={setProductsForDay}
           setSummary={setSummary}
           isPickedDateToday={isPickedDateToday(pickedDate)}
         />
+
+        <ButtonOpenModalWrapper onClick={toggleModal}>
+          <AddButton type="button" />
+        </ButtonOpenModalWrapper>
+
+        {showModal && (
+          <MainModal onClose={toggleModal}>
+            <DiaryAddProductForm
+              theme={theme}
+              onClose={toggleModal}
+            />
+          </MainModal>
+        )}
       </DiaryPageWrapper>
     </Container>
   );
 }
 
-// DiaryPage.propTypes = {};
+DiaryPage.propTypes = {
+  theme: PropTypes.object,
+};

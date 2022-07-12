@@ -180,17 +180,23 @@ export const Button = styled.button`
   padding: 13px 25px;
   width: 210px;
   letter-spacing: 0.04em;
+  cursor: pointer;
   color: ${props => props.theme.fontColors.buttonPrimary};
-  background: ${props =>
-    props.theme.fontColors.buttonSecondary};
+  background-color: ${props =>
+    props.theme.backgrounds.buttonPrimary};
   border: none;
   box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
   border-radius: 30px;
-  transition: transform 0.2s;
+  transition: transform
+      ${props => props.theme.transitions.primary},
+    background-color
+      ${props => props.theme.transitions.primary};
 
   &:hover,
   &:focus {
     transform: scale(1.1);
+    background-color: ${props =>
+      props.theme.hovers.secondary};
   }
 `;
 
