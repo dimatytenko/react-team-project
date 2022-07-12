@@ -10,7 +10,6 @@ export const register = createAsyncThunk(
       const { data } = await connectionsAPI.fetchRegister(
         userData
       );
-      // token.set(data.token);
       console.log(data);
       return data;
     } catch (error) {
