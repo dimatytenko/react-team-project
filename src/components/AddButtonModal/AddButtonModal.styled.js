@@ -16,11 +16,13 @@ export const AddButtonModalBody = styled.button`
   color: ${props => props.theme.fontColors.buttonPrimary};
   background-color: ${props =>
     props.theme.backgrounds.buttonPrimary};
-  transition: background-color
-    ${props => props.theme.transitions.primary};
-
+  transition: transform
+      ${props => props.theme.transitions.primary},
+    background-color
+      ${props => props.theme.transitions.primary};
   &:hover,
   &:focus {
+    transform: scale(1.1);
     background-color: ${props =>
       props.theme.hovers.secondary};
   }
