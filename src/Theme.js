@@ -36,7 +36,7 @@ export const ThemeDark = createTheme({
     loaderPrimary: '#ffffff',
     backdrop: 'rgba(0, 0, 0, 0.00)',
     userInfo: '#9B9FAA',
-    sidebar: '#F0F1F3',
+    sidebar: '#363570',
   },
   fontColors: {
     primary: '#ffffff',

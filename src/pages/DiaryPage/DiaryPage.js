@@ -142,7 +142,18 @@ export default function DiaryPage({ theme }) {
           />
         </DiaryPageWrapper>
       </Container>
-      <RightSideBar date="01.12.2021" />
+      <RightSideBar
+        notHelthyFood={[
+          { title: { en: 'potato' } },
+          { title: { en: 'milk' } },
+          { title: { en: 'meat' } },
+          {
+            title: {
+              en: 'Peas mung bean Yarmarka Platinum',
+            },
+          },
+        ]}
+      />
     </>
   );
 }
