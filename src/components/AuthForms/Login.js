@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { logIn } from '../../redux/auth/authOperations';
 import { Container } from '../Container';
 import {
@@ -18,10 +18,13 @@ import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import { authSelectors } from '../../redux/auth';
+import { createToast } from '../../functions';
 
 export default function Login(props) {
   const dispatch = useDispatch();
   const [showPassword, setShow] = useState(false);
+  const isError = useSelector(authSelectors.getError);
 
   const formik = useFormik({
     initialValues: {
@@ -38,6 +41,13 @@ export default function Login(props) {
   const changePassword = () => {
     setShow(prev => (prev = !prev));
   };
+
+  useEffect(() => {
+    if (isError) {
+      createToast('error', 'Wrong log in');
+      return;
+    }
+  }, [isError]);
 
   return (
     <Container>
