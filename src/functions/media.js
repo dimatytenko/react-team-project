@@ -17,3 +17,9 @@ export function mediaDesktop(content) {
     ${content}
   }`;
 }
+
+export function mediaMaxPhone(content) {
+  return `@media screen and (max-width: ${breakPoints.TABLET}) {
+    ${content}
+  }`;
+}

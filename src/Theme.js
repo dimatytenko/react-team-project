@@ -42,7 +42,7 @@ export const ThemeDark = createTheme({
     primary: '#ffffff',
     secondary: '#ffffff',
     modify: '#FC842D',
-    buttonPrimary: '#ffffff',
+    buttonPrimary: '#9B9FAA',
     buttonSecondary: '#FC842D',
   },
   hovers: {

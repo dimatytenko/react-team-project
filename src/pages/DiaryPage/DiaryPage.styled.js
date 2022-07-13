@@ -19,3 +19,21 @@ export const DiaryPageWrapper = styled.div`
   justify-content: flex-end;
   `)}
 `;
+
+export const DiaryAddProductFormWrapper = styled.div`
+  display: none;
+
+  ${mediaTablet(`
+   display: block;
+  `)}
+`;
+
+export const ButtonOpenModalWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+
+  ${mediaTablet(`
+   display: none;
+  `)}
+`;
