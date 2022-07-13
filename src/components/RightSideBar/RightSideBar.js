@@ -3,12 +3,10 @@ import { format } from 'date-fns';
 import { SideBarListItem as Item } from '../SideBarListItem';
 import { SideBarList as List } from '../SideBarList';
 import {
-  SideBarSection,
   Title,
   Wrapper,
   SideBarItem,
   SideBarSummary,
-  SiteBarContainer,
 } from './RightSideBar.styled';
 export const RightSideBar = ({
   date,
@@ -27,53 +25,45 @@ export const RightSideBar = ({
     percentage_of_normal,
   } = calculation;
   return (
-    <SideBarSection>
-      <SiteBarContainer>
-        <Wrapper>
-          <SideBarSummary>
-            <Title>
-              Summary for{' '}
-              {date
-                ? date
-                : format(new Date(), 'dd.MM.yyyy')}
-            </Title>
-            <ul>
-              <SideBarItem>
-                <span>Left</span>
-                <span>{left}</span>
-              </SideBarItem>
-              <SideBarItem>
-                <span>Consumed</span>
-                <span>{consumed}</span>
-              </SideBarItem>
-              <SideBarItem>
-                <span>Daily rate</span>
-                <span>{daily_rate}</span>
-              </SideBarItem>
-              <SideBarItem>
-                <span>n &#37; of normal</span>
-                <span>{percentage_of_normal}</span>
-              </SideBarItem>
-            </ul>
-          </SideBarSummary>
-          <div>
-            <Title>Food not recommended</Title>
-            {notHelthy.length < 1 &&
-              'Your diet will be displayed here'}
-            {notHelthy.length > 1 && (
-              <List>
-                {notHelthy.map(item => (
-                  <Item
-                    key={item._id}
-                    title={item.title}
-                  ></Item>
-                ))}
-              </List>
-            )}
-          </div>
-        </Wrapper>
-      </SiteBarContainer>
-    </SideBarSection>
+    <Wrapper>
+      <SideBarSummary>
+        <Title>
+          Summary for{' '}
+          {date ? date : format(new Date(), 'dd.MM.yyyy')}
+        </Title>
+        <ul>
+          <SideBarItem>
+            <span>Left</span>
+            <span>{left}</span>
+          </SideBarItem>
+          <SideBarItem>
+            <span>Consumed</span>
+            <span>{consumed}</span>
+          </SideBarItem>
+          <SideBarItem>
+            <span>Daily rate</span>
+            <span>{daily_rate}</span>
+          </SideBarItem>
+          <SideBarItem>
+            <span>n &#37; of normal</span>
+            <span>{percentage_of_normal}</span>
+          </SideBarItem>
+        </ul>
+      </SideBarSummary>
+      <div>
+        <Title>Food not recommended</Title>
+        {notHelthy.length < 1 && (
+          <p>Your diet will be displayed here</p>
+        )}
+        {notHelthy.length > 1 && (
+          <List>
+            {notHelthy.map(item => (
+              <Item key={item._id} title={item.title} />
+            ))}
+          </List>
+        )}
+      </div>
+    </Wrapper>
   );
 };
 RightSideBar.propTypes = {
