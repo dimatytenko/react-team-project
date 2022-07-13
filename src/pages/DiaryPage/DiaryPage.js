@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { DiaryProductsList } from '../../components/DiaryProductsList';
 import { DiaryDateCalendar } from '../../components/DiaryDateCalendar';
+import { RightSideBar } from '../../components/RightSideBar';
 import { Container } from '../../components/Container';
 import { DiaryAddProductForm } from '../../components/DiaryAddProductForm';
 
