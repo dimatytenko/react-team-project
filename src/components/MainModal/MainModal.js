@@ -46,10 +46,7 @@ export function MainModal({ onClose, children }) {
           </BtnCloseModalMobile>
           {children}
         </Container>
-        <BtnCloseModal
-          type="button"
-          // onClick={}
-        >
+        <BtnCloseModal type="button" onClick={onClose}>
           <ImgClose />
         </BtnCloseModal>
       </ModalWindow>

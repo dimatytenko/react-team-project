@@ -9,7 +9,7 @@ export const Overlay = styled.div`
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 12000;
+  z-index: 1200;
 
   ${mediaTablet(`
     background-color: rgba(33, 33, 33, 0.12);
@@ -35,7 +35,7 @@ export const ModalWindow = styled.div`
     props.theme.backgrounds.bodyPrimary};
   min-height: 100%;
   max-height: 100%;
-  z-index: 12001;
+  z-index: 1201;
 
   ${mediaTablet(`
     position: absolute;
