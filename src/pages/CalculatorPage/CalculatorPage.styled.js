@@ -72,7 +72,6 @@ export const CalculatorWrapper = styled.div`
   padding-bottom: 110px;
   flex-direction: row;
   gap: 320px;
-
 `)}
 `;
 
