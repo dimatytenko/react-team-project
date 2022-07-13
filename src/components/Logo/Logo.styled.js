@@ -70,41 +70,33 @@ const Mom = ({ className }) => (
 
 export const LogoFirst = styled(LogoImg)`
   fill: ${props => props.theme.fontColors.secondary};
-  ${mediaTablet(`
   width: 46px;
-  height:44px;
-       
-  `)}
+  height: 44px;
+
   ${mediaDesktop(` 
   width: 70px;
   height:66px;  
 `)}
 `;
 export const LogoSlim = styled(Slim)`
-  display: none;
-  fill: ${props => props.theme.fontColors.secondary};
-  ${mediaTablet(`
-  margin-left:10px;
+  margin-left: 10px;
   display: block;
   width: 47px;
-  height:16px;       
-  `)}
+  height: 16px;
+  fill: ${props => props.theme.fontColors.secondary};
   ${mediaDesktop(`
-  margin-left:-15px;  
+  margin-left:-10px;  
   width: 48px;
   height:18px;
   
 `)}
 `;
 export const LogoMom = styled(Mom)`
-  display: none;
-  fill: ${props => props.theme.fontColors.buttonSecondary};
-  ${mediaTablet(`
-  margin-left:3px;
+  margin-left: 3px;
   display: block;
   width: 47px;
-  height:16px;       
-  `)}
+  height: 16px;
+  fill: ${props => props.theme.fontColors.buttonSecondary};
   ${mediaDesktop(`  
   width: 54px;
   height: 18px;
@@ -113,9 +105,9 @@ export const LogoMom = styled(Mom)`
 
 export const LogoContainer = styled.div`
   position: relative;
-  width: 47px;
   height: 44px;
-
+  display: flex;
+  align-items: center;
   ${mediaTablet(`
       display:flex;
       align-items: center;
