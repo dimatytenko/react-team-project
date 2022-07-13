@@ -56,10 +56,11 @@ export const UserInfoWrapperDesc = styled.div`
   gap: 30px;
   ${mediaTablet(`
       display: flex;
-      // margin-left: 384px;
+      margin-left: auto;
+      margin-right: 74px;
+
   `)}
   ${mediaDesktop(`
-      margin-left: auto;
       margin-right: 12px;
   `)}
 `;
