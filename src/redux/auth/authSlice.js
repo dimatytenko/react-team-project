@@ -14,9 +14,9 @@ const authSlice = createSlice({
   name: 'auth',
   initialState,
   extraReducers: {
-    [authOperations.register.pending](state, _) {
-      state.isError = null;
-    },
+    // [authOperations.register.pending](state, _) {
+    //   state.isError = null;
+    // },
     [authOperations.register.fulfilled](
       state,
       { payload }
@@ -24,9 +24,9 @@ const authSlice = createSlice({
       state.user = payload;
       state.isLoggedIn = true;
     },
-    [authOperations.register.rejected](state, action) {
-      state.isError = true;
-    },
+    // [authOperations.register.rejected](state, action) {
+    //   state.isError = true;
+    // },
 
     [authOperations.logIn.pending](state, _) {
       state.isError = null;

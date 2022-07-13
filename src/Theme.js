@@ -12,7 +12,7 @@ export const ThemeLight = createTheme({
     userInfo: '#EFF1F3',
     sidebar: '#F0F1F3',
     userBack: 'transparent',
-
+    modalOverlay: 'rgba(33, 33, 33, 0.12)',
   },
   fontColors: {
     primary: '#9B9FAA',
@@ -42,6 +42,7 @@ export const ThemeDark = createTheme({
     userInfo: '#9B9FAA',
     sidebar: '#363570',
     userBack: '#292e4b',
+    modalOverlay: 'rgba(33, 33, 33, 0.12)',
   },
   fontColors: {
     primary: '#ffffff',
