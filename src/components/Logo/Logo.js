@@ -8,7 +8,7 @@ import {
   LogoSlim,
   LogoFirst,
 } from './Logo.styled';
-import useWindowDimensions from '../../customHooks/useWindowDimensions';
+import { useWindowDimensions } from '../../customHooks/useWindowDimensions';
 
 export const Logo = () => {
   const { width } = useWindowDimensions();
