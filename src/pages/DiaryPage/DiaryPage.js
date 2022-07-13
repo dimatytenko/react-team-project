@@ -68,7 +68,12 @@ export default function DiaryPage({ theme }) {
                 setPickedDate={setPickedDate}
               />
               <DiaryAddProductFormWrapper>
-                <DiaryAddProductForm theme={theme} />
+                <DiaryAddProductForm
+                  theme={theme}
+                  currentDate={formatDateForFetch(
+                    pickedDate
+                  )}
+                />
               </DiaryAddProductFormWrapper>
 
               {/* <DiaryProductsList
@@ -76,9 +81,6 @@ export default function DiaryPage({ theme }) {
                 isPickedDateToday={isPickedDateToday()}
                 pickedDate={pickedDate}
               /> */}
-              <ButtonOpenModalWrapper onClick={toggleModal}>
-                <AddButton type="button" />
-              </ButtonOpenModalWrapper>
 
               <DiaryProductsList
                 productsForDay={productsForDay}
@@ -88,6 +90,10 @@ export default function DiaryPage({ theme }) {
                   pickedDate
                 )}
               />
+
+              <ButtonOpenModalWrapper onClick={toggleModal}>
+                <AddButton type="button" />
+              </ButtonOpenModalWrapper>
             </div>
 
             <RightSideBar />

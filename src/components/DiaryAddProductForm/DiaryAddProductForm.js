@@ -20,18 +20,26 @@ import {
   AddButtonModalWrapper,
 } from './DiaryAddProductForm.styled';
 
+import { createProduct } from '../../services/connectionsAPI';
 axios.defaults.baseURL = 'http://localhost:8080/api';
 
-export function DiaryAddProductForm({ theme }) {
+export function DiaryAddProductForm({
+  theme,
+  currentDate,
+}) {
   const [product, setProduct] = useState('');
+  const [productObj, setProductObj] = useState(null);
   const [grams, setGrams] = useState('');
 
-  const [titles, setTitles] = useState([]);
+  const [productsArray, setProductsArray] = useState([]);
   const [isFocus, setIsFocus] = useState(true);
+
+  // console.log(grams);
+  // console.log(productObj);
 
   useEffect(() => {
     if (product === '') {
-      setTitles([]);
+      setProductsArray([]);
       return;
     }
 
@@ -39,11 +47,11 @@ export function DiaryAddProductForm({ theme }) {
       const { data } = await axios
         .get(`/products?search=${productValue}`)
         .then(res => res.data);
-      const titleArray = await data.products.map(
-        obj => obj.title.en
-      );
-      await setTitles(titleArray);
-      return titleArray;
+
+      const productsArray = data.products.map(obj => obj);
+
+      await setProductsArray(productsArray);
+      return productsArray;
     }
 
     fetchProducts(product);
@@ -51,22 +59,34 @@ export function DiaryAddProductForm({ theme }) {
 
   function handleTitleClick(e) {
     const currentTitle = e.target.outerText;
+
+    const currentProduct = productsArray.find(obj => {
+      return obj.title.en === currentTitle;
+    });
+
     setProduct(currentTitle);
+    setProductObj(currentProduct);
     setIsFocus(false);
   }
 
   function handleSubmit(e) {
     e.preventDefault();
 
-    const isList = titles.some(title => title === product);
+    const isList = productsArray.some(
+      obj => obj.title.en === product
+    );
 
     if (!isList) {
       createToast('warning', 'Select an existing product!');
       return;
     }
+    const data = {
+      productId: productObj._id,
+      weight: grams,
+      date: currentDate,
+    };
 
-    console.log(product);
-    console.log(grams);
+    createProduct(data);
 
     setProduct('');
     setGrams('');
@@ -126,26 +146,27 @@ export function DiaryAddProductForm({ theme }) {
           </AddButtonModalWrapper>
         </FormBody>
 
-        {product !== titles[0] &&
+        {product !== productsArray[0] &&
           product.length !== 0 &&
           isFocus && (
             <ProductsList id="productList">
-              {titles.length === 0 && product.length !== 0 && (
-                <ProductsItem
-                  key={nanoid()}
-                  onClick={e => handleTitleClick(e)}
-                >
-                  not Found
-                </ProductsItem>
-              )}
-
-              {titles.map(title => {
-                return (
+              {productsArray.length === 0 &&
+                product.length !== 0 && (
                   <ProductsItem
                     key={nanoid()}
                     onClick={e => handleTitleClick(e)}
                   >
-                    {title}
+                    not Found
+                  </ProductsItem>
+                )}
+
+              {productsArray.map(obj => {
+                return (
+                  <ProductsItem
+                    key={obj._id}
+                    onClick={e => handleTitleClick(e)}
+                  >
+                    {obj.title.en}
                   </ProductsItem>
                 );
               })}

@@ -44,7 +44,10 @@ export default function Login(props) {
 
   useEffect(() => {
     if (isError) {
-      createToast('error', 'Wrong log in');
+      createToast(
+        'error',
+        'This mail is already in use. Please, login!'
+      );
       return;
     }
   }, [isError]);
