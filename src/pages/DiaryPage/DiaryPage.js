@@ -1,13 +1,16 @@
 import React from 'react';
+import axios from 'axios';
+import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { useState } from 'react';
-import format from 'date-fns/format';
-
 import { DiaryProductsList } from '../../components/DiaryProductsList';
 import { DiaryDateCalendar } from '../../components/DiaryDateCalendar';
 import { Container } from '../../components/Container';
 import { DiaryAddProductForm } from '../../components/DiaryAddProductForm';
-import { DiaryPageWrapper } from './DiaryPage.styled';
+
+//форматування вибраної дати для req.params у форматі (рік-місяць-день)
+import { formatDateForFetch } from '../../functions/formatDateForFetch';
+//перевірка, чи співпадає дата вибрана в календарі з сьогоднішньою
+import { isPickedDateToday } from '../../functions/isPickedDateToday';
 import {
   UserPagesWrapper,
   UserPagesBackWrapper,
@@ -24,127 +27,39 @@ import {
 import { AddButton } from '../../components/AddButton';
 import { MainModal } from '../../components/MainModal';
 
-//це тимчасово
-const products = [
-  {
-    title: {
-      en: 'Chicken egg (dry yolk)',
-      ua: 'Яйце куряче (жовток сухий)',
-    },
-    _id: '5d51694802b2373622ff553b',
-    weight: 100,
-    calories: 623,
-  },
-  {
-    title: {
-      en: 'Buckwheat groats (kernel) green',
-      ua: 'Гречана крупа (ядриця) зелена',
-    },
-    _id: '5d51694802b2373622ff555c',
-    weight: 100,
-    calories: 296,
-  },
-  {
-    title: {
-      en: 'Omelet with cheese',
-      ua: 'Омлет із сиром',
-    },
-    _id: '5d51694802b2373622ff5530',
-    weight: 100,
-    calories: 342,
-  },
-  {
-    title: {
-      en: 'Chicken egg (hard-boiled)',
-      ua: 'Яйце куряче (варене круто)',
-    },
-    _id: '5d51694802b2373622ff5539',
-    weight: 100,
-    calories: 160,
-  },
-  {
-    title: {
-      en: 'Melange egg',
-      ua: 'Меланж яєчний',
-    },
-    _id: '5d51694802b2373622ff552c',
-    weight: 100,
-    calories: 157,
-  },
-  {
-    title: {
-      en: 'Bulgur',
-      ua: 'Булгур',
-    },
-    _id: '5d51694802b2373622ff5547',
-    weight: 100,
-    calories: 342,
-  },
-  {
-    title: {
-      en: 'Buckwheat flakes Myllyn Paras for porridge',
-      ua: 'Гречані пластівці Myllyn Paras для каші',
-    },
-    _id: '5d51694802b2373622ff5565',
-    weight: 100,
-    calories: 340,
-  },
-  {
-    title: {
-      en: 'Buckwheat flakes Passim',
-      ua: 'Гречані пластівці Пассим',
-    },
-    _id: '5d51694802b2373622ff5569',
-    weight: 100,
-    calories: 322,
-  },
-  {
-    title: {
-      en: 'Chicken egg',
-      ua: 'Яйце куряче',
-    },
-    _id: '5d51694802b2373622ff5535',
-    weight: 100,
-    calories: 157,
-  },
-  {
-    title: {
-      en: 'Egg powder omelette',
-      ua: 'Омлет з яєчного порошку',
-    },
-    _id: '5d51694802b2373622ff552f',
-    weight: 100,
-    calories: 200,
-  },
-  {
-    title: {
-      en: 'Chicken egg (poached)',
-      ua: 'Яйце куряче (пашот)',
-    },
-    _id: '5d51694802b2373622ff553d',
-    weight: 100,
-    calories: 159,
-  },
-];
-
 export default function DiaryPage({ theme }) {
   const [pickedDate, setPickedDate] = useState(new Date());
+  const [productsForDay, setProductsForDay] = useState([]);
+  const [summary, setSummary] = useState([]);
   const [showModal, setShowModal] = useState(false);
 
   const toggleModal = () => {
     setShowModal(prevState => !prevState);
   };
-
-  const isPickedDateToday = () => {
-    const formattedPickedDate = format(
-      pickedDate,
-      'dd-MM-yyyy'
-    );
-    const formattedToday = format(new Date(), 'dd-MM-yyyy');
-    const areDatesEqual =
-      formattedPickedDate === formattedToday;
-    return areDatesEqual;
-  };
+  //ефект при маунті або якщо змінилася дата в календарі
+  useEffect(() => {
+    const formattedPickedDate =
+      formatDateForFetch(pickedDate);
+    const fetchInfoForDay = async () => {
+      try {
+        const { data } = await axios.get(
+          `/days/${formattedPickedDate}`
+        );
+        //для таблиці
+        setProductsForDay(data.data.productsForDay);
+        //для summary по дню
+        setSummary(data.data.summary);
+      } catch (error) {
+        console.log(error);
+        //якщо данних по дню немає, бек кидає BAD REQUEST
+        if (error?.response?.status === 400) {
+          setProductsForDay([]);
+          setSummary([]);
+        }
+      }
+    };
+    fetchInfoForDay();
+  }, [pickedDate]);
 
   return (
     <DiaryPagesWrapper>
@@ -169,6 +84,13 @@ export default function DiaryPage({ theme }) {
                 <AddButton type="button" />
               </ButtonOpenModalWrapper>
             </div>
+
+        <DiaryProductsList
+          productsForDay={productsForDay}
+          setProductsForDay={setProductsForDay}
+          setSummary={setSummary}
+          isPickedDateToday={isPickedDateToday(pickedDate)}
+        />
 
             <RightSideBarWrapper>
               <div>hello</div>
