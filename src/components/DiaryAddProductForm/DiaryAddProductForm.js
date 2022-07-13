@@ -95,6 +95,7 @@ export function DiaryAddProductForm({ theme }) {
                 letter-spacing: 0.04em;
               }
             `}
+            autoComplete="off"
             id="debounceInput"
             debounceTimeout={500}
             onChange={e => {
@@ -108,6 +109,8 @@ export function DiaryAddProductForm({ theme }) {
 
           <FormInputGrams
             name="grams"
+            autoComplete="off"
+            type="number"
             placeholder="Grams"
             value={grams}
             onChange={e => {

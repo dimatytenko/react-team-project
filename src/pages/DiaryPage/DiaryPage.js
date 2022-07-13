@@ -6,10 +6,15 @@ import { DiaryProductsList } from '../../components/DiaryProductsList';
 import { DiaryDateCalendar } from '../../components/DiaryDateCalendar';
 import { Container } from '../../components/Container';
 import { DiaryAddProductForm } from '../../components/DiaryAddProductForm';
+
 //форматування вибраної дати для req.params у форматі (рік-місяць-день)
 import { formatDateForFetch } from '../../functions/formatDateForFetch';
 //перевірка, чи співпадає дата вибрана в календарі з сьогоднішньою
 import { isPickedDateToday } from '../../functions/isPickedDateToday';
+import {
+  UserPagesWrapper,
+  RightSideBarWrapper,
+} from '../CalculatorPage/CalculatorPage.styled';
 import {
   DiaryPageWrapper,
   DiaryAddProductFormWrapper,
@@ -54,6 +59,28 @@ export default function DiaryPage({ theme }) {
   }, [pickedDate]);
 
   return (
+    <UserPagesWrapper>
+      <Container>
+        <DiaryPageWrapper>
+          <div>
+            <DiaryDateCalendar
+              pickedDate={pickedDate}
+              setPickedDate={setPickedDate}
+            />
+            <DiaryAddProductForm theme={theme} />
+            <DiaryProductsList
+              data={products}
+              isPickedDateToday={isPickedDateToday()}
+              pickedDate={pickedDate}
+            />
+          </div>
+        </DiaryPageWrapper>
+      </Container>
+      <RightSideBarWrapper>
+        <Container></Container>
+      </RightSideBarWrapper>
+    </UserPagesWrapper>
+
     <Container>
       <DiaryPageWrapper>
         <DiaryDateCalendar
