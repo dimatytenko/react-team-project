@@ -84,7 +84,7 @@ export const Title = styled.p`
   font-family: VerdanaBold;
   font-size: 18px;
   line-height: 26px;
-  color: ${props => props.theme.fontColors.secondary};
+  color: #212121;
   margin-bottom: 40px;
   @media (min-width: 768px) {
     width: 450px;
