@@ -8,11 +8,11 @@ import {
   Wrapper,
   SideBarItem,
   SideBarSummary,
+  SiteBarContainer,
 } from './RightSideBar.styled';
-import { Container } from '../Container';
 export const RightSideBar = ({
   date,
-  notHelthyFood = [],
+  notHelthy = [],
   calculation = {
     left: '000',
     consumed: '000',
@@ -28,7 +28,7 @@ export const RightSideBar = ({
   } = calculation;
   return (
     <SideBarSection>
-      <Container>
+      <SiteBarContainer>
         <Wrapper>
           <SideBarSummary>
             <Title>
@@ -58,11 +58,11 @@ export const RightSideBar = ({
           </SideBarSummary>
           <div>
             <Title>Food not recommended</Title>
-            {notHelthyFood.length < 1 &&
+            {notHelthy.length < 1 &&
               'Your diet will be displayed here'}
-            {notHelthyFood.length > 1 && (
+            {notHelthy.length > 1 && (
               <List>
-                {notHelthyFood.map(item => (
+                {notHelthy.map(item => (
                   <Item
                     key={item._id}
                     title={item.title}
@@ -72,13 +72,13 @@ export const RightSideBar = ({
             )}
           </div>
         </Wrapper>
-      </Container>
+      </SiteBarContainer>
     </SideBarSection>
   );
 };
 RightSideBar.propTypes = {
   date: PropTypes.string,
-  notHelthyFood: PropTypes.array.isRequired,
+  notHelthy: PropTypes.array,
   calculation: PropTypes.objectOf({
     left: PropTypes.number.isRequired,
     consumed: PropTypes.number.isRequired,

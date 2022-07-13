@@ -6,6 +6,12 @@ import {
 export const SideBarSection = styled.section`
   background-color: ${props =>
     props.theme.backgrounds.sidebar};
+  ${mediaDesktop(`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 0px;
+  min-width: 517px;`)}
 `;
 export const Title = styled.p`
   color: ${props => props.theme.fontColors.secondary};
@@ -26,6 +32,13 @@ export const Wrapper = styled.div`
   display: flex;
   padding-top: 80px;
   padding-bottom: 80px;`)};
+  ${mediaDesktop(`
+  display: block;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-right: 113px;
+  padding-left: 96px;
+  `)}
 `;
 export const SideBarItem = styled.li`
   display: flex;
@@ -39,5 +52,20 @@ export const SideBarSummary = styled.div`
   ${mediaTablet(`
   margin-bottom: 0px;
   margin-right: 80px`)};
+  ${mediaDesktop(`
+  margin-bottom: 40px;
+  margin-right: 0px
+  `)}
 `;
-export const notHelthyFood = styled.div``;
+export const NotHelthyFood = styled.div``;
+export const SiteBarContainer = styled.div`
+  width: 300px;
+  padding: 0 10px;
+  margin: 0 auto;
+
+  ${mediaTablet(`width: 724px;`)}
+
+  ${mediaDesktop(`
+  width: 0px;
+  min-width: 497px;`)}
+`;
