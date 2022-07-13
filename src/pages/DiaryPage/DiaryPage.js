@@ -151,20 +151,6 @@ export default function DiaryPage({ theme }) {
       <DiaryPagesBackWrapper>
         <Container>
           <DiaryPageWrapper>
-            {/* <div>
-              <DiaryDateCalendar
-                pickedDate={pickedDate}
-                setPickedDate={setPickedDate}
-              />
-
-              <DiaryAddProductForm theme={theme} />
-
-              <DiaryProductsList
-                data={products}
-                isPickedDateToday={isPickedDateToday()}
-                pickedDate={pickedDate}
-              />
-            </div> */}
             <div>
               <DiaryDateCalendar
                 pickedDate={pickedDate}
@@ -185,9 +171,7 @@ export default function DiaryPage({ theme }) {
             </div>
 
             <RightSideBarWrapper>
-              <Container>
-                <div>hello</div>
-              </Container>
+              <div>hello</div>
             </RightSideBarWrapper>
 
             {showModal && (
