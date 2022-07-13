@@ -11,7 +11,6 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import { usersApi } from './users/usersSlice';
 import { themeReducer } from './theme';
 import { authReducer } from './auth';
 
@@ -39,7 +38,6 @@ export const store = configureStore({
       themePersistConfig,
       themeReducer.theme
     ),
-    [usersApi.reducerPath]: usersApi.reducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
@@ -53,7 +51,7 @@ export const store = configureStore({
           REGISTER,
         ],
       },
-    }).concat(usersApi.middleware),
+    }),
   devTools: process.env.NODE_ENV === 'development',
 });
 

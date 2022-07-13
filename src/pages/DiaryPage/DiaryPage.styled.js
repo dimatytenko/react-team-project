@@ -14,6 +14,9 @@ export const DiaryPageWrapper = styled.div`
 
   ${mediaDesktop(`
   padding-top: 293px;
+  margin-right: 124px;
+  display: flex;
+  justify-content: flex-end;
   `)}
 `;
 

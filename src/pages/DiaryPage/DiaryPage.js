@@ -7,6 +7,11 @@ import { DiaryProductsList } from '../../components/DiaryProductsList';
 import { DiaryDateCalendar } from '../../components/DiaryDateCalendar';
 import { Container } from '../../components/Container';
 import { DiaryAddProductForm } from '../../components/DiaryAddProductForm';
+import { DiaryPageWrapper } from './DiaryPage.styled';
+import {
+  UserPagesWrapper,
+  RightSideBarWrapper,
+} from '../CalculatorPage/CalculatorPage.styled';
 import {
   DiaryPageWrapper,
   DiaryAddProductFormWrapper,
@@ -139,6 +144,28 @@ export default function DiaryPage({ theme }) {
   };
 
   return (
+    <UserPagesWrapper>
+      <Container>
+        <DiaryPageWrapper>
+          <div>
+            <DiaryDateCalendar
+              pickedDate={pickedDate}
+              setPickedDate={setPickedDate}
+            />
+            <DiaryAddProductForm theme={theme} />
+            <DiaryProductsList
+              data={products}
+              isPickedDateToday={isPickedDateToday()}
+              pickedDate={pickedDate}
+            />
+          </div>
+        </DiaryPageWrapper>
+      </Container>
+      <RightSideBarWrapper>
+        <Container></Container>
+      </RightSideBarWrapper>
+    </UserPagesWrapper>
+
     <Container>
       <DiaryPageWrapper>
         <DiaryDateCalendar
