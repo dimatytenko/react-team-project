@@ -44,7 +44,7 @@ export const MainBox = styled.div`
 `;
 
 export const MainWrapper = styled.div`
-  padding-top: 120px;
+  padding-top: 40px;
   padding-bottom: 30px;
 
   ${mediaTablet(`

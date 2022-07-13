@@ -10,6 +10,7 @@ export const ThemeLight = createTheme({
     loaderPrimary: '#FC842D',
     backdrop: 'rgba(0, 0, 0, 0.55)',
     userInfo: '#EFF1F3',
+    userBack: 'transparent',
   },
   fontColors: {
     primary: '#9B9FAA',
@@ -37,6 +38,7 @@ export const ThemeDark = createTheme({
     loaderPrimary: '#ffffff',
     backdrop: 'rgba(0, 0, 0, 0.00)',
     userInfo: '#9B9FAA',
+    userBack: '#292e4b',
   },
   fontColors: {
     primary: '#ffffff',

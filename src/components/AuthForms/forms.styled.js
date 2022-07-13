@@ -168,11 +168,9 @@ export const Wrapper = styled.div`
   max-width: 280px;
 
   ${mediaTablet(`
-        padding: 0 32px; 
         max-width: 320px;
       align-items: flex-start;`)};
   ${mediaDesktop(`
-        padding: 0 16px;
       max-width: 400px; `)}
 `;
 

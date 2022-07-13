@@ -4,8 +4,9 @@ import { useNavigate } from 'react-router-dom';
 // import PropTypes from 'prop-types';
 import { DailyCaloriesForm } from '../../components/DailyCaloriesForm';
 import {
-  CalculatorWrapper,
   UserPagesWrapper,
+  UserPagesBackWrapper,
+  CalculatorWrapper,
   RightSideBarWrapper,
 } from './CalculatorPage.styled';
 import { Container } from '../../components/Container';
@@ -41,18 +42,20 @@ export default function CalculatorPage(props) {
 
   return (
     <UserPagesWrapper>
-      <Container>
-        <CalculatorWrapper>
-          <DailyCaloriesForm
-            onFormSubmit={calculatorSubmitHandler}
-            data={calculatingData}
-            isLoading={isLoading}
-          />
-        </CalculatorWrapper>
-      </Container>
-      <RightSideBarWrapper>
-        <Container></Container>
-      </RightSideBarWrapper>
+      <UserPagesBackWrapper>
+        <Container>
+          <CalculatorWrapper>
+            <DailyCaloriesForm
+              onFormSubmit={calculatorSubmitHandler}
+              data={calculatingData}
+              isLoading={isLoading}
+            />
+            <RightSideBarWrapper>
+              <div>hello</div>
+            </RightSideBarWrapper>
+          </CalculatorWrapper>
+        </Container>
+      </UserPagesBackWrapper>
     </UserPagesWrapper>
   );
 }

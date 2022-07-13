@@ -1,21 +1,31 @@
 import { RiCalendar2Fill } from 'react-icons/ri';
-import { Calendar } from './DiaryDateCalendar.styled';
+import {
+  Calendar,
+  CalendarWrapper,
+  DateTime,
+} from './DiaryDateCalendar.styled';
+import format from 'date-fns/format';
 
 export const DiaryDateCalendar = ({
   pickedDate,
   setPickedDate,
 }) => {
   return (
-    <Calendar
-      onChange={setPickedDate}
-      value={pickedDate}
-      autoFocus={false}
-      clearIcon={null}
-      showLeadingZeros={true}
-      maxDate={new Date()}
-      calendarIcon={
-        <RiCalendar2Fill color={'#9B9FAA'} size={20} />
-      }
-    />
+    <CalendarWrapper>
+      <DateTime>
+        {format(pickedDate, 'dd.MM.yyyy')}
+      </DateTime>
+      <Calendar
+        onChange={setPickedDate}
+        value={pickedDate}
+        autoFocus={false}
+        clearIcon={null}
+        // showLeadingZeros={true}
+        maxDate={new Date()}
+        calendarIcon={
+          <RiCalendar2Fill color={'#9B9FAA'} size={20} />
+        }
+      />
+    </CalendarWrapper>
   );
 };
