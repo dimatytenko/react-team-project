@@ -69,7 +69,7 @@ export function DiaryAddProductForm({
     setIsFocus(false);
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
 
     const isList = productsArray.some(
@@ -80,13 +80,18 @@ export function DiaryAddProductForm({
       createToast('warning', 'Select an existing product!');
       return;
     }
-    const data = {
+    const requestObj = {
       productId: productObj._id,
       weight: grams,
       date: currentDate,
     };
 
-    createProduct(data);
+    try {
+      const data = await createProduct(requestObj);
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
 
     setProduct('');
     setGrams('');

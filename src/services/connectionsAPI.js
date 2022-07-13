@@ -57,6 +57,5 @@ export async function createProduct(product) {
   const data = await axios
     .post(`/days`, product)
     .then(res => res.data);
-  console.log(data);
   return data;
 }
