@@ -127,34 +127,20 @@ export default function DiaryPage({ theme }) {
   };
 
   return (
-    <>
-      <Container>
-        <DiaryPageWrapper>
-          <DiaryDateCalendar
-            pickedDate={pickedDate}
-            setPickedDate={setPickedDate}
-          />
-          <DiaryAddProductForm theme={theme} />
-          <DiaryProductsList
-            data={products}
-            isPickedDateToday={isPickedDateToday()}
-            pickedDate={pickedDate}
-          />
-        </DiaryPageWrapper>
-      </Container>
-      <RightSideBar
-        notHelthyFood={[
-          { title: { en: 'potato' } },
-          { title: { en: 'milk' } },
-          { title: { en: 'meat' } },
-          {
-            title: {
-              en: 'Peas mung bean Yarmarka Platinum',
-            },
-          },
-        ]}
-      />
-    </>
+    <Container>
+      <DiaryPageWrapper>
+        <DiaryDateCalendar
+          pickedDate={pickedDate}
+          setPickedDate={setPickedDate}
+        />
+        <DiaryAddProductForm theme={theme} />
+        <DiaryProductsList
+          data={products}
+          isPickedDateToday={isPickedDateToday()}
+          pickedDate={pickedDate}
+        />
+      </DiaryPageWrapper>
+    </Container>
   );
 }
 
