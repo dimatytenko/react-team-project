@@ -6,18 +6,10 @@ import {
 } from '../../functions/media';
 
 export const TableStyled = styled(Table)`
-  & td + td {
-    border-left: 2px solid transparent;
-    ${mediaTablet(`
-    border-left: 22px solid transparent;
-`)}
-    ${mediaDesktop(`
-    border-left: 32px solid transparent;
-`)}
-  }
-
+  min-height: 200px;
   max-height: 200px;
   overflow-y: auto;
+  margin-top: 32px;
   font-family: 'Verdana';
   font-weight: 400;
   font-size: 14px;
@@ -25,9 +17,13 @@ export const TableStyled = styled(Table)`
   color: ${props => props.theme.fontColors.secondary};
 
   ${mediaTablet(`
-  max-height: 247px;
+  margin-top: 60px;
+  min-height: 243px;
+  max-height: 243px;
 `)}
   ${mediaDesktop(`
+
+  min-height: 306px;
   max-height: 306px;
 `)}
 
@@ -39,6 +35,16 @@ export const TableStyled = styled(Table)`
 
   &::-webkit-scrollbar-thumb {
     background-color: #264061;
+  }
+
+  & td + td {
+    border-left: 2px solid transparent;
+    ${mediaTablet(`
+    border-left: 22px solid transparent;
+`)}
+    ${mediaDesktop(`
+    border-left: 32px solid transparent;
+`)}
   }
 
   & .column--large {
