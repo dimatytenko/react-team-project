@@ -10,21 +10,23 @@ import leaves_sidebar_desk from '../../assets/images/bg-pictures/desktop/leaves_
 export const UserPagesWrapper = styled.div`
   width: 100%;
   min-height: 100vh;
-  background: linear-gradient(
+
+  background-image: linear-gradient(
     180deg,
     rgba(255, 255, 255, 1) 680px,
     rgba(240, 241, 243, 1) 500px
   );
 
   ${mediaTablet(`
-   background: linear-gradient(
+    background-image: linear-gradient(
     180deg,
     rgba(255, 255, 255, 1) 710px,
     rgba(240, 241, 243, 1) 680px
   );
   `)}
+
   ${mediaDesktop(`
-    background: linear-gradient(
+    background-image: linear-gradient(
     90deg,
     rgba(255, 255, 255, 1) 58%,
     rgba(240, 241, 243, 1) 42%
@@ -35,13 +37,15 @@ export const UserPagesWrapper = styled.div`
 export const UserPagesBackWrapper = styled.div`
   width: 100%;
   min-height: 100vh;
+  background-color: ${props =>
+    props.theme.backgrounds.userBack};
 
   ${mediaTablet(`
-    background: url(${leaves_sidebar});
+    background-image: url(${leaves_sidebar});
     background-size: 378px 402px;
     background-position: right 15px bottom 0px;
     background-repeat: no-repeat;
-  `)}
+  `)};
 
   ${mediaDesktop(`
   background-image: url(${leaves_sidebar_desk});
