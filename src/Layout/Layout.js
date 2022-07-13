@@ -3,6 +3,7 @@ import { ToastContainer } from 'react-toastify';
 import { SwitchTheme } from '../components/SwitchTheme';
 
 import { Header } from '../components/Header';
+import { MainModal } from '../components/MainModal';
 
 export function Layout() {
   return (
@@ -11,6 +12,7 @@ export function Layout() {
       <SwitchTheme />
       <main>
         <Outlet />
+        <MainModal />
       </main>
       <ToastContainer />
     </>

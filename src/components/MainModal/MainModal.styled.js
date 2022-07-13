@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
+import { IoCloseSharp } from 'react-icons/io5';
 
-import { mediaTablet, mediaDesktop } from '../../functions';
+import { mediaTablet } from '../../functions';
 
 export const Overlay = styled.div`
   position: fixed;
@@ -20,11 +21,15 @@ export const BtnCloseModalMobile = styled.button`
   top: -25px;
   background-color: inherit;
   border: none;
+
+  ${mediaTablet(`
+  display: none;
+  `)};
 `;
 
 export const ModalWindow = styled.div`
   position: relative;
-  top: 128px;
+  top: 126px;
   min-width: 320px;
   background-color: ${props =>
     props.theme.backgrounds.bodyPrimary};
@@ -41,8 +46,41 @@ export const ModalWindow = styled.div`
     width: 672px;
     height: 573px;
   `)};
+`;
 
-  // ${mediaDesktop(`
-  // display: block;
-  // `)}
+export const BtnCloseModal = styled.button`
+  display: none;
+  position: absolute;
+  background: none;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  top: 20px;
+  right: 20px;
+  transform: translate(30%, -30%);
+  overflow: hidden;
+  cursor: pointer;
+  transition: background-color
+    ${props => props.theme.transitions.primary};
+
+  &:hover,
+  &:focus {
+    background-color: ${props =>
+      props.theme.hovers.secondary};
+    color: 'white';
+  }
+
+  ${mediaTablet(`
+    display: block;
+    `)};
+`;
+
+export const ImgClose = styled(IoCloseSharp)`
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `;

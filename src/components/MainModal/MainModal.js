@@ -6,6 +6,8 @@ import {
   Overlay,
   BtnCloseModalMobile,
   ModalWindow,
+  BtnCloseModal,
+  ImgClose,
 } from './MainModal.styled';
 import arrow from '../../images/arrow.svg';
 import { Container } from '../Container';
@@ -44,6 +46,12 @@ export function MainModal({ onClose, children }) {
           </BtnCloseModalMobile>
           {children}
         </Container>
+        <BtnCloseModal
+          type="button"
+          // onClick={}
+        >
+          <ImgClose />
+        </BtnCloseModal>
       </ModalWindow>
     </Overlay>,
     modalRoot
