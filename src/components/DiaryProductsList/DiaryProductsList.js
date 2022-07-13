@@ -1,6 +1,6 @@
 import { GoX } from 'react-icons/go';
 import Tooltip from 'rc-tooltip';
-// import 'rc-tooltip/assets/bootstrap.css';
+import 'rc-tooltip/assets/bootstrap.css';
 import axios from 'axios';
 import {
   TableStyled,
