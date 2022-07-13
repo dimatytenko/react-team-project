@@ -17,9 +17,9 @@ import stain_desk from '../../assets/images/bg-pictures/desktop/stain_desk.svg';
 
 export const MainBox = styled.div`
   width: 100%;
-  min-height: 100vh;
 
   ${mediaTablet(`
+  min-height: 100vh;
     background-image: url(${strawberry}), url(${banana}),
       url(${leaves}), url(${stain});
     background-size: 308px 303px, 491px 431px, 602px 531px,
