@@ -10,13 +10,16 @@ import { DiaryAddProductForm } from '../../components/DiaryAddProductForm';
 import { DiaryPageWrapper } from './DiaryPage.styled';
 import {
   UserPagesWrapper,
+  UserPagesBackWrapper,
   RightSideBarWrapper,
 } from '../CalculatorPage/CalculatorPage.styled';
 import {
-  DiaryPageWrapper,
+  // DiaryPageWrapper,
   DiaryAddProductFormWrapper,
   ButtonOpenModalWrapper,
   DiaryAddProductFormModalWrapper,
+  DiaryPagesWrapper,
+  DiaryPagesBackWrapper,
 } from './DiaryPage.styled';
 import { AddButton } from '../../components/AddButton';
 import { MainModal } from '../../components/MainModal';
@@ -144,58 +147,45 @@ export default function DiaryPage({ theme }) {
   };
 
   return (
-    <UserPagesWrapper>
-      <Container>
-        <DiaryPageWrapper>
-          <div>
-            <DiaryDateCalendar
-              pickedDate={pickedDate}
-              setPickedDate={setPickedDate}
-            />
-            <DiaryAddProductForm theme={theme} />
-            <DiaryProductsList
-              data={products}
-              isPickedDateToday={isPickedDateToday()}
-              pickedDate={pickedDate}
-            />
-          </div>
-        </DiaryPageWrapper>
-      </Container>
-      <RightSideBarWrapper>
-        <Container></Container>
-      </RightSideBarWrapper>
-    </UserPagesWrapper>
+    <DiaryPagesWrapper>
+      <DiaryPagesBackWrapper>
+        <Container>
+          <DiaryPageWrapper>
+            <div>
+              <DiaryDateCalendar
+                pickedDate={pickedDate}
+                setPickedDate={setPickedDate}
+              />
+              <DiaryAddProductFormWrapper>
+                <DiaryAddProductForm theme={theme} />
+              </DiaryAddProductFormWrapper>
 
-    <Container>
-      <DiaryPageWrapper>
-        <DiaryDateCalendar
-          pickedDate={pickedDate}
-          setPickedDate={setPickedDate}
-        />
-        <DiaryAddProductFormWrapper>
-          <DiaryAddProductForm theme={theme} />
-        </DiaryAddProductFormWrapper>
+              <DiaryProductsList
+                data={products}
+                isPickedDateToday={isPickedDateToday()}
+                pickedDate={pickedDate}
+              />
+              <ButtonOpenModalWrapper onClick={toggleModal}>
+                <AddButton type="button" />
+              </ButtonOpenModalWrapper>
+            </div>
 
-        <DiaryProductsList
-          data={products}
-          isPickedDateToday={isPickedDateToday()}
-          pickedDate={pickedDate}
-        />
+            <RightSideBarWrapper>
+              <div>hello</div>
+            </RightSideBarWrapper>
 
-        <ButtonOpenModalWrapper onClick={toggleModal}>
-          <AddButton type="button" />
-        </ButtonOpenModalWrapper>
-
-        {showModal && (
-          <MainModal onClose={toggleModal}>
-            <DiaryAddProductForm
-              theme={theme}
-              onClose={toggleModal}
-            />
-          </MainModal>
-        )}
-      </DiaryPageWrapper>
-    </Container>
+            {showModal && (
+              <MainModal onClose={toggleModal}>
+                <DiaryAddProductForm
+                  theme={theme}
+                  onClose={toggleModal}
+                />
+              </MainModal>
+            )}
+          </DiaryPageWrapper>
+        </Container>
+      </DiaryPagesBackWrapper>
+    </DiaryPagesWrapper>
   );
 }
 
