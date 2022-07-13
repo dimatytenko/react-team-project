@@ -13,8 +13,8 @@ export const UserPagesWrapper = styled.div`
 
   background-image: linear-gradient(
     180deg,
-    rgba(255, 255, 255, 1) 680px,
-    rgba(240, 241, 243, 1) 500px
+    rgba(255, 255, 255, 1) 408px,
+    rgba(240, 241, 243, 1) 375px
   );
 
   ${mediaTablet(`
@@ -56,7 +56,7 @@ export const UserPagesBackWrapper = styled.div`
 `;
 
 export const CalculatorWrapper = styled.div`
-  padding-top: 152px;
+  padding-top: 32px;
   padding-bottom: 80px;
   display: flex;
   flex-direction: column;
