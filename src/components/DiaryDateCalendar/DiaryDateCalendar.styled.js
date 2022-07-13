@@ -9,6 +9,7 @@ export const DateTime = styled.h2`
   font-size: 18px;
   line-height: 1.22;
   color: ${props => props.theme.fontColors.secondary};
+  margin-right: 20px;
 
   ${mediaTablet(`
     font-size: 34px;
@@ -19,14 +20,8 @@ export const DateTime = styled.h2`
 export const CalendarWrapper = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 156px;
-  height: 20px;
-
   ${mediaTablet(`
     align-items: baseline;
-    width: 258px;
-    height: 38px;
    `)}
 `;
 

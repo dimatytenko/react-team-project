@@ -6,6 +6,16 @@ import {
 } from '../../functions/media';
 
 export const TableStyled = styled(Table)`
+  & td + td {
+    border-left: 2px solid transparent;
+    ${mediaTablet(`
+    border-left: 22px solid transparent;
+`)}
+    ${mediaDesktop(`
+    border-left: 32px solid transparent;
+`)}
+  }
+
   max-height: 200px;
   overflow-y: auto;
   font-family: 'Verdana';
@@ -13,6 +23,13 @@ export const TableStyled = styled(Table)`
   font-size: 14px;
   line-height: 17px;
   color: ${props => props.theme.fontColors.secondary};
+
+  ${mediaTablet(`
+  max-height: 247px;
+`)}
+  ${mediaDesktop(`
+  max-height: 306px;
+`)}
 
   &::-webkit-scrollbar {
     width: 6px;
@@ -28,7 +45,7 @@ export const TableStyled = styled(Table)`
     position: relative;
     width: 130px;
     height: 44px;
-    border-bottom: 2px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
     ${mediaTablet(`
     width: 240px;
     height: 52px;
@@ -54,7 +71,7 @@ export const TableStyled = styled(Table)`
     text-align: center;
     width: 57px;
     height: 44px;
-    border-bottom: 2px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
     ${mediaTablet(`
     text-align: end;
     width: 128px;
@@ -70,7 +87,7 @@ export const TableStyled = styled(Table)`
     text-align: center;
     width: 66px;
     height: 44px;
-    border-bottom: 2px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
     ${mediaTablet(`
     text-align: end;
     width: 152px;

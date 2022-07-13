@@ -7,6 +7,12 @@ import {
   mediaDesktop,
 } from '../../functions/media';
 
+export const NavigationNotSigned = styled.nav`
+  ${mediaTablet(`
+  margin-left: auto;
+`)}
+`;
+
 export const NavListSigned = styled.ul`
   display: none;
 
@@ -83,9 +89,9 @@ export const NavLinkGrey = styled(NavLinkBlack)`
 `;
 
 export const NavDrawerWrapper = styled.div`
-  padding: 140px 0 40px 0;
+  padding: 60px 0 40px 0;
   ${mediaTablet(`
-  padding: 180px 0 40px 0;
+  padding: 100px 0 40px 0;
 `)}
 `;
 

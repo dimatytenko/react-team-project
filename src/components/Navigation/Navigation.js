@@ -12,6 +12,7 @@ import {
   NavLinkDrawerGrey,
   NavLinkDrawerWhite,
   NavDrawerWrapper,
+  NavigationNotSigned,
 } from './Navigation.styled';
 import propTypes from 'prop-types';
 
@@ -21,31 +22,37 @@ export const NavInHeader = () => {
   );
 
   return (
-    <nav>
+    <>
       {!isLoggedIn ? (
-        <NavListNotSigned>
-          <NavItem>
-            <NavLinkBlack to="/login">sign in</NavLinkBlack>
-          </NavItem>
-          <NavItem>
-            <NavLinkGrey to="/register">
-              registration
-            </NavLinkGrey>
-          </NavItem>
-        </NavListNotSigned>
+        <NavigationNotSigned>
+          <NavListNotSigned>
+            <NavItem>
+              <NavLinkBlack to="/login">
+                sign in
+              </NavLinkBlack>
+            </NavItem>
+            <NavItem>
+              <NavLinkGrey to="/register">
+                registration
+              </NavLinkGrey>
+            </NavItem>
+          </NavListNotSigned>
+        </NavigationNotSigned>
       ) : (
-        <NavListSigned>
-          <NavItem>
-            <NavLinkBlack to="/diary">diary</NavLinkBlack>
-          </NavItem>
-          <NavItem>
-            <NavLinkGrey to="/calculator">
-              calculator
-            </NavLinkGrey>
-          </NavItem>
-        </NavListSigned>
+        <nav>
+          <NavListSigned>
+            <NavItem>
+              <NavLinkBlack to="/diary">diary</NavLinkBlack>
+            </NavItem>
+            <NavItem>
+              <NavLinkGrey to="/calculator">
+                calculator
+              </NavLinkGrey>
+            </NavItem>
+          </NavListSigned>
+        </nav>
       )}
-    </nav>
+    </>
   );
 };
 
