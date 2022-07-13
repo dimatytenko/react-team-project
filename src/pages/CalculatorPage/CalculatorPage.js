@@ -10,6 +10,7 @@ import {
   RightSideBarWrapper,
 } from './CalculatorPage.styled';
 import { Container } from '../../components/Container';
+import { RightSideBar } from '../../components/RightSideBar';
 import { fetchUserData } from '../../services/connectionsAPI';
 
 export default function CalculatorPage(props) {
@@ -50,9 +51,7 @@ export default function CalculatorPage(props) {
               data={calculatingData}
               isLoading={isLoading}
             />
-            <RightSideBarWrapper>
-              <div>hello</div>
-            </RightSideBarWrapper>
+            <RightSideBar />
           </CalculatorWrapper>
         </Container>
       </UserPagesBackWrapper>

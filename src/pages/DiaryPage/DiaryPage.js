@@ -12,16 +12,11 @@ import { DiaryAddProductForm } from '../../components/DiaryAddProductForm';
 import { formatDateForFetch } from '../../functions/formatDateForFetch';
 //перевірка, чи співпадає дата вибрана в календарі з сьогоднішньою
 import { isPickedDateToday } from '../../functions/isPickedDateToday';
-import {
-  UserPagesWrapper,
-  UserPagesBackWrapper,
-  RightSideBarWrapper,
-} from '../CalculatorPage/CalculatorPage.styled';
+import { RightSideBarWrapper } from '../CalculatorPage/CalculatorPage.styled';
 import {
   DiaryPageWrapper,
   DiaryAddProductFormWrapper,
   ButtonOpenModalWrapper,
-  DiaryAddProductFormModalWrapper,
   DiaryPagesWrapper,
   DiaryPagesBackWrapper,
 } from './DiaryPage.styled';
@@ -95,9 +90,7 @@ export default function DiaryPage({ theme }) {
               />
             </div>
 
-            <RightSideBarWrapper>
-              <div>hello</div>
-            </RightSideBarWrapper>
+            <RightSideBar />
 
             {showModal && (
               <MainModal onClose={toggleModal}>

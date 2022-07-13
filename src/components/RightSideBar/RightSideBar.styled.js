@@ -4,8 +4,7 @@ import {
   mediaDesktop,
 } from '../../functions/media';
 export const SideBarSection = styled.section`
-  background-color: ${props =>
-    props.theme.backgrounds.sidebar};
+  background-color: transparrent;
   ${mediaDesktop(`
   display: flex;
   flex-direction: column;
