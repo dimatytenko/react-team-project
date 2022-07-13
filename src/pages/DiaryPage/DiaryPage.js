@@ -17,7 +17,7 @@ import {
   RightSideBarWrapper,
 } from '../CalculatorPage/CalculatorPage.styled';
 import {
-  // DiaryPageWrapper,
+  DiaryPageWrapper,
   DiaryAddProductFormWrapper,
   ButtonOpenModalWrapper,
   DiaryAddProductFormModalWrapper,
@@ -75,22 +75,24 @@ export default function DiaryPage({ theme }) {
                 <DiaryAddProductForm theme={theme} />
               </DiaryAddProductFormWrapper>
 
-              <DiaryProductsList
+              {/* <DiaryProductsList
                 data={products}
                 isPickedDateToday={isPickedDateToday()}
                 pickedDate={pickedDate}
-              />
+              /> */}
               <ButtonOpenModalWrapper onClick={toggleModal}>
                 <AddButton type="button" />
               </ButtonOpenModalWrapper>
-            </div>
 
-        <DiaryProductsList
-          productsForDay={productsForDay}
-          setProductsForDay={setProductsForDay}
-          setSummary={setSummary}
-          isPickedDateToday={isPickedDateToday(pickedDate)}
-        />
+              <DiaryProductsList
+                productsForDay={productsForDay}
+                setProductsForDay={setProductsForDay}
+                setSummary={setSummary}
+                isPickedDateToday={isPickedDateToday(
+                  pickedDate
+                )}
+              />
+            </div>
 
             <RightSideBarWrapper>
               <div>hello</div>
