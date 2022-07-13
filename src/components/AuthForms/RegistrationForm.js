@@ -37,8 +37,11 @@ export default function RegistrationForm() {
     validationSchema: validationsSchemaRegistrationEn,
     onSubmit: values => {
       const { name, email, password } = values;
-      dispatch(register({ name, email, password }));
-      dispatch(logIn({ email, password }));
+      dispatch(register({ name, email, password })).then(
+        () => {
+          dispatch(logIn({ email, password }));
+        }
+      );
     },
   });
 
@@ -167,8 +170,8 @@ export default function RegistrationForm() {
             />
           </FormFlexContainer>
           <BtnWrapp>
-            <ButtonLink to="/login">Login</ButtonLink>
             <Button type="submit">Register</Button>
+            <ButtonLink to="/login">Login</ButtonLink>
           </BtnWrapp>
         </AuthForm>
       </Wrapper>
