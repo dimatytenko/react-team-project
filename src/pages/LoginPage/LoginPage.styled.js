@@ -6,7 +6,7 @@ import {
 } from '../../functions/media';
 
 export const LoginRegisterWrapper = styled.div`
-  padding-top: 120px;
+  padding-top: 40px;
   padding-bottom: 30px;
 
   ${mediaTablet(`
