@@ -1,18 +1,23 @@
 // import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { DebounceInput } from 'react-debounce-input';
-import { toast } from 'react-toastify';
 import { nanoid } from 'nanoid';
 import axios from 'axios';
 import { css } from '@emotion/css';
 
+import { createToast } from '../../functions/toasts';
+import { mediaMaxPhone } from '../../functions/media';
+
 import { AddButton } from '../AddButton';
+import { AddButtonModal } from '../AddButtonModal';
 import {
   FormBody,
   FormInputGrams,
   ProductsList,
   ProductsItem,
   DiaryAddProduct,
+  AddButtonWrapper,
+  AddButtonModalWrapper,
 } from './DiaryAddProductForm.styled';
 
 axios.defaults.baseURL = 'http://localhost:8080/api';
@@ -53,12 +58,18 @@ export function DiaryAddProductForm({ theme }) {
   function handleSubmit(e) {
     e.preventDefault();
 
-    // const productListRef =
-    //   document.querySelector('#productList');
-    // if (productListRef) {
-    //   return;
-    // }
-    console.log(e);
+    const isList = titles.some(title => title === product);
+
+    if (!isList) {
+      createToast('warning', 'Select an existing product!');
+      return;
+    }
+
+    console.log(product);
+    console.log(grams);
+
+    setProduct('');
+    setGrams('');
   }
 
   return (
@@ -67,6 +78,11 @@ export function DiaryAddProductForm({ theme }) {
         <FormBody>
           <DebounceInput
             className={css`
+              ${mediaMaxPhone(`
+              width: 100%;
+              margin-bottom: 32px;
+                `)}
+
               width: 240px;
               border: none;
               border-bottom: 1px solid #e0e0e0;
@@ -79,6 +95,7 @@ export function DiaryAddProductForm({ theme }) {
                 letter-spacing: 0.04em;
               }
             `}
+            autoComplete="off"
             id="debounceInput"
             debounceTimeout={500}
             onChange={e => {
@@ -92,39 +109,48 @@ export function DiaryAddProductForm({ theme }) {
 
           <FormInputGrams
             name="grams"
+            autoComplete="off"
+            type="number"
             placeholder="Grams"
             value={grams}
             onChange={e => {
               setGrams(e.target.value);
             }}
           />
+          <AddButtonWrapper>
+            <AddButton type="submit" />
+          </AddButtonWrapper>
 
-          <AddButton type="submit" />
+          <AddButtonModalWrapper>
+            <AddButtonModal type="submit" />
+          </AddButtonModalWrapper>
         </FormBody>
 
-        {product !== titles[0] && isFocus && (
-          <ProductsList id="productList">
-            {titles.length === 0 && product.length !== 0 && (
-              <ProductsItem
-                key={nanoid()}
-                onClick={e => handleTitleClick(e)}
-              >
-                not Found
-              </ProductsItem>
-            )}
-
-            {titles.map(title => {
-              return (
+        {product !== titles[0] &&
+          product.length !== 0 &&
+          isFocus && (
+            <ProductsList id="productList">
+              {titles.length === 0 && product.length !== 0 && (
                 <ProductsItem
                   key={nanoid()}
                   onClick={e => handleTitleClick(e)}
                 >
-                  {title}
+                  not Found
                 </ProductsItem>
-              );
-            })}
-          </ProductsList>
-        )}
+              )}
+
+              {titles.map(title => {
+                return (
+                  <ProductsItem
+                    key={nanoid()}
+                    onClick={e => handleTitleClick(e)}
+                  >
+                    {title}
+                  </ProductsItem>
+                );
+              })}
+            </ProductsList>
+          )}
       </form>
     </DiaryAddProduct>
   );

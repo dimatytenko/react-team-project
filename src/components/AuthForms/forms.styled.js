@@ -85,17 +85,22 @@ export const Button = styled.button`
     margin-bottom: 20px;
   }
 
-  color: ${props => props.theme.fontColors.buttonSecondary};
+  color: ${props => props.theme.fontColors.buttonPrimary};
   background: ${props =>
-    props.theme.fontColors.buttonPrimary};
-  border: 2px solid #fc842d;
+    props.theme.backgrounds.buttonPrimary};
+  border: none;
   box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
   border-radius: 30px;
-  transition: transform 0.2s;
+  transition: transform
+      ${props => props.theme.transitions.primary},
+    background-color
+      ${props => props.theme.transitions.primary};
 
   &:hover,
   &:focus {
     transform: scale(1.1);
+    background-color: ${props =>
+      props.theme.hovers.secondary};
   }
 
   ${mediaTablet(` 
@@ -124,13 +129,15 @@ export const ButtonLink = styled(Link)`
     margin-bottom: 20px;
   }
 
-  color: ${props => props.theme.fontColors.buttonPrimary};
+  color: ${props => props.theme.fontColors.buttonSecondary};
   background: ${props =>
-    props.theme.fontColors.buttonSecondary};
+    props.theme.backgrounds.buttonSecondary};
   border: none;
-  box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+  border: 2px solid
+    ${props => props.theme.backgrounds.buttonPrimary};
   border-radius: 30px;
-  transition: transform 0.2s;
+  transition: transform
+    ${props => props.theme.transitions.primary};
 
   &:hover,
   &:focus {
@@ -161,11 +168,9 @@ export const Wrapper = styled.div`
   max-width: 280px;
 
   ${mediaTablet(`
-        padding: 0 32px; 
         max-width: 320px;
       align-items: flex-start;`)};
   ${mediaDesktop(`
-        padding: 0 16px;
       max-width: 400px; `)}
 `;
 

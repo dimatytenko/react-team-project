@@ -45,3 +45,10 @@ export async function getKcal(dataCaloriesForm) {
     .then(res => res.data);
   return data;
 }
+
+export async function fetchUserData(calculatorData) {
+  const data = await axios
+    .patch('/users/calculator', calculatorData)
+    .then(res => res.data);
+  return data;
+}

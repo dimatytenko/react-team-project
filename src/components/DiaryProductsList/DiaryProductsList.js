@@ -1,53 +1,64 @@
-import { useState } from 'react';
 import { GoX } from 'react-icons/go';
 import Tooltip from 'rc-tooltip';
-import 'rc-tooltip/assets/bootstrap.css';
-// import axios from 'axios';
+// import 'rc-tooltip/assets/bootstrap.css';
+import axios from 'axios';
 import {
   TableStyled,
   ButtonCross,
 } from './DiaryProductsList.styled';
 
 export const DiaryProductsList = ({
-  data,
+  productsForDay,
+  setProductsForDay,
+  setSummary,
   isPickedDateToday,
-  pickedDate,
 }) => {
-  const [productList, setProductList] = useState(
-    makeRows()
-  );
+  const productList = makeRows();
 
   function makeRows() {
-    const rowsData = data?.reduce((acc, product) => {
-      acc.push({
-        title: product.title.en,
-        weight: `${product.weight} g`,
-        calories: `${product.calories} kcal`,
-        key: product._id,
-        _id: product._id,
-      });
-      return acc;
-    }, []);
+    const rowsData = productsForDay?.reduce(
+      (acc, product) => {
+        acc.push({
+          title: product.product_id.title.en,
+          weight: `${product.weight} g`,
+          calories: `${product.calories} kcal`,
+          key: product._id,
+          diaryId: product._id,
+        });
+        return acc;
+      },
+      []
+    );
 
     return rowsData;
   }
 
   const removeProductFromDB = async product => {
-    const reqBody = {
-      _id: product._id,
-      date: pickedDate,
-    };
-    console.log(reqBody);
-    // await axios.post('/days', reqBody);
+    const { diaryId } = product;
+    try {
+      const { data } = await axios.delete(
+        `/days/${diaryId}`
+      );
+
+      return data.data.summary;
+    } catch (error) {
+      console.log(error);
+      //toast something went wrong
+    }
   };
 
-  const removeProduct = index => {
+  const removeProduct = async index => {
     //відправити на бек видалення
-    removeProductFromDB(productList[index]);
-    //видалити зі стейту
-    const newData = productList.slice();
-    newData.splice(index, 1);
-    setProductList(newData);
+    const returnedSummary = await removeProductFromDB(
+      productList[index]
+    );
+    //видалити зі стейту i обновити саммарі
+    if (returnedSummary) {
+      const newData = productsForDay.slice();
+      newData.splice(index, 1);
+      setProductsForDay(newData);
+      setSummary(returnedSummary);
+    }
   };
 
   const renderAction = (o, row, index) => {
@@ -106,6 +117,7 @@ export const DiaryProductsList = ({
       columns={columns}
       data={productList}
       showHeader={false}
+      emptyText={'No products in diary for this day'}
     />
   );
 };

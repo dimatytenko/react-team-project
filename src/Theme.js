@@ -4,12 +4,15 @@ export const ThemeLight = createTheme({
   palette: { mode: 'light' },
   backgrounds: {
     bodyPrimary: '#ffffff',
+    bodySecondary: '#F0F1F3',
     buttonPrimary: '#FC842D',
     buttonSecondary: '#ffffff',
     loaderPrimary: '#FC842D',
     backdrop: 'rgba(0, 0, 0, 0.55)',
     userInfo: '#EFF1F3',
     sidebar: '#F0F1F3',
+    userBack: 'transparent',
+
   },
   fontColors: {
     primary: '#9B9FAA',
@@ -31,18 +34,20 @@ export const ThemeDark = createTheme({
   palette: { mode: 'dark' },
   backgrounds: {
     bodyPrimary: '#292e4b',
+    bodySecondary: '#0f1136',
     buttonPrimary: '#FC842D',
     buttonSecondary: '#ffffff',
     loaderPrimary: '#ffffff',
     backdrop: 'rgba(0, 0, 0, 0.00)',
     userInfo: '#9B9FAA',
     sidebar: '#363570',
+    userBack: '#292e4b',
   },
   fontColors: {
     primary: '#ffffff',
     secondary: '#ffffff',
     modify: '#FC842D',
-    buttonPrimary: '#ffffff',
+    buttonPrimary: '#9B9FAA',
     buttonSecondary: '#FC842D',
   },
   hovers: {
