@@ -71,19 +71,19 @@ export const RightSideBar = ({
         <ul>
           <SideBarItem>
             <span>Left</span>
-            <span>{left}</span>
+            <span>{left} kkal</span>
           </SideBarItem>
           <SideBarItem>
             <span>Consumed</span>
-            <span>{consumed}</span>
+            <span>{consumed} kkal</span>
           </SideBarItem>
           <SideBarItem>
             <span>Daily rate</span>
-            <span>{daily_rate}</span>
+            <span>{daily_rate} kkal</span>
           </SideBarItem>
           <SideBarItem>
             <span>n &#37; of normal</span>
-            <span>{percentage_of_normal}</span>
+            <span>{percentage_of_normal} &#37;</span>
           </SideBarItem>
         </ul>
       </SideBarSummary>
