@@ -7,7 +7,7 @@ import { css } from '@emotion/css';
 
 import { createToast } from '../../functions/toasts';
 import { mediaMaxPhone } from '../../functions/media';
-
+import { formatDateForFetch } from '../../functions/formatDateForFetch';
 import { AddButton } from '../AddButton';
 import { AddButtonModal } from '../AddButtonModal';
 import {
@@ -24,7 +24,7 @@ axios.defaults.baseURL = 'http://localhost:8080/api';
 
 export function DiaryAddProductForm({
   theme,
-  currentDate,
+  date,
   onClose,
   getProduct,
 }) {
@@ -50,9 +50,7 @@ export function DiaryAddProductForm({
       const { data } = await axios
         .get(`/products?search=${productValue}`)
         .then(res => res.data);
-
       const productsArray = data.products.map(obj => obj);
-
       await setProductsArray(productsArray);
       return productsArray;
     }
@@ -95,7 +93,7 @@ export function DiaryAddProductForm({
     const requestObj = {
       productId: productObj._id,
       weight: grams,
-      date: currentDate,
+      date: date,
     };
 
     try {
@@ -147,6 +145,9 @@ export function DiaryAddProductForm({
             value={product}
             name="product"
             placeholder="Enter product name"
+            disabled={
+              date !== formatDateForFetch(new Date())
+            }
           />
 
           <FormInputGrams
@@ -166,6 +167,9 @@ export function DiaryAddProductForm({
             onChange={e => {
               setGrams(e.target.value);
             }}
+            disabled={
+              date !== formatDateForFetch(new Date())
+            }
           />
 
           {windowDimensions.width >= 768 && (

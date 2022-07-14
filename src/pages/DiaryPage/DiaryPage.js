@@ -29,13 +29,18 @@ export default function DiaryPage({ theme }) {
   const [pickedDate, setPickedDate] = useState(new Date());
   const [productsForDay, setProductsForDay] =
     useState(null);
-
-  const [summary, setSummary] = useState(null);
+  const [summary, setSummary] = useState();
   const [showModal, setShowModal] = useState(false);
 
   const toggleModal = () => {
     setShowModal(prevState => !prevState);
   };
+
+  useEffect(() => {
+    if (windowDimensions.width >= 768) {
+      setShowModal(false);
+    }
+  }, [windowDimensions]);
   //ефект при маунті або якщо змінилася дата в календарі
   useEffect(() => {
     const formattedPickedDate =
@@ -61,14 +66,16 @@ export default function DiaryPage({ theme }) {
     fetchInfoForDay();
   }, [pickedDate]);
 
+  // ===== get newProduct and summary ==== //
   function getAddProduct(data) {
     const newProduct = data.addedProduct;
     const newSummary = data.summary;
 
-    setProductsForDay(state => [...state, newProduct]);
+    setProductsForDay(state => [newProduct, ...state]);
     setSummary(newSummary);
     return data;
   }
+  // =================================== //
 
   return (
     <DiaryPagesWrapper>
@@ -85,9 +92,7 @@ export default function DiaryPage({ theme }) {
                 <DiaryAddProductForm
                   theme={theme}
                   getProduct={getAddProduct}
-                  currentDate={formatDateForFetch(
-                    pickedDate
-                  )}
+                  date={formatDateForFetch(pickedDate)}
                 />
               )}
 
@@ -122,9 +127,7 @@ export default function DiaryPage({ theme }) {
                 <DiaryAddProductForm
                   theme={theme}
                   getProduct={getAddProduct}
-                  currentDate={formatDateForFetch(
-                    pickedDate
-                  )}
+                  date={formatDateForFetch(pickedDate)}
                   onClose={toggleModal}
                 />
               </MainModal>

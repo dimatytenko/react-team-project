@@ -34,6 +34,11 @@ export function MainModal({ onClose, children }) {
     }
   };
 
+  //!  removed scroll  //
+  window.addEventListener('scroll', e => {
+    window.scrollTo(0, 0);
+  });
+
   return createPortal(
     <Overlay onClick={handleBackdropClick}>
       <ModalWindow>
