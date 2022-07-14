@@ -57,7 +57,7 @@ export const fetchCurrentUser = createAsyncThunk(
 
     token.set(persistedToken);
     try {
-      const data = await connectionsAPI.fetchUsers();
+      const { data } = await connectionsAPI.fetchUsers();
       return data;
     } catch (error) {
       return error.rejectWithValue();
