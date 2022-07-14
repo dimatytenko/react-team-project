@@ -14,6 +14,7 @@ import {
   Wrapper,
   SideBarItem,
   SideBarSummary,
+  NotHelthyGroup,
 } from './RightSideBar.styled';
 
 export const RightSideBar = ({
@@ -87,7 +88,7 @@ export const RightSideBar = ({
           </SideBarItem>
         </ul>
       </SideBarSummary>
-      <div>
+      <NotHelthyGroup>
         <Title>Food not recommended</Title>
         {notHelthy.length < 1 && (
           <p>Your diet will be displayed here</p>
@@ -102,7 +103,7 @@ export const RightSideBar = ({
             ))}
           </List>
         )}
-      </div>
+      </NotHelthyGroup>
     </Wrapper>
   );
 };
