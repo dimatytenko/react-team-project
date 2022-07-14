@@ -26,6 +26,7 @@ export function DiaryAddProductForm({
   theme,
   currentDate,
   onClose,
+  getProduct,
 }) {
   const windowDimensions = useWindowDimensions();
   const [product, setProduct] = useState('');
@@ -98,8 +99,9 @@ export function DiaryAddProductForm({
     };
 
     try {
-      const data = await createProduct(requestObj);
+      const { data } = await createProduct(requestObj);
       console.log(data);
+      getProduct(data);
     } catch (error) {
       console.log(error);
     }

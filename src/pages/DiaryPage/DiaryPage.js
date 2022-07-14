@@ -27,8 +27,10 @@ import { useWindowDimensions } from '../../customHooks';
 export default function DiaryPage({ theme }) {
   const windowDimensions = useWindowDimensions();
   const [pickedDate, setPickedDate] = useState(new Date());
-  const [productsForDay, setProductsForDay] = useState([]);
-  const [summary, setSummary] = useState([]);
+  const [productsForDay, setProductsForDay] =
+    useState(null);
+
+  const [summary, setSummary] = useState(null);
   const [showModal, setShowModal] = useState(false);
 
   const toggleModal = () => {
@@ -59,6 +61,15 @@ export default function DiaryPage({ theme }) {
     fetchInfoForDay();
   }, [pickedDate]);
 
+  function getAddProduct(data) {
+    const newProduct = data.addedProduct;
+    const newSummary = data.summary;
+
+    setProductsForDay(state => [...state, newProduct]);
+    setSummary(newSummary);
+    return data;
+  }
+
   return (
     <DiaryPagesWrapper>
       <DiaryPagesBackWrapper>
@@ -73,6 +84,7 @@ export default function DiaryPage({ theme }) {
               {windowDimensions.width >= 768 && (
                 <DiaryAddProductForm
                   theme={theme}
+                  getProduct={getAddProduct}
                   currentDate={formatDateForFetch(
                     pickedDate
                   )}
@@ -103,12 +115,13 @@ export default function DiaryPage({ theme }) {
               )}
             </div>
 
-            <RightSideBar />
+            <RightSideBar summary={summary} />
 
             {showModal && (
               <MainModal onClose={toggleModal}>
                 <DiaryAddProductForm
                   theme={theme}
+                  getProduct={getAddProduct}
                   currentDate={formatDateForFetch(
                     pickedDate
                   )}
