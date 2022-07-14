@@ -54,7 +54,10 @@ export default function RegistrationForm() {
 
   useEffect(() => {
     if (isError) {
-      createToast('error', 'Wrong register');
+      createToast(
+        'error',
+        'This mail is already in use. Please, login!'
+      );
       return;
     }
   }, [isError]);
