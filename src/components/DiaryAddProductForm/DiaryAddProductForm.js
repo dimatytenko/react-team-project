@@ -152,6 +152,13 @@ export function DiaryAddProductForm({
             autoComplete="off"
             type="number"
             min="0"
+            id="pyat"
+            className={css`
+              -moz-appearance: textfield;
+              ::-webkit-inner-spin-button {
+                display: none;
+              }
+            `}
             placeholder="Grams"
             value={grams}
             onChange={e => {
