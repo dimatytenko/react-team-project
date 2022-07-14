@@ -27,7 +27,14 @@ export default function DiaryPage({ theme }) {
   const [pickedDate, setPickedDate] = useState(new Date());
   const [productsForDay, setProductsForDay] =
     useState(null);
-  const [summary, setSummary] = useState();
+
+  const [summary, setSummary] = useState({
+    left: 0,
+    consumed: 0,
+    daily_rate: 0,
+    percentage_of_normal: 0,
+  });
+
   const [showModal, setShowModal] = useState(false);
 
   const toggleModal = () => {
