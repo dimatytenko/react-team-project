@@ -13,7 +13,7 @@ export const Title = styled.p`
   letter-spacing: 0.04em;
 `;
 export const Wrapper = styled.div`
-  width: 288px;
+  min-width: 288px;
   height: 100%;
   ${mediaTablet(`
   display: flex;`)};
