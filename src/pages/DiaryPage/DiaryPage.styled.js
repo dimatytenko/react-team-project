@@ -13,14 +13,14 @@ export const DiaryPagesWrapper = styled.div`
 
   background-image: linear-gradient(
     180deg,
-    rgba(255, 255, 255, 1) 408px,
+    rgba(255, 255, 255, 1) 427px,
     rgba(240, 241, 243, 1) 375px
   );
 
   ${mediaTablet(`
     background-image: linear-gradient(
     180deg,
-    rgba(255, 255, 255, 1) 600px,
+    rgba(255, 255, 255, 1) 635px,
     rgba(240, 241, 243, 1) 550px
   );
   `)}
@@ -87,8 +87,4 @@ export const ButtonOpenModalWrapper = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 60px;
-
-  ${mediaTablet(`
-   display: none;
-  `)}
 `;

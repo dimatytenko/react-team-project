@@ -102,9 +102,3 @@ export const AddButtonWrapper = styled.div`
    display: none;
   `)}
 `;
-
-export const AddButtonModalWrapper = styled.div`
-  ${mediaTablet(`
-   display: none;
-  `)}
-`;

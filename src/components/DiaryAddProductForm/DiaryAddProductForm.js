@@ -16,9 +16,8 @@ import {
   ProductsList,
   ProductsItem,
   DiaryAddProduct,
-  AddButtonWrapper,
-  AddButtonModalWrapper,
 } from './DiaryAddProductForm.styled';
+import { useWindowDimensions } from '../../customHooks';
 
 import { createProduct } from '../../services/connectionsAPI';
 axios.defaults.baseURL = 'http://localhost:8080/api';
@@ -26,7 +25,9 @@ axios.defaults.baseURL = 'http://localhost:8080/api';
 export function DiaryAddProductForm({
   theme,
   currentDate,
+  onClose,
 }) {
+  const windowDimensions = useWindowDimensions();
   const [product, setProduct] = useState('');
   const [productObj, setProductObj] = useState(null);
   const [grams, setGrams] = useState('');
@@ -95,6 +96,10 @@ export function DiaryAddProductForm({
 
     setProduct('');
     setGrams('');
+
+    if (windowDimensions.width < 768) {
+      onClose();
+    }
   }
 
   return (
@@ -104,7 +109,7 @@ export function DiaryAddProductForm({
           <DebounceInput
             className={css`
               ${mediaMaxPhone(`
-              width: 100%;
+              width: 280px;
               margin-bottom: 32px;
                 `)}
 
@@ -142,13 +147,14 @@ export function DiaryAddProductForm({
               setGrams(e.target.value);
             }}
           />
-          <AddButtonWrapper>
-            <AddButton type="submit" />
-          </AddButtonWrapper>
 
-          <AddButtonModalWrapper>
+          {windowDimensions.width >= 768 && (
+            <AddButton type="submit" />
+          )}
+
+          {windowDimensions.width < 768 && (
             <AddButtonModal type="submit" />
-          </AddButtonModalWrapper>
+          )}
         </FormBody>
 
         {product !== productsArray[0] &&

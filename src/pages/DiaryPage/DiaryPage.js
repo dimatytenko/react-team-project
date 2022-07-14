@@ -22,8 +22,10 @@ import {
 } from './DiaryPage.styled';
 import { AddButton } from '../../components/AddButton';
 import { MainModal } from '../../components/MainModal';
+import { useWindowDimensions } from '../../customHooks';
 
 export default function DiaryPage({ theme }) {
+  const windowDimensions = useWindowDimensions();
   const [pickedDate, setPickedDate] = useState(new Date());
   const [productsForDay, setProductsForDay] = useState([]);
   const [summary, setSummary] = useState([]);
@@ -67,14 +69,15 @@ export default function DiaryPage({ theme }) {
                 pickedDate={pickedDate}
                 setPickedDate={setPickedDate}
               />
-              <DiaryAddProductFormWrapper>
+
+              {windowDimensions.width >= 768 && (
                 <DiaryAddProductForm
                   theme={theme}
                   currentDate={formatDateForFetch(
                     pickedDate
                   )}
                 />
-              </DiaryAddProductFormWrapper>
+              )}
 
               {/* <DiaryProductsList
                 data={products}
@@ -91,9 +94,13 @@ export default function DiaryPage({ theme }) {
                 )}
               />
 
-              <ButtonOpenModalWrapper onClick={toggleModal}>
-                <AddButton type="button" />
-              </ButtonOpenModalWrapper>
+              {windowDimensions.width < 768 && (
+                <ButtonOpenModalWrapper
+                  onClick={toggleModal}
+                >
+                  <AddButton type="submit" />
+                </ButtonOpenModalWrapper>
+              )}
             </div>
 
             <RightSideBar />
@@ -102,6 +109,9 @@ export default function DiaryPage({ theme }) {
               <MainModal onClose={toggleModal}>
                 <DiaryAddProductForm
                   theme={theme}
+                  currentDate={formatDateForFetch(
+                    pickedDate
+                  )}
                   onClose={toggleModal}
                 />
               </MainModal>
