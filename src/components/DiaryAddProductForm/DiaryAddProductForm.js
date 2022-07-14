@@ -35,6 +35,7 @@ export function DiaryAddProductForm({
   const [productsArray, setProductsArray] = useState([]);
   const [isFocus, setIsFocus] = useState(true);
 
+  // console.log(product);
   // console.log(grams);
   // console.log(productObj);
 
@@ -61,6 +62,10 @@ export function DiaryAddProductForm({
   function handleTitleClick(e) {
     const currentTitle = e.target.outerText;
 
+    if (currentTitle === 'not Found') {
+      return setProduct('');
+    }
+
     const currentProduct = productsArray.find(obj => {
       return obj.title.en === currentTitle;
     });
@@ -81,6 +86,11 @@ export function DiaryAddProductForm({
       createToast('warning', 'Select an existing product!');
       return;
     }
+
+    if (grams.length === 0) {
+      createToast('warning', 'Fill in the gram field!');
+    }
+
     const requestObj = {
       productId: productObj._id,
       weight: grams,
@@ -141,6 +151,7 @@ export function DiaryAddProductForm({
             name="grams"
             autoComplete="off"
             type="number"
+            min="0"
             placeholder="Grams"
             value={grams}
             onChange={e => {
