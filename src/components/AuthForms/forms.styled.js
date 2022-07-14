@@ -29,7 +29,29 @@ export const MyInput = styled(TextField)`
     color: ${props => props.theme.fontColors.primary};
   }
 
-  .css-1c2i806-MuiFormLabel-root-MuiInputLabel-root.Mui-focused {
+  div {
+    &::before {
+      border-bottom: 1px solid #e0e0e0;
+    }
+    &::after {
+      border-bottom: none;
+    }
+  }
+
+  input {
+    &:hover,
+    &:focus {
+      background-color: rgba(255, 140, 0, 0.1);
+    }
+  }
+
+  .css-1yf1g2m:hover:not(.Mui-disabled)::before {
+    // .css-1a1fmpi-MuiInputBase-root-MuiInput-root:hover:not(.Mui-disabled):before {
+    border-bottom: 1px solid #fc842d;
+  }
+
+  .css-348fk2.Mui-focused {
+    // .css-1c2i806-MuiFormLabel-root-MuiInputLabel-root.Mui-focused {
     color: ${props =>
       props.theme.fontColors.buttonSecondary};
   }
