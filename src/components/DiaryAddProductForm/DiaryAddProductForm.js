@@ -7,7 +7,7 @@ import { css } from '@emotion/css';
 
 import { createToast } from '../../functions/toasts';
 import { mediaMaxPhone } from '../../functions/media';
-
+import { formatDateForFetch } from '../../functions/formatDateForFetch';
 import { AddButton } from '../AddButton';
 import { AddButtonModal } from '../AddButtonModal';
 import {
@@ -24,7 +24,7 @@ axios.defaults.baseURL = 'http://localhost:8080/api';
 
 export function DiaryAddProductForm({
   theme,
-  currentDate,
+  date,
   onClose,
   getProduct,
 }) {
@@ -32,14 +32,10 @@ export function DiaryAddProductForm({
   const [product, setProduct] = useState('');
   const [productObj, setProductObj] = useState(null);
   const [grams, setGrams] = useState('');
-
   const [productsArray, setProductsArray] = useState([]);
   const [isFocus, setIsFocus] = useState(true);
 
-  // console.log(product);
-  // console.log(grams);
-  // console.log(productObj);
-
+  // ===== fetch products ==== //
   useEffect(() => {
     if (product === '') {
       setProductsArray([]);
@@ -50,16 +46,16 @@ export function DiaryAddProductForm({
       const { data } = await axios
         .get(`/products?search=${productValue}`)
         .then(res => res.data);
-
       const productsArray = data.products.map(obj => obj);
-
       await setProductsArray(productsArray);
       return productsArray;
     }
 
     fetchProducts(product);
   }, [product]);
+  // =================================== //
 
+  // ===== choose product ==== //
   function handleTitleClick(e) {
     const currentTitle = e.target.outerText;
 
@@ -75,13 +71,23 @@ export function DiaryAddProductForm({
     setProductObj(currentProduct);
     setIsFocus(false);
   }
+  // =================================== //
 
+  // ===== add new product ==== //
   async function handleSubmit(e) {
     e.preventDefault();
 
     const isList = productsArray.some(
       obj => obj.title.en === product
     );
+
+    if (date !== formatDateForFetch(new Date())) {
+      createToast(
+        'warning',
+        'You can not add product in past days!'
+      );
+      return;
+    }
 
     if (!isList) {
       createToast('warning', 'Select an existing product!');
@@ -95,7 +101,7 @@ export function DiaryAddProductForm({
     const requestObj = {
       productId: productObj._id,
       weight: grams,
-      date: currentDate,
+      date: date,
     };
 
     try {
@@ -113,6 +119,7 @@ export function DiaryAddProductForm({
       onClose();
     }
   }
+  // =================================== //
 
   return (
     <DiaryAddProduct>
@@ -147,6 +154,9 @@ export function DiaryAddProductForm({
             value={product}
             name="product"
             placeholder="Enter product name"
+            disabled={
+              date !== formatDateForFetch(new Date())
+            }
           />
 
           <FormInputGrams
@@ -166,6 +176,9 @@ export function DiaryAddProductForm({
             onChange={e => {
               setGrams(e.target.value);
             }}
+            disabled={
+              date !== formatDateForFetch(new Date())
+            }
           />
 
           {windowDimensions.width >= 768 && (

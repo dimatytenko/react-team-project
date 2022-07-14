@@ -43,8 +43,8 @@ export const ModalWindow = styled.div`
     left: 50%;
     transform: translate(-50%, -50%);
     min-height: unset;
-    width: 672px;
-    height: 573px;
+    min-width: 200px;
+    min-height: 200px;
   `)};
 `;
 
