@@ -13,7 +13,7 @@ export const Title = styled.p`
   letter-spacing: 0.04em;
 `;
 export const Wrapper = styled.div`
-  width: 100%;
+  min-width: 288px;
   height: 100%;
   ${mediaTablet(`
   display: flex;`)};
@@ -29,6 +29,7 @@ export const SideBarItem = styled.li`
   }
 `;
 export const SideBarSummary = styled.div`
+  width: 288px;
   margin-bottom: 40px;
   ${mediaTablet(`
   margin-bottom: 0px;
@@ -37,4 +38,7 @@ export const SideBarSummary = styled.div`
   margin-bottom: 40px;
   margin-right: 0px
   `)}
+`;
+export const NotHelthyGroup = styled.div`
+  width: 288px;
 `;

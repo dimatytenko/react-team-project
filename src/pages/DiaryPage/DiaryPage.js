@@ -6,7 +6,7 @@ import { DiaryProductsList } from '../../components/DiaryProductsList';
 import { DiaryDateCalendar } from '../../components/DiaryDateCalendar';
 import { RightSideBar } from '../../components/RightSideBar';
 import { Container } from '../../components/Container';
-import { DiaryAddProductForm } from '../../components/DiaryAddProductForm';
+import { DiaryAddProductForm } from '../../components/DiaryAddProductForm/DiaryAddProductForm';
 
 //форматування вибраної дати для req.params у форматі (рік-місяць-день)
 import { formatDateForFetch } from '../../functions/formatDateForFetch';
