@@ -4,4 +4,5 @@ export const breakPoints = {
   DESKTOP: '1280px',
 };
 
-export const baseURL = 'https://slim-moms.herokuapp.com/';
+export const baseURL =
+  'https://slim-moms.herokuapp.com/api';
