@@ -37,6 +37,8 @@ export const FormInputGrams = styled.input`
   border-bottom: 1px solid #e0e0e0;
   outline: none;
   background-color: transparent;
+  overflow: hidden;
+  text-overflow: ellipsis;
   color: ${props => props.theme.fontColors.primary};
 
   ::placeholder {
@@ -45,9 +47,9 @@ export const FormInputGrams = styled.input`
   }
 
   ${mediaMaxPhone(`
-width: 100%;
-margin-bottom: 60px;
-`)}
+  width: 100%;
+  margin-bottom: 60px;
+  `)}
 
   ${mediaTablet(`
   width: 106px;

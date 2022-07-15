@@ -18,9 +18,10 @@ import {
   DiaryAddProduct,
 } from './DiaryAddProductForm.styled';
 import { useWindowDimensions } from '../../customHooks';
+import { addProduct } from '../../services/productsAPI';
+import { baseURL } from '../../libs/constants';
 
-import { createProduct } from '../../services/connectionsAPI';
-axios.defaults.baseURL = 'http://localhost:8080/api';
+axios.defaults.baseURL = baseURL;
 
 export function DiaryAddProductForm({
   theme,
@@ -95,7 +96,7 @@ export function DiaryAddProductForm({
     }
 
     if (grams.length === 0) {
-      createToast('warning', 'Fill in the gram field!');
+      createToast('warning', 'Fill in the grams field!');
     }
 
     const requestObj = {
@@ -105,7 +106,7 @@ export function DiaryAddProductForm({
     };
 
     try {
-      const { data } = await createProduct(requestObj);
+      const { data } = await addProduct(requestObj);
       console.log(data);
       getProduct(data);
     } catch (error) {
@@ -138,6 +139,8 @@ export function DiaryAddProductForm({
               outline: none;
               background-color: transparent;
               color: ${theme.fontColors.primary};
+              overflow: hidden;
+              text-overflow: ellipsis;
 
               ::placeholder {
                 font-family: 'VerdanaBold';

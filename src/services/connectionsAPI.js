@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = 'http://localhost:8080/api';
+import { baseURL } from '../libs/constants';
+
+axios.defaults.baseURL = baseURL;
 
 export const token = {
   set(token) {
@@ -53,12 +55,6 @@ export async function fetchUserData(calculatorData) {
   return data;
 }
 
-export async function createProduct(product) {
-  const data = await axios
-    .post(`/days`, product)
-    .then(res => res.data);
-  return data;
-}
 export async function getInfoByDate(date) {
   const data = await axios
     .get(`/days/${date}`)

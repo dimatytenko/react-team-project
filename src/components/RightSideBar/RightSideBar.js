@@ -40,7 +40,7 @@ export const RightSideBar = ({
 
     const fetchCalculation = async date => {
       const { data } = await getInfoByDate(date);
-      console.log(data);
+      // console.log(data);
       setCalculation(data.summary);
     };
     if (independent) {
@@ -50,7 +50,7 @@ export const RightSideBar = ({
     fetchNotHelthy(4, 1);
   }, [independent]);
 
-  console.log(summary);
+  // console.log(summary);
   //choosing an operating mode
   const data = independent ? calculation : summary;
 
@@ -109,15 +109,15 @@ export const RightSideBar = ({
 RightSideBar.propTypes = {
   date: PropTypes.string,
   independent: PropTypes.bool,
-  summary: PropTypes.objectOf({
-    left: PropTypes.number.isRequired,
-    consumed: PropTypes.number.isRequired,
-    daily_rate: PropTypes.number.isRequired,
-    percentage_of_normal: PropTypes.number.isRequired,
-    createdAt: PropTypes.string,
-    date: PropTypes.string,
-    updatedAt: PropTypes.string,
-    user_id: PropTypes.string,
-    _id: PropTypes.string,
-  }).isRequired,
+  // summary: PropTypes.objectOf({
+  //   left: PropTypes.number.isRequired,
+  //   consumed: PropTypes.number.isRequired,
+  //   daily_rate: PropTypes.number.isRequired,
+  //   percentage_of_normal: PropTypes.number.isRequired,
+  //   createdAt: PropTypes.string,
+  //   date: PropTypes.string,
+  //   updatedAt: PropTypes.string,
+  //   user_id: PropTypes.string,
+  //   _id: PropTypes.string,
+  // }).isRequired,
 };
