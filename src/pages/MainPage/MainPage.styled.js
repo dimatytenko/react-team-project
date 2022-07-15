@@ -16,10 +16,10 @@ import banana_desk from '../../assets/images/bg-pictures/desktop/banana_desk.png
 import stain_desk from '../../assets/images/bg-pictures/desktop/stain_desk.svg';
 
 export const MainBox = styled.div`
-  width: 100%;
-
   ${mediaTablet(`
   min-height: 100vh;
+  min-width: 768px;
+
     background-image: url(${strawberry}), url(${banana}),
       url(${leaves}), url(${stain});
     background-size: 308px 303px, 491px 431px, 602px 531px,
@@ -31,6 +31,8 @@ export const MainBox = styled.div`
   `)}
 
   ${mediaDesktop(`
+  min-width: 1280px;
+
  background-image: url(${leaves_main}),
       url(${banana_desk}), url(${strawberry_desk}),
       url(${stain_desk});

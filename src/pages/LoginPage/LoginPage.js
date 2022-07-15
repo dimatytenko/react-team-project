@@ -7,13 +7,13 @@ import { MainBox } from '../MainPage/MainPage.styled';
 import { LoginRegisterWrapper } from './LoginPage.styled';
 export default function LoginPage(props) {
   return (
-    <MainBox>
-      <Container>
+    <Container>
+      <MainBox>
         <LoginRegisterWrapper>
           <Login />
         </LoginRegisterWrapper>
-      </Container>
-    </MainBox>
+      </MainBox>
+    </Container>
   );
 }
 

@@ -8,13 +8,13 @@ import RegistrationForm from '../../components/AuthForms/RegistrationForm';
 
 export default function RegistrationPage(props) {
   return (
-    <MainBox>
-      <Container>
+    <Container>
+      <MainBox>
         <LoginRegisterWrapper>
           <RegistrationForm />
         </LoginRegisterWrapper>
-      </Container>
-    </MainBox>
+      </MainBox>
+    </Container>
   );
 }
 

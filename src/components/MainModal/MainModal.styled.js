@@ -10,6 +10,7 @@ export const Overlay = styled.div`
   width: 100vw;
   height: 100vh;
   z-index: 1200;
+  overflow: overlay;
 
   ${mediaTablet(`
     background-color: rgba(33, 33, 33, 0.12);
@@ -28,13 +29,12 @@ export const BtnCloseModalMobile = styled.button`
 `;
 
 export const ModalWindow = styled.div`
-  position: relative;
+  position: fixed;
   top: 126px;
-  min-width: 320px;
+  width: 100%;
   background-color: ${props =>
     props.theme.backgrounds.bodyPrimary};
-  min-height: 100%;
-  max-height: 100%;
+  min-height: 100vh;
   z-index: 1201;
 
   ${mediaTablet(`

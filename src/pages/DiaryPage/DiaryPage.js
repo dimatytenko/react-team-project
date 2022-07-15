@@ -38,6 +38,9 @@ export default function DiaryPage({ theme }) {
 
   const [showModal, setShowModal] = useState(false);
 
+  if (showModal) {
+  } else {
+  }
   const toggleModal = () => {
     setShowModal(prevState => !prevState);
   };
@@ -47,6 +50,7 @@ export default function DiaryPage({ theme }) {
       setShowModal(false);
     }
   }, [windowDimensions]);
+
   //ефект при маунті або якщо змінилася дата в календарі
   useEffect(() => {
     const formattedPickedDate =
