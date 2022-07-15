@@ -87,7 +87,6 @@ export default function DiaryPage({ theme }) {
     return data;
   }
   // =================================== //
-  console.log(pickedDate);
 
   return (
     <DiaryPagesWrapper>
@@ -140,7 +139,7 @@ export default function DiaryPage({ theme }) {
 
             <RightSideBar
               summary={summary}
-              date={formatDateForFetch(pickedDate)}
+              date={pickedDate}
             />
 
             {showModal && (

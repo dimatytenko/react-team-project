@@ -3,11 +3,10 @@ import PropTypes from 'prop-types';
 import { format } from 'date-fns';
 import { SideBarListItem as Item } from '../SideBarListItem';
 import { SideBarList as List } from '../SideBarList';
-import { useSelector } from 'react-redux';
 import { getInfoByDate } from '../../services/connectionsAPI';
-
 import { getUnhealthyProducts } from '../../services/productsAPI';
-import { getUserDailyRate } from '../../redux/auth/authSelectors';
+import { formatDateForFetch } from '../../functions/formatDateForFetch';
+import { formatDateForUser } from '../../functions/formatDataForUser';
 import {
   Title,
   Wrapper,
@@ -21,17 +20,14 @@ const defaultState = {
   daily_rate: '000',
   percentage_of_normal: '000',
 };
-export const RightSideBar = ({
-  date,
-  independent = false,
-  summary = defaultState,
-}) => {
+export const RightSideBar = ({ date, summary }) => {
   const [notHelthy, setNotHelthy] = useState([]);
   const [calculation, setCalculation] =
     useState(defaultState);
-  const dailyRate = useSelector(getUserDailyRate);
-
   useEffect(() => {
+    const pickedDate = date
+      ? formatDateForFetch(date)
+      : formatDateForFetch(new Date());
     const fetchNotHelthy = async (limit, page) => {
       try {
         const { data } = await getUnhealthyProducts(
@@ -46,34 +42,16 @@ export const RightSideBar = ({
     const fetchCalculation = async date => {
       try {
         const { data } = await getInfoByDate(date);
-
         setCalculation(data.summary);
-      } catch (error) {
-        setCalculation({
-          left: dailyRate ?? 0,
-          consumed: 0,
-          daily_rate: dailyRate ?? 0,
-          percentage_of_normal: 0,
-        });
+      } catch {
+        setCalculation(defaultState);
       }
     };
-    if (independent) {
-      const date = format(new Date(), 'yyyy-MM-dd');
-      fetchCalculation(date);
-    }
     fetchNotHelthy(4, 1);
-  }, [independent, dailyRate]);
-  //if props.summary === null return defaultState
-  const newSummary = summary ?? {
-    left: dailyRate ?? 0,
-    consumed: 0,
-    daily_rate: dailyRate ?? 0,
-    percentage_of_normal: 0,
-  };
+    fetchCalculation(pickedDate);
+  }, [date]);
 
-  //choosing an operating mode
-  const data = independent ? calculation : newSummary;
-
+  const data = summary ? summary : calculation;
   const {
     left,
     consumed,
@@ -86,12 +64,16 @@ export const RightSideBar = ({
       <SideBarSummary>
         <Title>
           Summary for{' '}
-          {date ? date : format(new Date(), 'dd.MM.yyyy')}
+          {date
+            ? formatDateForUser(date)
+            : formatDateForUser(new Date())}
         </Title>
         <ul>
           <SideBarItem>
-            <span>{left > 0 ? 'Left' : 'Overate on'}</span>
-            <span>{Math.abs(left)} kcal</span>
+            <span>{left >= 0 ? 'Left' : 'Overate on'}</span>
+            <span>
+              {left >= 0 ? left : Math.abs(left)} kcal
+            </span>
           </SideBarItem>
           <SideBarItem>
             <span>Consumed</span>
@@ -129,6 +111,5 @@ export const RightSideBar = ({
   );
 };
 RightSideBar.propTypes = {
-  date: PropTypes.string,
-  independent: PropTypes.bool,
+  date: PropTypes.instanceOf(Date),
 };
