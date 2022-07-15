@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+//import { VscSettingsGear } from 'react-icons/vsc';
 import {
   mediaTablet,
   mediaDesktop,
@@ -80,3 +81,11 @@ export const UserInfoWrapperMobile = styled.div`
   justify-content: end;
   gap: 30px;
 `;
+
+// export const SettingsIcon = styled.div`
+//   position: absolute;
+//   right: 0;
+//   top: 30px;
+
+//   transform: rotate(90deg);
+// `;

@@ -7,6 +7,7 @@ import { BurgerDrawer } from '../BurgerDrawer';
 import { useSelector } from 'react-redux';
 import { authSelectors } from '../../redux/auth';
 import { Logo } from '../Logo';
+
 // import { SwitchTheme } from '../../components/SwitchTheme';
 
 import {
@@ -16,6 +17,7 @@ import {
   UserInfoWrapperDesc,
   UserInfoWrapperMobile,
   UserBarMobile,
+  // SettingsIcon,
 } from './Header.styled';
 
 export const Header = () => {
@@ -37,9 +39,11 @@ export const Header = () => {
   return (
     <>
       <HeaderStyled>
+        {/* <SettingsIcon>settings</SettingsIcon> */}
         <Container>
           <NavWrapper>
             <Logo />
+
             <NavInHeader />
             {isLoggedIn && (
               <>
