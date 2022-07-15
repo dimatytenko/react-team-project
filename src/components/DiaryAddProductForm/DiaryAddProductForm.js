@@ -99,6 +99,7 @@ export function DiaryAddProductForm({
 
     if (grams.length === 0) {
       createToast('warning', 'Fill in the grams field!');
+      return;
     }
 
     const requestObj = {
