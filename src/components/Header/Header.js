@@ -8,16 +8,17 @@ import { useSelector } from 'react-redux';
 import { authSelectors } from '../../redux/auth';
 import { Logo } from '../Logo';
 
-// import { SwitchTheme } from '../../components/SwitchTheme';
+import { SwitchTheme } from '../../components/SwitchTheme';
 
 import {
   NavWrapper,
+  HeaderSubContainer,
   BurgerWrapper,
   HeaderStyled,
   UserInfoWrapperDesc,
   UserInfoWrapperMobile,
   UserBarMobile,
-  // SettingsIcon,
+  SettingsIcon,
 } from './Header.styled';
 
 export const Header = () => {
@@ -60,7 +61,6 @@ export const Header = () => {
               </>
             )}
           </NavWrapper>
-          {/* <SwitchTheme /> */}
         </Container>
       </HeaderStyled>
       {isLoggedIn && (

@@ -1,21 +1,45 @@
 import styled from '@emotion/styled';
 import Switch from '@mui/material/Switch';
-import { mediaTablet } from '../../functions/media';
+import {
+  mediaTablet,
+  mediaDesktop,
+} from '../../functions/media';
 
 export const SwitchThemeWrapper = styled.div`
-  position: fixed;
-  top: 93vh;
-  left: 2vw;
-  z-index: 1000;
   ${mediaTablet(`
-  display: block;
-`)}
+  position: absolute;
+  right: -5px;
+  top:85px;
+  `)}
+
+  ${mediaDesktop(`
+        right: 25px;
+    top: 190px;
+  `)}
+`;
+
+export const SwitchSubContainer = styled.div`
+  width: 280px;
+  height: 38px;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+
+  ${mediaTablet(`
+    position: relative;
+    min-width: 704px;
+  `)}
+
+  ${mediaDesktop(`
+    min-width: 1264px;
+  `)}
 `;
 
 export const SwitchThemes = styled(Switch)(({ theme }) => ({
-  width: 62,
-  height: 34,
+  width: 54,
+  height: 32,
   padding: 7,
+
   '& .MuiSwitch-switchBase': {
     margin: 1,
     padding: 0,
@@ -40,8 +64,8 @@ export const SwitchThemes = styled(Switch)(({ theme }) => ({
   '& .MuiSwitch-thumb': {
     backgroundColor:
       theme.palette.mode === 'dark' ? '#003892' : '#001e3c',
-    width: 32,
-    height: 32,
+    width: 28,
+    height: 28,
     '&:before': {
       content: "''",
       position: 'absolute',
