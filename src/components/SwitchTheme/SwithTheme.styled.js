@@ -8,13 +8,14 @@ import {
 export const SwitchThemeWrapper = styled.div`
   ${mediaTablet(`
   position: absolute;
+  z-index: 13000;
   right: -5px;
   top:85px;
   `)}
 
   ${mediaDesktop(`
-        right: 25px;
-    top: 190px;
+        right: 22px;
+    top: 60px;
   `)}
 `;
 
@@ -28,6 +29,8 @@ export const SwitchSubContainer = styled.div`
   ${mediaTablet(`
     position: relative;
     min-width: 704px;
+  height: unset;
+
   `)}
 
   ${mediaDesktop(`

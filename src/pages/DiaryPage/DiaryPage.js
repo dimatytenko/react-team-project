@@ -62,7 +62,7 @@ export default function DiaryPage({ theme }) {
       } catch (error) {
         // console.log(error);
         //якщо данних по дню немає, бек кидає BAD REQUEST
-        if (error?.response?.status === 400) {
+        if (error?.response?.status === 404) {
           setProductsForDay([]);
           setSummary(null);
         }
@@ -87,6 +87,7 @@ export default function DiaryPage({ theme }) {
     return data;
   }
   // =================================== //
+  console.log(pickedDate);
 
   return (
     <DiaryPagesWrapper>
@@ -136,13 +137,18 @@ export default function DiaryPage({ theme }) {
                   </ButtonOpenModalWrapper>
                 )}
             </div>
-            <RightSideBar summary={summary} />
+
+            <RightSideBar
+              summary={summary}
+              date={formatDateForFetch(pickedDate)}
+            />
+
             {showModal && (
               <MainModal onClose={toggleModal}>
                 <DiaryAddProductForm
                   theme={theme}
                   getProduct={getAddProduct}
-                  date={formatDateForFetch(pickedDate)}
+                  date={pickedDate}
                   onClose={toggleModal}
                 />
               </MainModal>
