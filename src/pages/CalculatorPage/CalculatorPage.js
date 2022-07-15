@@ -51,7 +51,7 @@ export default function CalculatorPage(props) {
               data={calculatingData}
               isLoading={isLoading}
             />
-            <RightSideBar independent />
+            <RightSideBar />
           </CalculatorWrapper>
         </Container>
       </UserPagesBackWrapper>
