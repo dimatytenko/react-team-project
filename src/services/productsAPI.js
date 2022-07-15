@@ -10,3 +10,12 @@ export async function addProduct(product) {
     .then(res => res.data);
   return data;
 }
+export async function getUnhealthyProducts(
+  limit,
+  page = 1
+) {
+  const data = await axios
+    .get(`/products/unhealthy?page=${page}&limit=${limit}`)
+    .then(res => res.data);
+  return data;
+}

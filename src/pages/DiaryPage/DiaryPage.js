@@ -27,12 +27,7 @@ export default function DiaryPage({ theme }) {
   const [pickedDate, setPickedDate] = useState(new Date());
   const [productsForDay, setProductsForDay] = useState([]);
 
-  const [summary, setSummary] = useState({
-    left: 0,
-    consumed: 0,
-    daily_rate: 0,
-    percentage_of_normal: 0,
-  });
+  const [summary, setSummary] = useState(null);
 
   const [showModal, setShowModal] = useState(false);
 
@@ -63,7 +58,7 @@ export default function DiaryPage({ theme }) {
         //якщо данних по дню немає, бек кидає BAD REQUEST
         if (error?.response?.status === 400) {
           setProductsForDay([]);
-          setSummary([]);
+          setSummary(null);
         }
       }
     };
