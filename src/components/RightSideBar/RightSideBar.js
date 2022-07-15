@@ -72,15 +72,15 @@ export const RightSideBar = ({
         <ul>
           <SideBarItem>
             <span>Left</span>
-            <span>{left} kkal</span>
+            <span>{left} kcal</span>
           </SideBarItem>
           <SideBarItem>
             <span>Consumed</span>
-            <span>{consumed} kkal</span>
+            <span>{consumed} kcal</span>
           </SideBarItem>
           <SideBarItem>
             <span>Daily rate</span>
-            <span>{daily_rate} kkal</span>
+            <span>{daily_rate} kcal</span>
           </SideBarItem>
           <SideBarItem>
             <span>n &#37; of normal</span>
