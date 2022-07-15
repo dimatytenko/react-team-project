@@ -135,7 +135,6 @@ export default function DiaryPage({ theme }) {
                 />
               </MainModal>
             )}
-            ;
           </DiaryPageWrapper>
         </Container>
       </DiaryPagesBackWrapper>
