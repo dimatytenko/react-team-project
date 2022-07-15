@@ -19,9 +19,9 @@ import {
 } from './DiaryAddProductForm.styled';
 import { useWindowDimensions } from '../../customHooks';
 import { addProduct } from '../../services/productsAPI';
-import { baseURL } from '../../libs/constants';
+// import { baseURL } from '../../libs/constants';
 
-axios.defaults.baseURL = baseURL;
+// axios.defaults.baseURL = baseURL;
 
 export function DiaryAddProductForm({
   theme,
@@ -107,10 +107,10 @@ export function DiaryAddProductForm({
 
     try {
       const { data } = await addProduct(requestObj);
-      console.log(data);
+      // console.log(data);
       getProduct(data);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
 
     setProduct('');

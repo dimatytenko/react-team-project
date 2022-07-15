@@ -25,8 +25,7 @@ import { useWindowDimensions } from '../../customHooks';
 export default function DiaryPage({ theme }) {
   const windowDimensions = useWindowDimensions();
   const [pickedDate, setPickedDate] = useState(new Date());
-  const [productsForDay, setProductsForDay] =
-    useState(null);
+  const [productsForDay, setProductsForDay] = useState([]);
 
   const [summary, setSummary] = useState({
     left: 0,
