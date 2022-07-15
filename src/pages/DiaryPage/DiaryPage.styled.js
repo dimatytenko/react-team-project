@@ -13,14 +13,14 @@ export const DiaryPagesWrapper = styled.div`
 
   background-image: linear-gradient(
     180deg,
-    rgba(255, 255, 255, 1) 427px,
+    rgba(255, 255, 255, 1) 440px,
     rgba(240, 241, 243, 1) 375px
   );
 
   ${mediaTablet(`
     background-image: linear-gradient(
     180deg,
-    rgba(255, 255, 255, 1) 635px,
+    rgba(255, 255, 255, 1) 620px,
     rgba(240, 241, 243, 1) 550px
   );
   `)}
@@ -60,7 +60,7 @@ export const DiaryPageWrapper = styled.div`
   padding-bottom: 80px;
   display: flex;
   flex-direction: column;
-  gap: 80px;
+  gap: 220px;
 
   ${mediaTablet(`
   padding-top: 180px;
@@ -84,7 +84,8 @@ export const DiaryAddProductFormWrapper = styled.div`
 `;
 
 export const ButtonOpenModalWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-top: 60px;
+  position: absolute;
+  top: 510px;
+  left: 50%;
+  transform: translateX(-50%);
 `;

@@ -60,7 +60,7 @@ export default function DiaryPage({ theme }) {
         //для summary по дню
         setSummary(data.data.summary);
       } catch (error) {
-        console.log(error);
+        // console.log(error);
         //якщо данних по дню немає, бек кидає BAD REQUEST
         if (error?.response?.status === 400) {
           setProductsForDay([]);
