@@ -19,6 +19,8 @@ import {
 } from './DiaryAddProductForm.styled';
 import { useWindowDimensions } from '../../customHooks';
 import { addProduct } from '../../services/productsAPI';
+import { breakPoints } from '../../libs/constants';
+
 // import { baseURL } from '../../libs/constants';
 
 // axios.defaults.baseURL = baseURL;
@@ -116,7 +118,7 @@ export function DiaryAddProductForm({
     setProduct('');
     setGrams('');
 
-    if (windowDimensions.width < 768) {
+    if (windowDimensions.width < breakPoints.TABLET) {
       onClose();
     }
   }
@@ -184,11 +186,11 @@ export function DiaryAddProductForm({
             }
           />
 
-          {windowDimensions.width >= 768 && (
+          {windowDimensions.width >= breakPoints.TABLET && (
             <AddButton type="submit" />
           )}
 
-          {windowDimensions.width < 768 && (
+          {windowDimensions.width < breakPoints.TABLET && (
             <AddButtonModal type="submit" />
           )}
         </FormBody>

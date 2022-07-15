@@ -1,7 +1,7 @@
 export const breakPoints = {
-  PHONE: '320px',
-  TABLET: '767.98px',
-  DESKTOP: '1280px',
+  PHONE: 300,
+  TABLET: 723.98,
+  DESKTOP: 1268,
 };
 
 export const baseURL =

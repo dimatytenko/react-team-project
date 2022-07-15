@@ -21,11 +21,13 @@ import {
 import { AddButton } from '../../components/AddButton';
 import { MainModal } from '../../components/MainModal';
 import { useWindowDimensions } from '../../customHooks';
+import { breakPoints } from '../../libs/constants';
 
 export default function DiaryPage({ theme }) {
   const windowDimensions = useWindowDimensions();
   const [pickedDate, setPickedDate] = useState(new Date());
-  const [productsForDay, setProductsForDay] = useState([]);
+  const [productsForDay, setProductsForDay] =
+    useState(null);
 
   const [summary, setSummary] = useState({
     left: 0,
@@ -41,7 +43,7 @@ export default function DiaryPage({ theme }) {
   };
 
   useEffect(() => {
-    if (windowDimensions.width >= 768) {
+    if (windowDimensions.width >= breakPoints.TABLET) {
       setShowModal(false);
     }
   }, [windowDimensions]);
@@ -75,7 +77,13 @@ export default function DiaryPage({ theme }) {
     const newProduct = data.addedProduct;
     const newSummary = data.summary;
 
-    setProductsForDay(state => [newProduct, ...state]);
+    setProductsForDay(state => {
+      if (state === null) {
+        return [newProduct];
+      } else {
+        return [newProduct, ...state];
+      }
+    });
     setSummary(newSummary);
     return data;
   }
@@ -92,13 +100,16 @@ export default function DiaryPage({ theme }) {
                 setPickedDate={setPickedDate}
               />
 
-              {windowDimensions.width >= 768 && (
-                <DiaryAddProductForm
-                  theme={theme}
-                  getProduct={getAddProduct}
-                  date={formatDateForFetch(pickedDate)}
-                />
-              )}
+              {windowDimensions.width >=
+                breakPoints.TABLET &&
+                formatDateForFetch(pickedDate) ===
+                  formatDateForFetch(new Date()) && (
+                  <DiaryAddProductForm
+                    theme={theme}
+                    getProduct={getAddProduct}
+                    date={formatDateForFetch(pickedDate)}
+                  />
+                )}
 
               {/* <DiaryProductsList
                 data={products}
@@ -115,13 +126,16 @@ export default function DiaryPage({ theme }) {
                 )}
               />
 
-              {windowDimensions.width < 768 && (
-                <ButtonOpenModalWrapper
-                  onClick={toggleModal}
-                >
-                  <AddButton type="submit" />
-                </ButtonOpenModalWrapper>
-              )}
+              {windowDimensions.width <
+                breakPoints.TABLET &&
+                formatDateForFetch(pickedDate) ===
+                  formatDateForFetch(new Date()) && (
+                  <ButtonOpenModalWrapper
+                    onClick={toggleModal}
+                  >
+                    <AddButton type="submit" />
+                  </ButtonOpenModalWrapper>
+                )}
             </div>
             <RightSideBar summary={summary} />
             {showModal && (
@@ -142,5 +156,5 @@ export default function DiaryPage({ theme }) {
 }
 
 DiaryPage.propTypes = {
-  theme: PropTypes.object,
+  theme: PropTypes.object.isRequired,
 };
