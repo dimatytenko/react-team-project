@@ -90,8 +90,8 @@ export const RightSideBar = ({
         </Title>
         <ul>
           <SideBarItem>
-            <span>Left</span>
-            <span>{left} kcal</span>
+            <span>{left > 0 ? 'Left' : 'Overate on'}</span>
+            <span>{Math.abs(left)} kcal</span>
           </SideBarItem>
           <SideBarItem>
             <span>Consumed</span>
