@@ -7,6 +7,7 @@ export const UserName = styled.button`
   outline: none;
   font-family: 'GothamproBold';
   letter-spacing: 0.04em;
+  color: ${props => props.theme.fontColors.modify};
 
   &::after {
     content: '';
