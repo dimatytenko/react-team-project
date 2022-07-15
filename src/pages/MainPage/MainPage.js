@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { Container } from '../../components/Container';
 import { MainBox, MainWrapper } from './MainPage.styled';
 import { DailyCaloriesForm } from '../../components/DailyCaloriesForm/DailyCaloriesForm.js';
-import { getKcal } from '../../services/connectionsAPI';
+import { getKcal } from '../../services/getKcal';
 
 import { Modal } from '../../components/Modal/Modal';
 

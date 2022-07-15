@@ -6,7 +6,7 @@ import { UserInfo } from '../UserInfo';
 import { BurgerDrawer } from '../BurgerDrawer';
 import { useSelector } from 'react-redux';
 import { authSelectors } from '../../redux/auth';
-import { Logo } from '../Logo';
+import { LinkLogo } from '../Logo/LinkLogo';
 
 import { SwitchTheme } from '../../components/SwitchTheme';
 
@@ -43,7 +43,7 @@ export const Header = () => {
         {/* <SettingsIcon>settings</SettingsIcon> */}
         <Container>
           <NavWrapper>
-            <Logo />
+            <LinkLogo />
 
             <NavInHeader />
             {isLoggedIn && (

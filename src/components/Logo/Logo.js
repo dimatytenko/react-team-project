@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { authSelectors } from '../../redux/auth';
 
@@ -17,18 +16,14 @@ export const Logo = () => {
   );
 
   return (
-    <Link to="/">
-      <LogoContainer>
-        <LogoFirst></LogoFirst>
-        {(isLoggedIn && <LogoSlim></LogoSlim>) ||
-          (!isLoggedIn && width > 768 && (
-            <LogoSlim></LogoSlim>
-          ))}
-        {(isLoggedIn && <LogoMom></LogoMom>) ||
-          (!isLoggedIn && width > 768 && (
-            <LogoMom></LogoMom>
-          ))}
-      </LogoContainer>
-    </Link>
+    <LogoContainer>
+      <LogoFirst></LogoFirst>
+      {(isLoggedIn && <LogoSlim></LogoSlim>) ||
+        (!isLoggedIn && width > 768 && (
+          <LogoSlim></LogoSlim>
+        ))}
+      {(isLoggedIn && <LogoMom></LogoMom>) ||
+        (!isLoggedIn && width > 768 && <LogoMom></LogoMom>)}
+    </LogoContainer>
   );
 };
