@@ -2,10 +2,12 @@ import { GoX } from 'react-icons/go';
 import Tooltip from 'rc-tooltip';
 import 'rc-tooltip/assets/bootstrap.css';
 import axios from 'axios';
+import { useState } from 'react';
 import {
   TableStyled,
   ButtonCross,
 } from './DiaryProductsList.styled';
+import { AlertModal } from '../AlertModal';
 
 export const DiaryProductsList = ({
   productsForDay,
@@ -14,6 +16,10 @@ export const DiaryProductsList = ({
   isPickedDateToday,
 }) => {
   const productList = makeRows();
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  const [productIndex, setProductIndex] = useState('');
 
   function makeRows() {
     const rowsData = productsForDay?.reduce(
@@ -61,12 +67,22 @@ export const DiaryProductsList = ({
     }
   };
 
+  const openAlertModal = idx => {
+    setProductIndex(idx);
+    handleOpen();
+  };
+
+  const confirmDeleting = idx => {
+    removeProduct(idx);
+    handleClose();
+  };
+
   const renderAction = (o, row, index) => {
     return (
       isPickedDateToday && (
         <ButtonCross
           type="button"
-          onClick={() => removeProduct(index)}
+          onClick={() => openAlertModal(index)}
         >
           <GoX color={'#9B9FAA'} size={14} />
         </ButtonCross>
@@ -113,11 +129,19 @@ export const DiaryProductsList = ({
   ];
 
   return (
-    <TableStyled
-      columns={columns}
-      data={productList}
-      showHeader={false}
-      emptyText={'No products in diary for this day'}
-    />
+    <>
+      <TableStyled
+        columns={columns}
+        data={productList}
+        showHeader={false}
+        emptyText={'No products in diary for this day'}
+      />
+      <AlertModal
+        open={open}
+        handleClose={handleClose}
+        handleConfirm={() => confirmDeleting(productIndex)}
+        text={'Are you sure you want to delete?'}
+      ></AlertModal>
+    </>
   );
 };
