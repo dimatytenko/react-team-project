@@ -20,7 +20,7 @@ export function useWindowDimensions() {
 
     window.addEventListener(
       'resize',
-      _.throttle(handleResize, 500)
+      _.throttle(handleResize, 300)
     );
     return () =>
       window.removeEventListener('resize', handleResize);

@@ -11,6 +11,9 @@ export const NavigationNotSigned = styled.nav`
   ${mediaTablet(`
   margin-left: auto;
 `)}
+  ${mediaDesktop(`
+  margin-left: 0;
+`)}
 `;
 
 export const NavListSigned = styled.ul`
