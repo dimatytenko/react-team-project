@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import _ from 'lodash';
 
 function getWindowDimensions() {
   const { innerWidth: width } = window;
@@ -18,10 +17,7 @@ export function useWindowDimensions() {
       setWindowDimensions(getWindowDimensions());
     }
 
-    window.addEventListener(
-      'resize',
-      _.throttle(handleResize, 300)
-    );
+    window.addEventListener('resize', handleResize);
     return () =>
       window.removeEventListener('resize', handleResize);
   }, []);
