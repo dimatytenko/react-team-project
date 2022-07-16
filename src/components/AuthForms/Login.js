@@ -20,6 +20,7 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { authSelectors } from '../../redux/auth';
 import { createToast } from '../../functions';
+import GoogleAuth from './GoogleAuth';
 
 export default function Login(props) {
   const dispatch = useDispatch();
@@ -118,6 +119,7 @@ export default function Login(props) {
           <BtnWrapp>
             <Button type="submit">Login</Button>
             <ButtonLink to="/register">Register</ButtonLink>
+            <GoogleAuth />
           </BtnWrapp>
         </AuthForm>
       </Wrapper>

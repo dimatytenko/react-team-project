@@ -14,6 +14,16 @@ const authSlice = createSlice({
   name: 'auth',
   initialState,
   extraReducers: {
+    [authOperations.googleAuth.fulfilled]: (
+      state,
+      { payload }
+    ) => {
+      state.user = payload;
+      state.token = payload.token;
+      state.isLoggedIn = true;
+      state.isError = null;
+    },
+
     [authOperations.register.fulfilled](
       state,
       { payload }
