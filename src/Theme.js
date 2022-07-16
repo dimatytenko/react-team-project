@@ -48,7 +48,7 @@ export const ThemeDark = createTheme({
     primary: '#ffffff',
     secondary: '#ffffff',
     modify: '#FC842D',
-    buttonPrimary: '#9B9FAA',
+    buttonPrimary: '#ffffff',
     buttonSecondary: '#FC842D',
   },
   hovers: {
