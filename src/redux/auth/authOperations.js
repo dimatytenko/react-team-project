@@ -3,6 +3,20 @@ import * as connectionsAPI from '../../services/connectionsAPI';
 
 const token = connectionsAPI.token;
 
+export const googleAuth = createAsyncThunk(
+  'auth/google',
+  async () => {
+    try {
+      const { data } =
+        await connectionsAPI.fetchGoogleAuth();
+      token.set(data.token);
+      return data;
+    } catch (error) {
+      return error.rejectWithValue();
+    }
+  }
+);
+
 export const register = createAsyncThunk(
   'auth/register',
   async userData => {

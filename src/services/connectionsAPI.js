@@ -1,4 +1,5 @@
 import axios from 'axios';
+// import { func } from 'prop-types';
 
 import { baseURL } from '../libs/constants';
 
@@ -12,6 +13,13 @@ export const token = {
     axios.defaults.headers.common.Authorization = '';
   },
 };
+
+export async function fetchGoogleAuth() {
+  const data = await axios
+    .get('/users/google')
+    .then(res => res.data);
+  return data;
+}
 
 export async function fetchRegister(userData) {
   const data = await axios
