@@ -174,6 +174,50 @@ export const ButtonLink = styled(Link)`
  `)}
 `;
 
+export const ButtonGoogle = styled.button`
+  width: 182px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  /* padding: 13px 0; */
+  letter-spacing: 0.04em;
+  cursor: pointer;
+
+  &:not(:last-child) {
+    margin-top: 40px;
+    margin-bottom: 20px;
+  }
+
+  color: ${props => props.theme.fontColors.buttonPrimary};
+  background: ${props =>
+    props.theme.backgrounds.buttonPrimary};
+  border: none;
+  box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+  border-radius: 30px;
+  transition: transform
+      ${props => props.theme.transitions.primary},
+    background-color
+      ${props => props.theme.transitions.primary};
+
+  &:hover,
+  &:focus {
+    transform: scale(1.1);
+    background-color: ${props =>
+      props.theme.hovers.secondary};
+  }
+
+  ${mediaTablet(` 
+   margin-top: 40px; 
+  &:not(:last-child) {
+    margin-right: 32px;
+  }
+ `)}
+`;
+
 export const AuthForm = styled(Box)`
   display: flex;
   flex-direction: column;

@@ -20,7 +20,10 @@ export const validationsSchemaRegistrationEn = yup
       .string()
       .email()
       .required()
-      .matches(emailRegExp, 'Email must be like: *@*.**'),
+      .matches(
+        emailRegExp,
+        'Email must be like: name@mail.com'
+      ),
 
     password: yup
       .string()
@@ -30,7 +33,7 @@ export const validationsSchemaRegistrationEn = yup
       .required()
       .matches(
         passwordRegExp,
-        'Password must contain only Latin letters at least 8 characters, one uppercase, one number'
+        'Only Latin & number (min: 8 characters, 1 upper, 1 num)'
       ),
 
     confirmPassword: yup
@@ -51,16 +54,7 @@ export const validationsSchemaSignInEn = yup
       .required()
       .matches(emailRegExp, 'Email must be like: *@*.**'),
 
-    password: yup
-      .string()
-      .min(8)
-      .max(32)
-      .typeError()
-      .required()
-      .matches(
-        passwordRegExp,
-        'Password must contain only Latin letters at least 8 characters, one uppercase, one number'
-      ),
+    password: yup.string(),
   });
 
 export const validationsSchemaRegistrationUA = yup
@@ -86,7 +80,7 @@ export const validationsSchemaRegistrationUA = yup
       .required("Обов'язкове поле")
       .matches(
         passwordRegExp,
-        'Пароль має містити лише латинські літери, не менше 8 символів, одна велика літера, одна цифра'
+        'Тільки латиниця та цифри (мін: 8 символів, 1 велика, 1 цифра)'
       ),
 
     confirmPassword: yup
@@ -106,14 +100,5 @@ export const validationsSchemaSignInUA = yup
       .email('Введіть вірний email')
       .required("Обов'язкове поле"),
 
-    password: yup
-      .string()
-      .min(8, 'Мінімум 8 символи')
-      .max(32, 'Максимум 32 символі')
-      .typeError('Має бути рядкомй')
-      .required("Обов'язкове поле")
-      .matches(
-        passwordRegExp,
-        'Пароль має містити лише латинські літери, не менше 8 символів, одна велика літера, одна цифра'
-      ),
+    password: yup.string(),
   });
