@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import TextField from '@mui/material/TextField';
-import { Form } from 'formik';
+import { Form, Field } from 'formik';
 import {
   mediaTablet,
   mediaDesktop,
@@ -138,7 +138,7 @@ export const RadioButtonLabel = styled.label`
   }
 `;
 
-export const RadioButtonInput = styled.input`
+export const RadioButtonInput = styled(Field)`
   position: absolute;
   opacity: 0;
   cursor: pointer;

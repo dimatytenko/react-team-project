@@ -72,72 +72,91 @@ export const DailyCaloriesForm = ({
           onFormSubmit(values);
         }}
       >
-        <CalculatorForm>
-          <FormFlexContainer>
-            <FormFlexContainerLeft>
-              <MyTextInput
-                label="Height, cm *"
-                name="height"
-                type="number"
-              />
-              <MyTextInput
-                label="Age *"
-                name="age"
-                type="number"
-              />
-              <MyTextInput
-                label="Current weight, kg *"
-                name="weight_current"
-                type="number"
-              />
-            </FormFlexContainerLeft>
-            <div>
-              <MyTextInput
-                label="Desired weight, kg *"
-                name="weight_desired"
-                type="number"
-              />
-              <RadioButtonsTitle id="my-radio-group">
-                Blood type *
-              </RadioButtonsTitle>
-              <div
-                role="group"
-                aria-labelledby="my-radio-group"
-              >
-                <MyRadioButton
-                  label="1"
-                  id="1"
-                  name="blood"
-                  value="1"
-                  checked
-                />
-                <MyRadioButton
-                  label="2"
-                  id="2"
-                  name="blood"
-                  value="2"
-                />
-                <MyRadioButton
-                  label="3"
-                  id="3"
-                  name="blood"
-                  value="3"
-                />
-                <MyRadioButton
-                  label="4"
-                  id="4"
-                  name="blood"
-                  value="4"
-                />
-              </div>
-            </div>
-          </FormFlexContainer>
-          <Button type="submit">
-            {isLoading
-              ? 'Calculating...'
-              : 'Start losing weight'}
-          </Button>
-        </CalculatorForm>
+        {({ values, setFieldValue }) => {
+          return (
+            <CalculatorForm>
+              <FormFlexContainer>
+                <FormFlexContainerLeft>
+                  <MyTextInput
+                    label="Height, cm *"
+                    name="height"
+                    type="number"
+                  />
+                  <MyTextInput
+                    label="Age *"
+                    name="age"
+                    type="number"
+                  />
+                  <MyTextInput
+                    label="Current weight, kg *"
+                    name="weight_current"
+                    type="number"
+                  />
+                </FormFlexContainerLeft>
+                <div>
+                  <MyTextInput
+                    label="Desired weight, kg *"
+                    name="weight_desired"
+                    type="number"
+                  />
+                  <RadioButtonsTitle id="my-radio-group">
+                    Blood type *
+                  </RadioButtonsTitle>
+                  <div
+                    role="group"
+                    aria-labelledby="my-radio-group"
+                  >
+                    <MyRadioButton
+                      label="1"
+                      id="1"
+                      name="blood"
+                      value="1"
+                      checked={values.blood === 1}
+                      onChange={() =>
+                        setFieldValue('blood', 1)
+                      }
+                    />
+                    <MyRadioButton
+                      label="2"
+                      id="2"
+                      name="blood"
+                      value="2"
+                      checked={values.blood === 2}
+                      onChange={() =>
+                        setFieldValue('blood', 2)
+                      }
+                    />
+                    <MyRadioButton
+                      label="3"
+                      id="3"
+                      name="blood"
+                      value="3"
+                      checked={values.blood === 3}
+                      onChange={() =>
+                        setFieldValue('blood', 3)
+                      }
+                    />
+                    <MyRadioButton
+                      label="4"
+                      id="4"
+                      name="blood"
+                      value="4"
+                      checked={values.blood === 4}
+                      onChange={() =>
+                        setFieldValue('blood', 4)
+                      }
+                    />
+                  </div>
+                </div>
+              </FormFlexContainer>
+              <Button type="submit">
+                {isLoading
+                  ? 'Calculating...'
+                  : 'Start losing weight'}
+              </Button>
+            </CalculatorForm>
+          );
+        }}
       </Formik>
     </FormContainer>
   );
