@@ -228,7 +228,7 @@ export function DiaryAddProductForm({
 }
 
 DiaryAddProductForm.propTypes = {
-  // date: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
   theme: PropTypes.object.isRequired,
   onClose: PropTypes.func,
   getProduct: PropTypes.func.isRequired,
