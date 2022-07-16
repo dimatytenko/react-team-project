@@ -93,9 +93,9 @@ export default function DiaryPage({ theme }) {
   // =================================== //
 
   return (
-    <DiaryPagesWrapper>
-      <UserPagesLayer>
-        <Container>
+    <UserPagesLayer>
+      <Container>
+        <DiaryPagesWrapper>
           <UserPagesBackWrapper>
             <DiaryPageWrapper>
               <div>
@@ -161,9 +161,9 @@ export default function DiaryPage({ theme }) {
               )}
             </DiaryPageWrapper>
           </UserPagesBackWrapper>
-        </Container>
-      </UserPagesLayer>
-    </DiaryPagesWrapper>
+        </DiaryPagesWrapper>
+      </Container>
+    </UserPagesLayer>
   );
 }
 

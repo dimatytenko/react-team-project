@@ -49,9 +49,9 @@ export default function CalculatorPage(props) {
   };
 
   return (
-    <UserPagesWrapper>
-      <UserPagesLayer>
-        <Container>
+    <UserPagesLayer>
+      <Container>
+        <UserPagesWrapper>
           <UserPagesBackWrapper>
             <CalculatorWrapper>
               <DailyCaloriesForm
@@ -62,9 +62,9 @@ export default function CalculatorPage(props) {
               {isLoggedIn && <RightSideBar />}
             </CalculatorWrapper>
           </UserPagesBackWrapper>
-        </Container>
-      </UserPagesLayer>
-    </UserPagesWrapper>
+        </UserPagesWrapper>
+      </Container>
+    </UserPagesLayer>
   );
 }
 
