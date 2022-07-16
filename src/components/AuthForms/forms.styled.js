@@ -5,7 +5,6 @@ import {
   mediaDesktop,
 } from '../../functions/media';
 import { TextField, Box } from '@mui/material';
-import { GoogleLogin } from 'react-google-login';
 
 export const FormContainer = styled.div`
   ${mediaTablet(
@@ -13,8 +12,6 @@ export const FormContainer = styled.div`
     `
   )}
 `;
-
-export const Google = styled(GoogleLogin)``;
 
 export const MyInput = styled(TextField)`
   display: block;
