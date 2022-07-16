@@ -1,4 +1,4 @@
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { DebounceInput } from 'react-debounce-input';
 import { nanoid } from 'nanoid';
@@ -226,3 +226,10 @@ export function DiaryAddProductForm({
     </DiaryAddProduct>
   );
 }
+
+DiaryAddProductForm.propTypes = {
+  date: PropTypes.string.isRequired,
+  theme: PropTypes.object.isRequired,
+  onClose: PropTypes.func,
+  getProduct: PropTypes.func.isRequired,
+};

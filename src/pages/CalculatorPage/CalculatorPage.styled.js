@@ -50,7 +50,7 @@ export const UserPagesBackWrapper = styled.div`
   ${mediaDesktop(`
   background-image: url(${leaves_sidebar_desk});
     background-size: 600px 790px;
-    background-position: right 0px top 70px;
+    background-position: right 0px top 40px;
     background-repeat: no-repeat;
   `)};
 `;

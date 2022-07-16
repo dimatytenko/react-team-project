@@ -34,27 +34,6 @@ export const DiaryPagesWrapper = styled.div`
   `)};
 `;
 
-export const DiaryPagesBackWrapper = styled.div`
-  width: 100%;
-  min-height: 100vh;
-  background-color: ${props =>
-    props.theme.backgrounds.userBack};
-
-  ${mediaTablet(`
-    background-image: url(${leaves_sidebar});
-    background-size: 378px 402px;
-    background-position: right 15px bottom 0px;
-    background-repeat: no-repeat;
-  `)};
-
-  ${mediaDesktop(`
-  background-image: url(${leaves_sidebar_desk});
-    background-size: 600px 790px;
-    background-position: right 0px top 70px;
-    background-repeat: no-repeat;
-  `)};
-`;
-
 export const DiaryPageWrapper = styled.div`
   padding-top: 32px;
   padding-bottom: 80px;
@@ -71,7 +50,7 @@ export const DiaryPageWrapper = styled.div`
   padding-top: 293px;
   padding-bottom: 110px;
   flex-direction: row;
-  gap: 320px;
+  justify-content: space-between;
 `)}
 `;
 
@@ -88,4 +67,8 @@ export const ButtonOpenModalWrapper = styled.div`
   top: 510px;
   left: 50%;
   transform: translateX(-50%);
+`;
+
+export const RightSideBarWrapper = styled.div`
+  margin-right: 128px;
 `;

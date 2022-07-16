@@ -43,8 +43,8 @@ export default function CalculatorPage(props) {
 
   return (
     <UserPagesWrapper>
-      <UserPagesBackWrapper>
-        <Container>
+      <Container>
+        <UserPagesBackWrapper>
           <CalculatorWrapper>
             <DailyCaloriesForm
               onFormSubmit={calculatorSubmitHandler}
@@ -53,8 +53,8 @@ export default function CalculatorPage(props) {
             />
             <RightSideBar />
           </CalculatorWrapper>
-        </Container>
-      </UserPagesBackWrapper>
+        </UserPagesBackWrapper>
+      </Container>
     </UserPagesWrapper>
   );
 }
