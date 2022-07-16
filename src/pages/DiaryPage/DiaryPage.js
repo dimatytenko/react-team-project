@@ -151,7 +151,7 @@ export default function DiaryPage({ theme }) {
                 <DiaryAddProductForm
                   theme={theme}
                   getProduct={getAddProduct}
-                  date={pickedDate}
+                  date={formatDateForFetch(pickedDate)}
                   onClose={toggleModal}
                 />
               </MainModal>
