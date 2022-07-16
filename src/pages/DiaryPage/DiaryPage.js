@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { DiaryProductsList } from '../../components/DiaryProductsList';
 import { DiaryDateCalendar } from '../../components/DiaryDateCalendar';
-import { RightSideBar } from '../../components/RightSideBar';
+import { RightSideBar } from '../../components/RightSideBar/RightSideBar';
 import { Container } from '../../components/Container';
 import { DiaryAddProductForm } from '../../components/DiaryAddProductForm/DiaryAddProductForm';
 
@@ -17,7 +17,6 @@ import {
   DiaryPageWrapper,
   ButtonOpenModalWrapper,
   DiaryPagesWrapper,
-  DiaryPagesBackWrapper,
   RightSideBarWrapper,
 } from './DiaryPage.styled';
 import { AddButton } from '../../components/AddButton';

@@ -20,7 +20,7 @@ const defaultState = {
   daily_rate: '000',
   percentage_of_normal: '000',
 };
-export const RightSideBar = ({ date, summary }) => {
+export function RightSideBar({ date, summary }) {
   const [notHelthy, setNotHelthy] = useState([]);
   const [calculation, setCalculation] =
     useState(defaultState);
@@ -109,7 +109,7 @@ export const RightSideBar = ({ date, summary }) => {
       </NotHelthyGroup>
     </Wrapper>
   );
-};
+}
 RightSideBar.propTypes = {
   date: PropTypes.instanceOf(Date),
 };

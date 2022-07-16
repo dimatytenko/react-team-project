@@ -10,7 +10,7 @@ import {
   RightSideBarWrapper,
 } from './CalculatorPage.styled';
 import { Container } from '../../components/Container';
-import { RightSideBar } from '../../components/RightSideBar';
+import { RightSideBar } from '../../components/RightSideBar/RightSideBar';
 import { fetchUserData } from '../../services/connectionsAPI';
 
 export default function CalculatorPage(props) {
