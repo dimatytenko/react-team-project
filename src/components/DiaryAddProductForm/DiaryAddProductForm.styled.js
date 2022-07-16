@@ -42,6 +42,7 @@ export const FormInputGrams = styled.input`
   color: ${props => props.theme.fontColors.primary};
 
   ::placeholder {
+    color: ${props => props.theme.fontColors.primary};
     font-family: 'VerdanaBold';
     letter-spacing: 0.04em;
   }

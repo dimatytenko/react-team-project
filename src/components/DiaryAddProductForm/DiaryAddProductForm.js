@@ -146,6 +146,8 @@ export function DiaryAddProductForm({
               text-overflow: ellipsis;
 
               ::placeholder {
+                color: ${theme.fontColors.primary};
+
                 font-family: 'VerdanaBold';
                 letter-spacing: 0.04em;
               }

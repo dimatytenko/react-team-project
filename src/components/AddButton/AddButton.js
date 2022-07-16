@@ -11,7 +11,7 @@ export function AddButton() {
     <AddButtonBody>
       <GoPlus
         size={22}
-        color={!isTheme ? '#ffffff' : '#9B9FAA'}
+        color={!isTheme ? '#ffffff' : '#ffffff'}
       />
     </AddButtonBody>
   );
