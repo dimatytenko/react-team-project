@@ -1,7 +1,11 @@
 import React from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+
 // import PropTypes from 'prop-types';
+import { authSelectors } from '../../redux/auth';
+
 import { DailyCaloriesForm } from '../../components/DailyCaloriesForm';
 import {
   UserPagesWrapper,
@@ -14,6 +18,9 @@ import { RightSideBar } from '../../components/RightSideBar/RightSideBar';
 import { fetchUserData } from '../../services/connectionsAPI';
 
 export default function CalculatorPage(props) {
+  const isLoggedIn = useSelector(
+    authSelectors.getIsLoggedIn
+  );
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [calculatingData, setCalculatingData] = useState(
@@ -52,7 +59,7 @@ export default function CalculatorPage(props) {
                 data={calculatingData}
                 isLoading={isLoading}
               />
-              <RightSideBar />
+              {isLoggedIn && <RightSideBar />}
             </CalculatorWrapper>
           </UserPagesBackWrapper>
         </Container>
