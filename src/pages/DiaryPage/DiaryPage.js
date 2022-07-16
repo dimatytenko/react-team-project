@@ -12,7 +12,10 @@ import { DiaryAddProductForm } from '../../components/DiaryAddProductForm/DiaryA
 import { formatDateForFetch } from '../../functions/formatDateForFetch';
 //перевірка, чи співпадає дата вибрана в календарі з сьогоднішньою
 import { isPickedDateToday } from '../../functions/isPickedDateToday';
-import { UserPagesBackWrapper } from '../CalculatorPage/CalculatorPage.styled';
+import {
+  UserPagesBackWrapper,
+  UserPagesLayer,
+} from '../CalculatorPage/CalculatorPage.styled';
 import {
   DiaryPageWrapper,
   ButtonOpenModalWrapper,
@@ -91,73 +94,75 @@ export default function DiaryPage({ theme }) {
 
   return (
     <DiaryPagesWrapper>
-      <Container>
-        <UserPagesBackWrapper>
-          <DiaryPageWrapper>
-            <div>
-              <DiaryDateCalendar
-                pickedDate={pickedDate}
-                setPickedDate={setPickedDate}
-              />
+      <UserPagesLayer>
+        <Container>
+          <UserPagesBackWrapper>
+            <DiaryPageWrapper>
+              <div>
+                <DiaryDateCalendar
+                  pickedDate={pickedDate}
+                  setPickedDate={setPickedDate}
+                />
 
-              {windowDimensions.width >=
-                breakPoints.TABLET &&
-                formatDateForFetch(pickedDate) ===
-                  formatDateForFetch(new Date()) && (
-                  <DiaryAddProductForm
-                    theme={theme}
-                    getProduct={getAddProduct}
-                    date={formatDateForFetch(pickedDate)}
-                  />
-                )}
+                {windowDimensions.width >=
+                  breakPoints.TABLET &&
+                  formatDateForFetch(pickedDate) ===
+                    formatDateForFetch(new Date()) && (
+                    <DiaryAddProductForm
+                      theme={theme}
+                      getProduct={getAddProduct}
+                      date={formatDateForFetch(pickedDate)}
+                    />
+                  )}
 
-              {/* <DiaryProductsList
+                {/* <DiaryProductsList
                 data={products}
                 isPickedDateToday={isPickedDateToday()}
                 pickedDate={pickedDate}
               /> */}
 
-              <DiaryProductsList
-                productsForDay={productsForDay}
-                setProductsForDay={setProductsForDay}
-                setSummary={setSummary}
-                isPickedDateToday={isPickedDateToday(
-                  pickedDate
-                )}
-              />
-
-              {windowDimensions.width <
-                breakPoints.TABLET &&
-                formatDateForFetch(pickedDate) ===
-                  formatDateForFetch(new Date()) && (
-                  <ButtonOpenModalWrapper
-                    onClick={toggleModal}
-                  >
-                    <AddButton type="submit" />
-                  </ButtonOpenModalWrapper>
-                )}
-            </div>
-
-            <RightSideBarWrapper>
-              <RightSideBar
-                summary={summary}
-                date={pickedDate}
-              />
-            </RightSideBarWrapper>
-
-            {showModal && (
-              <MainModal onClose={toggleModal}>
-                <DiaryAddProductForm
-                  theme={theme}
-                  getProduct={getAddProduct}
-                  date={formatDateForFetch(pickedDate)}
-                  onClose={toggleModal}
+                <DiaryProductsList
+                  productsForDay={productsForDay}
+                  setProductsForDay={setProductsForDay}
+                  setSummary={setSummary}
+                  isPickedDateToday={isPickedDateToday(
+                    pickedDate
+                  )}
                 />
-              </MainModal>
-            )}
-          </DiaryPageWrapper>
-        </UserPagesBackWrapper>
-      </Container>
+
+                {windowDimensions.width <
+                  breakPoints.TABLET &&
+                  formatDateForFetch(pickedDate) ===
+                    formatDateForFetch(new Date()) && (
+                    <ButtonOpenModalWrapper
+                      onClick={toggleModal}
+                    >
+                      <AddButton type="submit" />
+                    </ButtonOpenModalWrapper>
+                  )}
+              </div>
+
+              <RightSideBarWrapper>
+                <RightSideBar
+                  summary={summary}
+                  date={pickedDate}
+                />
+              </RightSideBarWrapper>
+
+              {showModal && (
+                <MainModal onClose={toggleModal}>
+                  <DiaryAddProductForm
+                    theme={theme}
+                    getProduct={getAddProduct}
+                    date={formatDateForFetch(pickedDate)}
+                    onClose={toggleModal}
+                  />
+                </MainModal>
+              )}
+            </DiaryPageWrapper>
+          </UserPagesBackWrapper>
+        </Container>
+      </UserPagesLayer>
     </DiaryPagesWrapper>
   );
 }

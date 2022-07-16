@@ -34,11 +34,16 @@ export const UserPagesWrapper = styled.div`
   `)};
 `;
 
-export const UserPagesBackWrapper = styled.div`
+export const UserPagesLayer = styled.div`
   width: 100%;
   min-height: 100vh;
   background-color: ${props =>
     props.theme.backgrounds.userBack};
+`;
+
+export const UserPagesBackWrapper = styled.div`
+  width: 100%;
+  min-height: 100vh;
 
   ${mediaTablet(`
     background-image: url(${leaves_sidebar});
@@ -74,5 +79,3 @@ export const CalculatorWrapper = styled.div`
   gap: 320px;
 `)}
 `;
-
-export const RightSideBarWrapper = styled.div``;

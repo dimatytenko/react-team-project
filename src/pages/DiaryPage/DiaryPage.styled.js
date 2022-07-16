@@ -10,6 +10,7 @@ import leaves_sidebar_desk from '../../assets/images/bg-pictures/desktop/leaves_
 export const DiaryPagesWrapper = styled.div`
   width: 100%;
   min-height: 100vh;
+  background-color: #292e4b;
 
   background-image: linear-gradient(
     180deg,

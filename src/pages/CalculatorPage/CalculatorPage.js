@@ -7,7 +7,7 @@ import {
   UserPagesWrapper,
   UserPagesBackWrapper,
   CalculatorWrapper,
-  RightSideBarWrapper,
+  UserPagesLayer,
 } from './CalculatorPage.styled';
 import { Container } from '../../components/Container';
 import { RightSideBar } from '../../components/RightSideBar/RightSideBar';
@@ -43,18 +43,20 @@ export default function CalculatorPage(props) {
 
   return (
     <UserPagesWrapper>
-      <Container>
-        <UserPagesBackWrapper>
-          <CalculatorWrapper>
-            <DailyCaloriesForm
-              onFormSubmit={calculatorSubmitHandler}
-              data={calculatingData}
-              isLoading={isLoading}
-            />
-            <RightSideBar />
-          </CalculatorWrapper>
-        </UserPagesBackWrapper>
-      </Container>
+      <UserPagesLayer>
+        <Container>
+          <UserPagesBackWrapper>
+            <CalculatorWrapper>
+              <DailyCaloriesForm
+                onFormSubmit={calculatorSubmitHandler}
+                data={calculatingData}
+                isLoading={isLoading}
+              />
+              <RightSideBar />
+            </CalculatorWrapper>
+          </UserPagesBackWrapper>
+        </Container>
+      </UserPagesLayer>
     </UserPagesWrapper>
   );
 }
