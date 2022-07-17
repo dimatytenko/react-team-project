@@ -37,6 +37,8 @@ export const UserPagesWrapper = styled.div`
 export const UserPagesLayer = styled.div`
   width: 100%;
   min-height: 100vh;
+  transition: background-color
+    ${props => props.theme.transitions.primary};
   background-color: ${props =>
     props.theme.backgrounds.userBack};
 `;

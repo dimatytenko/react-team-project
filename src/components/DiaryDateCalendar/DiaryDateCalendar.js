@@ -20,6 +20,7 @@ export const DiaryDateCalendar = ({
         value={pickedDate}
         autoFocus={false}
         clearIcon={null}
+        locale={'en'}
         maxDate={new Date()}
         calendarIcon={
           <RiCalendar2Fill color={'#9B9FAA'} size={20} />
