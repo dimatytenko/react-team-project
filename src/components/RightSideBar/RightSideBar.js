@@ -43,12 +43,21 @@ export function RightSideBar({ date, summary }) {
       try {
         const { data } = await getInfoByDate(date);
         setCalculation(data.summary);
+        return true;
       } catch {
         setCalculation(defaultState);
+        setNotHelthy([]);
       }
     };
-    fetchNotHelthy(4, 1);
-    fetchCalculation(pickedDate);
+    const fetchAll = async pickedDate => {
+      const isHaveResult = await fetchCalculation(
+        pickedDate
+      );
+      if (isHaveResult) {
+        fetchNotHelthy(4, 1);
+      }
+    };
+    fetchAll(pickedDate);
   }, [date]);
 
   const data = summary ? summary : calculation;
