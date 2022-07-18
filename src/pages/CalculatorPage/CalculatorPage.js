@@ -25,9 +25,11 @@ export default function CalculatorPage(props) {
   const userData = useSelector(authSelectors.getUserData);
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
-  const parsedData = JSON.parse(
-    window.localStorage.getItem('calculatingData')
-  );
+  const parsedData =
+    JSON.parse(
+      window.localStorage.getItem('calculatingData')
+    ) ?? {};
+
   const isLsDataAvailable =
     Object.keys(parsedData).length !== 0;
   const calculatingData = isLsDataAvailable

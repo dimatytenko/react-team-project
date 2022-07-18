@@ -10,6 +10,7 @@ export const googleAuth = createAsyncThunk(
       // -- написать логику ?----------
       const { data } =
         await connectionsAPI.fetchGoogleAuth();
+      // console.log(data);
       // -----------------------------
       token.set(data.token);
       return data;
