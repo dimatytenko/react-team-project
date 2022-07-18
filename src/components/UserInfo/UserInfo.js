@@ -8,6 +8,7 @@ import {
 
 import { UserName, UserButton } from './UserInfo.styled';
 import { AlertModal } from '../AlertModal';
+import { correctUserName } from '../../functions/correctUserName';
 
 export function UserInfo() {
   const dispatch = useDispatch();
@@ -23,7 +24,7 @@ export function UserInfo() {
 
   return (
     <>
-      <UserName>{nameUser}</UserName>
+      <UserName>{correctUserName(nameUser)}</UserName>
       <UserButton onClick={handleOpen} type="button">
         Exit
       </UserButton>
