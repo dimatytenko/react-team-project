@@ -57,12 +57,13 @@ export default function Login(props) {
         <AuthForm
           noValidate
           component="form"
-          autoComplete="off"
+          autoComplete="on"
           onSubmit={formik.handleSubmit}
         >
           <FormFlexContainer>
             <MyInput
               fullWidth
+              autoComplete="off"
               variant="standard"
               label="Email"
               id="email"
@@ -79,6 +80,7 @@ export default function Login(props) {
             />
             <MyInput
               fullWidth
+              autoComplete="off"
               variant="standard"
               label="Password"
               id="password"

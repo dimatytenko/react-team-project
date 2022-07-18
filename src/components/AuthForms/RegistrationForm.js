@@ -71,12 +71,13 @@ export default function RegistrationForm() {
         <AuthForm
           noValidate
           component="form"
-          autoComplete="off"
+          autoComplete="on"
           onSubmit={formik.handleSubmit}
         >
           <FormFlexContainer>
             <MyInput
               fullWidth
+              autoComplete="off"
               variant="standard"
               label="Name"
               id="name"
@@ -93,6 +94,7 @@ export default function RegistrationForm() {
             />
             <MyInput
               fullWidth
+              autoComplete="off"
               variant="standard"
               label="Email"
               id="email"
@@ -109,6 +111,7 @@ export default function RegistrationForm() {
             />
             <MyInput
               fullWidth
+              autoComplete="off"
               variant="standard"
               label="Password"
               id="password"
@@ -147,6 +150,7 @@ export default function RegistrationForm() {
             />
             <MyInput
               fullWidth
+              autoComplete="off"
               variant="standard"
               label="Confirm password"
               id="confirmPassword"
