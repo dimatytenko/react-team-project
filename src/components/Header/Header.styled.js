@@ -37,7 +37,7 @@ export const NavWrapper = styled.div`
     justify-content: start;
   `)}
   ${mediaDesktop(`
-    align-items: baseline;
+    align-items: end;
     justify-content: start;
   `)}
 `;
