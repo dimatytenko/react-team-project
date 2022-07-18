@@ -50,6 +50,12 @@ export default function DiaryPage({ theme }) {
     }
   }, [windowDimensions]);
 
+  useEffect(() => {
+    showModal
+      ? (document.body.style.overflow = 'hidden')
+      : (document.body.style.overflow = '');
+  }, [showModal]);
+
   //ефект при маунті або якщо змінилася дата в календарі
   useEffect(() => {
     const formattedPickedDate =
