@@ -17,6 +17,9 @@ import { PublicRoute } from '../../routes/PublicRoute';
 import { PrivateRoute } from '../../routes/PrivateRoute';
 
 import { Layout } from '../../Layout';
+
+import { Redirect } from '../AuthForms/Redirect';
+
 const MainPage = lazy(() => import('../../pages/MainPage'));
 const LoginPage = lazy(() =>
   import('../../pages/LoginPage')
@@ -78,7 +81,19 @@ export function App() {
                     </PublicRoute>
                   }
                 />
-
+                {/* для получения ответа с бекенда с токеном, мылом и именем */}
+                <Route
+                  path="google-redirect"
+                  element={
+                    <PublicRoute
+                      restricted
+                      redirectTo="/calculator"
+                    >
+                      <Redirect />
+                    </PublicRoute>
+                  }
+                />
+                {/* -------------------------------------------------------------- */}
                 <Route
                   path="register"
                   element={
