@@ -84,7 +84,7 @@ export const DiaryProductsList = ({
           type="button"
           onClick={() => openAlertModal(index)}
         >
-          <GoX color={'#9B9FAA'} size={14} />
+          <GoX color={'#9B9FAA'} size={16} />
         </ButtonCross>
       )
     );

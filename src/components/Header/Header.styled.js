@@ -10,6 +10,8 @@ export const HeaderStyled = styled.header`
   padding: 18px 0 16px 0;
   background-color: ${props =>
     props.theme.backgrounds.bodyPrimary};
+  transition: background-color
+    ${props => props.theme.transitions.primary};
   border-bottom: 2px solid #e0e0e0;
 
   ${mediaTablet(`
@@ -44,9 +46,6 @@ export const BurgerWrapper = styled.div`
   position: absolute;
   top: 0;
   right: -12px;
-  ${mediaTablet(`
-      margin-left: 26px;
-  `)};
   ${mediaDesktop(`
       display: none;
   `)}

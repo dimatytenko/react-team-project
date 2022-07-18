@@ -48,6 +48,8 @@ export const GlobalStyles = theme => css`
     font-size: 14px;
     background-color: ${theme.backgrounds.bodyPrimary};
     color: ${theme.fontColors.primary};
+    transition: background-color
+      ${theme.transitions.primary};
   }
 
   main {

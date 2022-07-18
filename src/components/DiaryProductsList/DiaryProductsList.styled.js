@@ -106,6 +106,7 @@ export const TableStyled = styled(Table)`
   }
 
   & .column--cross {
+    vertical-align: bottom;
     ${mediaTablet(`
     text-align: end;
     width: 42px;
@@ -121,6 +122,6 @@ export const TableStyled = styled(Table)`
 export const ButtonCross = styled.button`
   border: none;
   background-color: transparent;
-  padding: 0;
+  padding: 6px 0 6px 0;
   cursor: pointer;
 `;
