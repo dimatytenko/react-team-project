@@ -202,7 +202,6 @@ export function DiaryAddProductForm({
             <AddButtonModal type="submit" />
           )}
         </FormBody>
-
         {product !== productsArray[0] &&
           product.length !== 0 &&
           isFocus && (
