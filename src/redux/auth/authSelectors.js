@@ -4,3 +4,4 @@ export const getUserData = state => state.auth.user;
 export const getIsRefreshing = state =>
   state.auth.isRefreshing;
 export const getError = state => state.auth.isError;
+export const getRegError = state => state.auth.isRegError;

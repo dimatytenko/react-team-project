@@ -31,7 +31,7 @@ export const DailyCaloriesForm = ({
   return (
     <FormContainer>
       <FormTitle>
-        Calculate your daily calories intake right now
+        Calculate your daily calorie intake right now
       </FormTitle>
       <Formik
         initialValues={{

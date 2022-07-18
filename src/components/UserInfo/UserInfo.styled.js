@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const UserName = styled.button`
+export const UserName = styled.p`
   position: relative;
   background: transparent;
   border: none;

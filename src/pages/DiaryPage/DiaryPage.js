@@ -23,7 +23,7 @@ import {
   RightSideBarWrapper,
 } from './DiaryPage.styled';
 import { AddButton } from '../../components/AddButton';
-import { MainModal } from '../../components/MainModal';
+import { MainModal } from '../../components/MainModal/MainModal';
 import { useWindowDimensions } from '../../customHooks';
 import { breakPoints } from '../../libs/constants';
 
