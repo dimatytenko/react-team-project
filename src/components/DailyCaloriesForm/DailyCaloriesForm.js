@@ -77,7 +77,7 @@ export const DailyCaloriesForm = ({
       >
         {({ values, setFieldValue }) => {
           return (
-            <CalculatorForm noValidate>
+            <CalculatorForm>
               <FormFlexContainer>
                 <FormFlexContainerLeft>
                   <MyTextInput

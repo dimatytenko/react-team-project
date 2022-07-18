@@ -21,10 +21,6 @@ import { useWindowDimensions } from '../../customHooks';
 import { addProduct } from '../../services/productsAPI';
 import { breakPoints } from '../../libs/constants';
 
-// import { baseURL } from '../../libs/constants';
-
-// axios.defaults.baseURL = baseURL;
-
 export function DiaryAddProductForm({
   theme,
   date,
