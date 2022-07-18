@@ -44,22 +44,25 @@ export const DailyCaloriesForm = ({
         validationSchema={Yup.object({
           height: Yup.number('Only numbers allowed')
             .positive()
+            .integer('Enter an integer number')
             .min(100, 'Height must be more than 100cm')
             .max(250, 'Height must be less than 250cm')
             .required('Required'),
           age: Yup.number()
             .positive()
-            .integer()
+            .integer('Enter an integer number')
             .min(18, 'Age must be over 18 years old')
             .max(100, 'Age must be less than 100 years old')
             .required('Required'),
           weight_current: Yup.number()
             .positive()
+            .integer('Enter an integer number')
             .min(20, 'Weight must be more than 20kg')
             .max(500, 'Weight must be less than 500kg')
             .required('Required'),
           weight_desired: Yup.number()
             .positive()
+            .integer('Enter an integer number')
             .min(20, 'Weight must be more than 20kg')
             .max(500, 'Weight must be less than 500kg')
             .required('Required'),
@@ -74,7 +77,7 @@ export const DailyCaloriesForm = ({
       >
         {({ values, setFieldValue }) => {
           return (
-            <CalculatorForm>
+            <CalculatorForm noValidate>
               <FormFlexContainer>
                 <FormFlexContainerLeft>
                   <MyTextInput
