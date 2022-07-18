@@ -22,7 +22,7 @@ export const validationsSchemaRegistrationEn = yup
       .required()
       .matches(
         emailRegExp,
-        'Email must be like: name@mail.com'
+        'email must be like: name@mail.com'
       ),
 
     password: yup
@@ -33,15 +33,15 @@ export const validationsSchemaRegistrationEn = yup
       .required()
       .matches(
         passwordRegExp,
-        'Only Latin & number (min: 8 characters, 1 upper, 1 num)'
+        'only Latin & number (min: 8 characters, 1 upper, 1 num)'
       ),
 
     confirmPassword: yup
       .string()
-      .required('Please confirm your password')
+      .required('please confirm your password')
       .oneOf(
         [yup.ref('password'), null],
-        "Passwords don't match."
+        "passwords don't match."
       ),
   });
 
@@ -52,7 +52,10 @@ export const validationsSchemaSignInEn = yup
       .string()
       .email()
       .required()
-      .matches(emailRegExp, 'Email must be like: *@*.**'),
+      .matches(
+        emailRegExp,
+        'email must be like: name@mail.com'
+      ),
 
     password: yup.string(),
   });

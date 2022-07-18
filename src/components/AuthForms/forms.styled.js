@@ -146,15 +146,9 @@ export const ButtonLink = styled(Link)`
   letter-spacing: 0.04em;
   cursor: pointer;
 
-  &:not(:last-child) {
-    margin-top: 40px;
-    margin-bottom: 20px;
-  }
-
   color: ${props => props.theme.fontColors.buttonSecondary};
   background: ${props =>
     props.theme.backgrounds.buttonSecondary};
-  border: none;
   border: 2px solid
     ${props => props.theme.backgrounds.buttonPrimary};
   border-radius: 30px;
@@ -174,7 +168,7 @@ export const ButtonLink = styled(Link)`
  `)}
 `;
 
-export const ButtonGoogle = styled.button`
+export const ButtonGoogle = styled.a`
   width: 182px;
   height: 44px;
   display: flex;
@@ -187,15 +181,12 @@ export const ButtonGoogle = styled.button`
   letter-spacing: 0.04em;
   cursor: pointer;
 
-  &:not(:last-child) {
-    margin-top: 40px;
-    margin-bottom: 20px;
-  }
+  margin-bottom: 20px;
 
-  color: ${props => props.theme.fontColors.buttonPrimary};
-  background: ${props =>
-    props.theme.backgrounds.buttonPrimary};
-  border: none;
+  color: ${props => props.theme.fontColors.buttonSecondary};
+  background: #e0e0e0;
+  border: 2px solid
+    ${props => props.theme.backgrounds.buttonPrimary};
   box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
   border-radius: 30px;
   transition: transform
@@ -206,6 +197,7 @@ export const ButtonGoogle = styled.button`
   &:hover,
   &:focus {
     transform: scale(1.1);
+    color: ${props => props.theme.fontColors.buttonPrimary};
     background-color: ${props =>
       props.theme.hovers.secondary};
   }
