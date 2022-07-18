@@ -7,8 +7,10 @@ export const googleAuth = createAsyncThunk(
   'auth/google',
   async () => {
     try {
+      // -- написать логику ?----------
       const { data } =
         await connectionsAPI.fetchGoogleAuth();
+      // -----------------------------
       token.set(data.token);
       return data;
     } catch (error) {

@@ -118,8 +118,8 @@ export default function Login(props) {
           </FormFlexContainer>
           <BtnWrapp>
             <Button type="submit">Login</Button>
-            <ButtonLink to="/register">Register</ButtonLink>
             <GoogleAuth />
+            <ButtonLink to="/register">Register</ButtonLink>
           </BtnWrapp>
         </AuthForm>
       </Wrapper>

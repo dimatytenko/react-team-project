@@ -184,8 +184,8 @@ export default function RegistrationForm() {
           </FormFlexContainer>
           <BtnWrapp>
             <Button type="submit">Register</Button>
-            <ButtonLink to="/login">Login</ButtonLink>
             <GoogleAuth />
+            <ButtonLink to="/login">Login</ButtonLink>
           </BtnWrapp>
         </AuthForm>
       </Wrapper>
