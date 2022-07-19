@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { format } from 'date-fns';
 import { SideBarListItem as Item } from '../SideBarListItem';
 import { SideBarList as List } from '../SideBarList';
 import { getInfoByDate } from '../../services/connectionsAPI';
@@ -18,7 +17,7 @@ const defaultState = {
   left: '000',
   consumed: '000',
   daily_rate: '000',
-  percentage_of_normal: '000',
+  percentage_of_normal: 0,
 };
 export function RightSideBar({ date, summary }) {
   const [notHelthy, setNotHelthy] = useState([]);
