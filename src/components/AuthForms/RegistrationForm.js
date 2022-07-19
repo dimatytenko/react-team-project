@@ -22,7 +22,6 @@ import {
 } from './forms.styled';
 import { createToast } from '../../functions';
 import { useFormik } from 'formik';
-import GoogleAuth from './GoogleAuth';
 
 export default function RegistrationForm() {
   const dispatch = useDispatch();
