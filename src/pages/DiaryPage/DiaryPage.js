@@ -24,6 +24,10 @@ import { useWindowDimensions } from '../../customHooks';
 import { breakPoints } from '../../libs/constants';
 
 export default function DiaryPage({ theme }) {
+  useEffect(() => {
+    document.title = 'Diary - SlimMom';
+  }, []);
+
   const windowDimensions = useWindowDimensions();
   const [pickedDate, setPickedDate] = useState(new Date());
   const [productsForDay, setProductsForDay] =

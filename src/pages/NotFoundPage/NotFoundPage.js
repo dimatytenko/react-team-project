@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Container } from '../../components/Container';
 import {
   MainBackground,
@@ -10,6 +11,10 @@ import {
 import meditation from '../../assets/images/notFound/meditation.png';
 
 export default function NotFoundPage() {
+  useEffect(() => {
+    document.title = '404 - SlimMom ';
+  }, []);
+
   return (
     <MainBackground>
       <Container>
