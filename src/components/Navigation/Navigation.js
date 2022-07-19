@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import { authSelectors } from '../../redux/auth';
 import { Container } from '../Container';
+import { ROUTES } from '../../routes';
 import {
   NavListSigned,
   NavListNotSigned,
@@ -27,13 +28,13 @@ export const NavInHeader = () => {
         <NavigationNotSigned>
           <NavListNotSigned>
             <NavItem>
-              <NavLinkBlack to="/login">
-                sign in
+              <NavLinkBlack to={ROUTES.login.path}>
+                {ROUTES.login.title}
               </NavLinkBlack>
             </NavItem>
             <NavItem>
-              <NavLinkGrey to="/register">
-                registration
+              <NavLinkGrey to={ROUTES.register.path}>
+                {ROUTES.register.title}
               </NavLinkGrey>
             </NavItem>
           </NavListNotSigned>
@@ -42,11 +43,13 @@ export const NavInHeader = () => {
         <nav>
           <NavListSigned>
             <NavItem>
-              <NavLinkBlack to="/diary">diary</NavLinkBlack>
+              <NavLinkBlack to={ROUTES.diary.path}>
+                {ROUTES.diary.title}
+              </NavLinkBlack>
             </NavItem>
             <NavItem>
-              <NavLinkGrey to="/calculator">
-                calculator
+              <NavLinkGrey to={ROUTES.calculator.path}>
+                {ROUTES.calculator.title}
               </NavLinkGrey>
             </NavItem>
           </NavListSigned>

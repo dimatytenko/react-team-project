@@ -6,10 +6,7 @@ import { DiaryDateCalendar } from '../../components/DiaryDateCalendar';
 import { RightSideBar } from '../../components/RightSideBar/RightSideBar';
 import { Container } from '../../components/Container';
 import { DiaryAddProductForm } from '../../components/DiaryAddProductForm/DiaryAddProductForm';
-
-//форматування вибраної дати для req.params у форматі (рік-місяць-день)
 import { formatDateForFetch } from '../../functions/formatDateForFetch';
-//перевірка, чи співпадає дата вибрана в календарі з сьогоднішньою
 import { isPickedDateToday } from '../../functions/isPickedDateToday';
 import {
   UserPagesBackWrapper,
@@ -55,7 +52,6 @@ export default function DiaryPage({ theme }) {
       : (document.body.style.overflow = '');
   }, [showModal]);
 
-  //ефект при маунті або якщо змінилася дата в календарі
   useEffect(() => {
     const formattedPickedDate =
       formatDateForFetch(pickedDate);
@@ -64,13 +60,9 @@ export default function DiaryPage({ theme }) {
         const { data } = await axios.get(
           `/days/${formattedPickedDate}`
         );
-        //для таблиці
         setProductsForDay(data.data.productsForDay);
-        //для summary по дню
         setSummary(data.data.summary);
       } catch (error) {
-        // console.log(error);
-        //якщо данних по дню немає, бек кидає BAD REQUEST
         if (error?.response?.status === 404) {
           setProductsForDay([]);
           setSummary(null);
@@ -80,7 +72,6 @@ export default function DiaryPage({ theme }) {
     fetchInfoForDay();
   }, [pickedDate]);
 
-  // ===== get newProduct and summary ==== //
   function getAddProduct(data) {
     const newProduct = data.addedProduct;
     const newSummary = data.summary;
@@ -95,7 +86,6 @@ export default function DiaryPage({ theme }) {
     setSummary(newSummary);
     return data;
   }
-  // =================================== //
 
   return (
     <DiaryPagesWrapper>
