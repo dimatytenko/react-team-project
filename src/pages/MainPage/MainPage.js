@@ -53,8 +53,8 @@ export default function MainPage(props) {
 
   return (
     <>
-      <Container>
-        <MainBox>
+      <MainBox>
+        <Container>
           <MainWrapper>
             <DailyCaloriesForm
               onFormSubmit={calculatorSubmitHandler}
@@ -69,8 +69,8 @@ export default function MainPage(props) {
               />
             )}
           </MainWrapper>
-        </MainBox>
-      </Container>
+        </Container>
+      </MainBox>
     </>
   );
 }

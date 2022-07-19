@@ -1,18 +1,18 @@
 import { GoPlus } from 'react-icons/go';
-import { useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { AddButtonBody } from './AddButton.styled';
-import { themeSelectors } from '../../redux/theme';
 
-export function AddButton() {
-  const isTheme = useSelector(themeSelectors.getTheme);
-
+export function AddButton({ theme }) {
   return (
     <AddButtonBody>
       <GoPlus
         size={22}
-        color={!isTheme ? '#ffffff' : '#ffffff'}
+        color={theme.fontColors.buttonPrimary}
       />
     </AddButtonBody>
   );
 }
+AddButton.propTypes = {
+  theme: PropTypes.object.isRequired,
+};

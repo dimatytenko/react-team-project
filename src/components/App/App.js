@@ -4,20 +4,17 @@ import { Global } from '@emotion/react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ThemeProvider } from '@mui/material/styles';
 
-import { ThemeLight, ThemeDark } from '../../Theme';
-import { GlobalStyles } from '../../GlobalStyles';
+import { ThemeLight, ThemeDark } from '../../styles/Theme';
+import { GlobalStyles } from '../../styles/GlobalStyles';
 import {
   authOperations,
   authSelectors,
 } from '../../redux/auth';
 import { themeSelectors } from '../../redux/theme';
 import { MainLoader } from '../../components/MainLoader';
-
 import { PublicRoute } from '../../routes/PublicRoute';
 import { PrivateRoute } from '../../routes/PrivateRoute';
-
 import { Layout } from '../../Layout';
-
 import { Redirect } from '../AuthForms/Redirect';
 
 const MainPage = lazy(() => import('../../pages/MainPage'));

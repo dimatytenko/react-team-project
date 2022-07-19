@@ -1,9 +1,9 @@
 import { css } from '@emotion/react';
 
-import Verdana from './assets/fonts/Verdana.ttf';
-import VerdanaBold from './assets/fonts/Verdana-Bold.ttf';
-import GothamproBold from './assets/fonts/gothampro_bold.ttf';
-import GothamproLight from './assets/fonts/gothampro_light.ttf';
+import Verdana from '../assets/fonts/Verdana.ttf';
+import VerdanaBold from '../assets/fonts/Verdana-Bold.ttf';
+import GothamproBold from '../assets/fonts/gothampro_bold.ttf';
+import GothamproLight from '../assets/fonts/gothampro_light.ttf';
 
 export const GlobalStyles = theme => css`
   *::before,
@@ -44,6 +44,7 @@ export const GlobalStyles = theme => css`
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    width: 100%;
     font-family: 'Verdana';
     font-size: 14px;
     background-color: ${theme.backgrounds.bodyPrimary};

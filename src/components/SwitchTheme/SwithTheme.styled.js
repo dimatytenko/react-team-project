@@ -8,14 +8,14 @@ import {
 export const SwitchThemeWrapper = styled.div`
   ${mediaTablet(`
   position: absolute;
-  z-index: 13000;
+  z-index: 200;
   right: -5px;
   top:85px;
   `)}
 
   ${mediaDesktop(`
         right: 22px;
-    top: 60px;
+    top: 50px;
   `)}
 `;
 

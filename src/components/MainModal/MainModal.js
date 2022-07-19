@@ -9,7 +9,7 @@ import {
   BtnCloseModal,
   ImgClose,
 } from './MainModal.styled';
-import arrow from '../../images/arrow.svg';
+import arrow from '../../assets/icons/arrow.svg';
 import { Container } from '../Container';
 
 const modalRoot = document.querySelector('#modal-root');

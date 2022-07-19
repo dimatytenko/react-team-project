@@ -14,7 +14,7 @@ import {
   Button,
   LinkHome,
 } from './Modal.styled';
-import arrow from '../../images/arrow.svg';
+import arrow from '../../assets/icons/arrow.svg';
 import { useEffect } from 'react';
 
 export function Modal({

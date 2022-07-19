@@ -79,7 +79,6 @@ export function DiaryAddProductForm({
     const isList = productsArray.some(
       obj => obj.title.en === product
     );
-
     if (date !== formatDateForFetch(new Date())) {
       createToast(
         'warning',
@@ -87,17 +86,14 @@ export function DiaryAddProductForm({
       );
       return;
     }
-
     if (!isList) {
       createToast('warning', 'Select an existing product!');
       return;
     }
-
     if (grams.length === 0) {
       createToast('warning', 'Fill in the grams field!');
       return;
     }
-
     if (grams <= 0 || grams > 99999) {
       createToast(
         'warning',
@@ -195,7 +191,7 @@ export function DiaryAddProductForm({
           />
 
           {windowDimensions.width >= breakPoints.TABLET && (
-            <AddButton type="submit" />
+            <AddButton type="submit" theme={theme} />
           )}
 
           {windowDimensions.width < breakPoints.TABLET && (

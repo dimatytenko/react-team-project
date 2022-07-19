@@ -101,8 +101,8 @@ export default function DiaryPage({ theme }) {
   return (
     <DiaryPagesWrapper>
       <UserPagesLayer>
-        <Container>
-          <UserPagesBackWrapper>
+        <UserPagesBackWrapper>
+          <Container>
             <DiaryPageWrapper>
               <div>
                 <DiaryDateCalendar
@@ -121,12 +121,6 @@ export default function DiaryPage({ theme }) {
                     />
                   )}
 
-                {/* <DiaryProductsList
-                data={products}
-                isPickedDateToday={isPickedDateToday()}
-                pickedDate={pickedDate}
-              /> */}
-
                 <DiaryProductsList
                   productsForDay={productsForDay}
                   setProductsForDay={setProductsForDay}
@@ -143,7 +137,10 @@ export default function DiaryPage({ theme }) {
                     <ButtonOpenModalWrapper
                       onClick={toggleModal}
                     >
-                      <AddButton type="submit" />
+                      <AddButton
+                        type="submit"
+                        theme={theme}
+                      />
                     </ButtonOpenModalWrapper>
                   )}
               </div>
@@ -166,8 +163,8 @@ export default function DiaryPage({ theme }) {
                 </MainModal>
               )}
             </DiaryPageWrapper>
-          </UserPagesBackWrapper>
-        </Container>
+          </Container>
+        </UserPagesBackWrapper>
       </UserPagesLayer>
     </DiaryPagesWrapper>
   );

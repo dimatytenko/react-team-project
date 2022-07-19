@@ -10,7 +10,7 @@ export function Layout() {
   return (
     <>
       <Header />
-      <Main>
+      <main>
         <Container>
           <SwitchSubContainer>
             <SwitchTheme />
@@ -18,7 +18,7 @@ export function Layout() {
         </Container>
 
         <Outlet />
-      </Main>
+      </main>
       <ToastContainer />
     </>
   );
