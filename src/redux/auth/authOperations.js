@@ -4,18 +4,20 @@ import * as connectionsAPI from '../../services/connectionsAPI';
 const token = connectionsAPI.token;
 
 export const googleAuth = createAsyncThunk(
-  'auth/google',
-  async () => {
+  'auth/googleAuth',
+  async data => {
     try {
       // -- написать логику ?----------
-      const { data } =
-        await connectionsAPI.fetchGoogleAuth();
+      //const { data } =
+      //  await connectionsAPI.fetchGoogleAuth();
       // console.log(data);
       // -----------------------------
+      
       token.set(data.token);
+
       return data;
     } catch (error) {
-      return error.rejectWithValue();
+      //  return error.rejectWithValue();
     }
   }
 );
