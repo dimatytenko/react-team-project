@@ -17,6 +17,7 @@ export const GlobalStyles = theme => css`
     font-weight: normal;
     font-style: normal;
     font-display: auto;
+    font-display: swap;
   }
   @font-face {
     font-family: 'VerdanaBold';
@@ -24,6 +25,7 @@ export const GlobalStyles = theme => css`
     font-weight: 700;
     font-style: normal;
     font-display: auto;
+    font-display: swap;
   }
   @font-face {
     font-family: 'GothamproBold';
@@ -31,6 +33,7 @@ export const GlobalStyles = theme => css`
     font-weight: 700;
     font-style: normal;
     font-display: auto;
+    font-display: swap;
   }
   @font-face {
     font-family: 'GothamproLight';
@@ -38,6 +41,7 @@ export const GlobalStyles = theme => css`
     font-weight: 300;
     font-style: normal;
     font-display: auto;
+    font-display: swap;
   }
 
   body {

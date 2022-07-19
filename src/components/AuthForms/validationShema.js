@@ -33,7 +33,7 @@ export const validationsSchemaRegistrationEn = yup
       .required()
       .matches(
         passwordRegExp,
-        'only Latin & number (min: 8 characters, 1 upper, 1 num)'
+        'min: 8 Latin & number, 1 upper, 1 num'
       ),
 
     confirmPassword: yup
