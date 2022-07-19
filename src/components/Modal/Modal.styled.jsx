@@ -1,6 +1,16 @@
 import styled from '@emotion/styled';
 import { IoCloseSharp } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
+import { keyframes } from '@emotion/css';
+
+export const sink = keyframes`
+  from, 0%,  to {
+    transform: translate3d(0,-500px,0);
+  }
+  100% {
+    transform: translate3d(0, 0px, 0);
+  }
+`;
 
 export const Overlay = styled.div`
   position: absolute;

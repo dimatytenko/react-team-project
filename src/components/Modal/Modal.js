@@ -13,9 +13,11 @@ import {
   ListNotEatItem,
   Button,
   LinkHome,
+  sink,
 } from './Modal.styled';
 import arrow from '../../assets/icons/arrow.svg';
 import { useEffect } from 'react';
+import { css } from '@emotion/css';
 
 export function Modal({
   modalData,
@@ -46,7 +48,11 @@ export function Modal({
           <img src={arrow} alt="arrow" />
         </BtnCloseModalMobile>
       </ContainerBtnCloseModalMobile>
-      <ModalWindow>
+      <ModalWindow
+        className={css`
+          animation: ${sink} 0.5s ease;
+        `}
+      >
         <Title>
           Your recommended daily calorie intake is
         </Title>
