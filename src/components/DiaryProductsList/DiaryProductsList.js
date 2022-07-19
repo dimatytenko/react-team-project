@@ -49,16 +49,13 @@ export const DiaryProductsList = ({
       return data.data.summary;
     } catch (error) {
       console.log(error);
-      //toast something went wrong
     }
   };
 
   const removeProduct = async index => {
-    //відправити на бек видалення
     const returnedSummary = await removeProductFromDB(
       productList[index]
     );
-    //видалити зі стейту i обновити саммарі
     if (returnedSummary) {
       const newData = productsForDay.slice();
       newData.splice(index, 1);
