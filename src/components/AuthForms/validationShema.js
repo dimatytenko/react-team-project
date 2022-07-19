@@ -57,7 +57,7 @@ export const validationsSchemaSignInEn = yup
         'email must be like: name@mail.com'
       ),
 
-    password: yup.string(),
+    password: yup.string().required(),
   });
 
 export const validationsSchemaRegistrationUA = yup
