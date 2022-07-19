@@ -1,9 +1,7 @@
-import React from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchCurrentUser } from '../../redux/auth/authOperations';
-// import PropTypes from 'prop-types';
 import { authSelectors } from '../../redux/auth';
 
 import { DailyCaloriesForm } from '../../components/DailyCaloriesForm';
@@ -17,7 +15,7 @@ import { Container } from '../../components/Container';
 import { RightSideBar } from '../../components/RightSideBar/RightSideBar';
 import { fetchUserData } from '../../services/connectionsAPI';
 
-export default function CalculatorPage(props) {
+export default function CalculatorPage() {
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(
     authSelectors.getIsLoggedIn
@@ -88,5 +86,3 @@ export default function CalculatorPage(props) {
     </UserPagesWrapper>
   );
 }
-
-CalculatorPage.propTypes = {};

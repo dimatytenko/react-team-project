@@ -1,12 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-
 import { Container } from '../../components/Container';
 import { MainBox } from '../MainPage/MainPage.styled';
 import { LoginRegisterWrapper } from '../LoginPage/LoginPage.styled';
 import RegistrationForm from '../../components/AuthForms/RegistrationForm';
 
-export default function RegistrationPage(props) {
+export default function RegistrationPage() {
   return (
     <MainBox>
       <Container>
@@ -17,5 +14,3 @@ export default function RegistrationPage(props) {
     </MainBox>
   );
 }
-
-RegistrationPage.propTypes = {};

@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-// import PropTypes from 'prop-types';
+import { useEffect, useState } from 'react';
 
 import { Container } from '../../components/Container';
 import { MainBox, MainWrapper } from './MainPage.styled';
@@ -8,7 +7,7 @@ import { getKcal } from '../../services/getKcal';
 
 import { Modal } from '../../components/Modal/Modal';
 
-export default function MainPage(props) {
+export default function MainPage() {
   const [modalData, setModalData] = useState({});
   const [calculatingData, setCalculatingData] = useState(
     {}
@@ -74,5 +73,3 @@ export default function MainPage(props) {
     </>
   );
 }
-
-MainPage.propTypes = {};
