@@ -8,17 +8,13 @@ import { useSelector } from 'react-redux';
 import { authSelectors } from '../../redux/auth';
 import { LinkLogo } from '../Logo/LinkLogo';
 
-import { SwitchTheme } from '../../components/SwitchTheme';
-
 import {
   NavWrapper,
-  HeaderSubContainer,
   BurgerWrapper,
   HeaderStyled,
   UserInfoWrapperDesc,
   UserInfoWrapperMobile,
   UserBarMobile,
-  SettingsIcon,
 } from './Header.styled';
 
 export const Header = () => {
@@ -40,7 +36,6 @@ export const Header = () => {
   return (
     <>
       <HeaderStyled>
-        {/* <SettingsIcon>settings</SettingsIcon> */}
         <Container>
           <NavWrapper>
             <LinkLogo />

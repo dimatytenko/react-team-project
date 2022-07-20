@@ -5,7 +5,6 @@ import { SwitchTheme } from '../components/SwitchTheme';
 import { Header } from '../components/Header';
 import { Container } from '../components/Container';
 import { SwitchSubContainer } from '../components/SwitchTheme/SwithTheme.styled';
-import { Main } from './Layout.styled';
 export function Layout() {
   return (
     <>

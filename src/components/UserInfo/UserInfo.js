@@ -16,7 +16,6 @@ export function UserInfo() {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  // onClick={() => dispatch(authOperations.logOut())}
   const logOut = () => {
     dispatch(authOperations.logOut());
     handleClose();

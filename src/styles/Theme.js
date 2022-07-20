@@ -8,7 +8,7 @@ export const ThemeLight = createTheme({
     buttonPrimary: '#FC842D',
     buttonSecondary: '#ffffff',
     loaderPrimary: '#FC842D',
-    backdrop: 'rgba(0, 0, 0, 0.55)',
+    backdrop: 'rgba(0, 0, 0, 0.4)',
     userInfo: '#EFF1F3',
     sidebar: '#F0F1F3',
     userBack: 'transparent',

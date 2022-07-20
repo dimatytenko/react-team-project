@@ -60,7 +60,10 @@ export function App() {
                 <Route
                   index
                   element={
-                    <PublicRoute>
+                    <PublicRoute
+                      restricted
+                      redirectTo="/calculator"
+                    >
                       <MainPage />
                     </PublicRoute>
                   }

@@ -110,11 +110,8 @@ export function DiaryAddProductForm({
 
     try {
       const { data } = await addProduct(requestObj);
-      // console.log(data);
       getProduct(data);
-    } catch (error) {
-      // console.log(error);
-    }
+    } catch (error) {}
 
     setProduct('');
     setGrams('');
