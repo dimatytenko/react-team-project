@@ -71,7 +71,9 @@ export function DiaryAddProductForm({
     setIsFocus(false);
   }
   // =================================== //
-
+  function rounded(number) {
+    return Math.round(parseFloat(number) * 100) / 100;
+  }
   // ===== add new product ==== //
   async function handleSubmit(e) {
     e.preventDefault();
@@ -104,7 +106,7 @@ export function DiaryAddProductForm({
 
     const requestObj = {
       productId: productObj._id,
-      weight: grams,
+      weight: rounded(grams),
       date: date,
     };
 
