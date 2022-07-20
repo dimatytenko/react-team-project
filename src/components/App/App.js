@@ -3,7 +3,6 @@ import { Routes, Route } from 'react-router-dom';
 import { Global } from '@emotion/react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ThemeProvider } from '@mui/material/styles';
-
 import { ThemeLight, ThemeDark } from '../../styles/Theme';
 import { GlobalStyles } from '../../styles/GlobalStyles';
 import {
@@ -78,7 +77,7 @@ export function App() {
                     </PublicRoute>
                   }
                 />
-                {/* для получения ответа с бекенда с токеном, мылом и именем */}
+
                 <Route
                   path="google-redirect"
                   element={
@@ -90,7 +89,7 @@ export function App() {
                     </PublicRoute>
                   }
                 />
-                {/* -------------------------------------------------------------- */}
+
                 <Route
                   path="register"
                   element={

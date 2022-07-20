@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchCurrentUser } from '../../redux/auth/authOperations';
@@ -16,6 +16,10 @@ import { RightSideBar } from '../../components/RightSideBar/RightSideBar';
 import { fetchUserData } from '../../services/connectionsAPI';
 
 export default function CalculatorPage() {
+  useEffect(() => {
+    document.title = 'Calculator - SlimMom ';
+  }, []);
+
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(
     authSelectors.getIsLoggedIn

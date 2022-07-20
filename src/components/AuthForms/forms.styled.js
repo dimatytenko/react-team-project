@@ -82,7 +82,6 @@ export const FormTitle = styled.h1`
 export const FormFlexContainer = styled.div`
   display: flex;
   flex-direction: column;
-
   width: 280px;
   ${mediaTablet(` 
     width: 240px;
@@ -98,7 +97,6 @@ export const Button = styled.button`
   font-weight: 700;
   font-size: 14px;
   line-height: 17px;
-  /* padding: 13px 0; */
   letter-spacing: 0.04em;
   cursor: pointer;
 
@@ -142,7 +140,7 @@ export const ButtonLink = styled(Link)`
   font-weight: 700;
   font-size: 14px;
   line-height: 17px;
-  /* padding: 13px 0; */
+
   letter-spacing: 0.04em;
   cursor: pointer;
 
@@ -177,7 +175,6 @@ export const ButtonGoogle = styled.a`
   font-weight: 700;
   font-size: 14px;
   line-height: 17px;
-  /* padding: 13px 0; */
   letter-spacing: 0.04em;
   cursor: pointer;
 
@@ -235,8 +232,6 @@ export const Wrapper = styled.div`
 export const BtnWrapp = styled.div`
   display: flex;
   flex-direction: column;
-  /* align-items: center;
-    max-width: 280px; */
 
   ${mediaTablet(`
         flex-direction: row`)}
