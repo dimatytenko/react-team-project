@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
@@ -22,6 +22,7 @@ import {
 } from './forms.styled';
 import { createToast } from '../../functions';
 import { useFormik } from 'formik';
+import GoogleAuth from './GoogleAuth';
 
 export default function RegistrationForm() {
   const dispatch = useDispatch();
@@ -58,10 +59,6 @@ export default function RegistrationForm() {
         });
     },
   });
-
-  useEffect(() => {
-    return createToast('info', 'Registration please!');
-  }, []);
 
   const changePassword = () => {
     setShow(prev => (prev = !prev));
@@ -193,6 +190,7 @@ export default function RegistrationForm() {
           </FormFlexContainer>
           <BtnWrapp>
             <Button type="submit">Register</Button>
+            <GoogleAuth />
             <ButtonLink to="/login">Login</ButtonLink>
           </BtnWrapp>
         </AuthForm>
