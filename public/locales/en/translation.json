@@ -1,0 +1,16 @@
+{
+  "diary": {
+    "productInput": "Enter product name",
+    "gramInput": "Grams"
+  },
+  "summary": {
+    "summuryTitle": "Summary for",
+    "left": "Left",
+    "overate": "Overate on",
+    "consumed": "Consumed",
+    "dailyRate": "Daily rate",
+    "normal": "n % of normal",
+    "kcal": "kcal",
+    "notRecommended": "Food not recommended"
+  }
+}

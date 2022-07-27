@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
+
 import { SideBarListItem as Item } from '../SideBarListItem';
 import { SideBarList as List } from '../SideBarList';
 import { getInfoByDate } from '../../services/connectionsAPI';
@@ -13,6 +15,8 @@ import {
   SideBarSummary,
   NotHelthyGroup,
 } from './RightSideBar.styled';
+import '../../utils/i18next';
+
 const defaultState = {
   left: '000',
   consumed: '000',
@@ -20,9 +24,11 @@ const defaultState = {
   percentage_of_normal: 0,
 };
 export function RightSideBar({ date, summary }) {
+  const { t } = useTranslation();
   const [notHelthy, setNotHelthy] = useState([]);
   const [calculation, setCalculation] =
     useState(defaultState);
+
   useEffect(() => {
     const pickedDate = date
       ? formatDateForFetch(date)
@@ -62,34 +68,43 @@ export function RightSideBar({ date, summary }) {
     <Wrapper>
       <SideBarSummary>
         <Title>
-          Summary for{' '}
+          {t('summary.summuryTitle')}{' '}
           {date
             ? formatDateForUser(date)
             : formatDateForUser(new Date())}
         </Title>
         <ul>
           <SideBarItem>
-            <span>{left >= 0 ? 'Left' : 'Overate on'}</span>
             <span>
-              {left >= 0 ? left : Math.abs(left)} kcal
+              {left >= 0
+                ? `${t('summary.left')}`
+                : `${t('summary.overate')}`}
+            </span>
+            <span>
+              {left >= 0 ? left : Math.abs(left)}{' '}
+              {t('summary.kcal')}
             </span>
           </SideBarItem>
           <SideBarItem>
-            <span>Consumed</span>
-            <span>{consumed} kcal</span>
+            <span>{t('summary.consumed')}</span>
+            <span>
+              {consumed} {t('summary.kcal')}
+            </span>
           </SideBarItem>
           <SideBarItem>
-            <span>Daily rate</span>
-            <span>{daily_rate} kcal</span>
+            <span>{t('summary.dailyRate')}</span>
+            <span>
+              {daily_rate} {t('summary.kcal')}
+            </span>
           </SideBarItem>
           <SideBarItem>
-            <span>n &#37; of normal</span>
+            <span>{t('summary.normal')}</span>
             <span>{percentage_of_normal} &#37;</span>
           </SideBarItem>
         </ul>
       </SideBarSummary>
       <NotHelthyGroup>
-        <Title>Food not recommended</Title>
+        <Title>{t('summary.notRecommended')}</Title>
         {notHelthy.length < 1 && (
           <p>Your diet will be displayed here</p>
         )}

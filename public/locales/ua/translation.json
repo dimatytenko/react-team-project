@@ -1,0 +1,16 @@
+{
+  "diary": {
+    "productInput": "Уведіть назву продукту",
+    "gramInput": "Грами"
+  },
+  "summary": {
+    "summuryTitle": "Підсумок для",
+    "left": "Залишилось",
+    "overate": "Ви переїли",
+    "consumed": "Спожито",
+    "dailyRate": "Добова норма",
+    "normal": "n % від норми",
+    "kcal": "ккал",
+    "notRecommended": "Нерекомендовані продукти"
+  }
+}

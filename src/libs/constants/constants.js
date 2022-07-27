@@ -6,6 +6,7 @@ export const breakPoints = {
 
 export const baseURL =
   'https://slim-moms.herokuapp.com/api';
+// 'http://localhost:8080/api';
 
 export const emailRegExp =
   /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;

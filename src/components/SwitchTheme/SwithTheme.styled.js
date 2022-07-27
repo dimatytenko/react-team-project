@@ -14,7 +14,7 @@ export const SwitchThemeWrapper = styled.div`
   `)}
 
   ${mediaDesktop(`
-        right: 22px;
+    right: 22px;
     top: 50px;
   `)}
 `;

@@ -3,11 +3,14 @@ import Tooltip from 'rc-tooltip';
 import 'rc-tooltip/assets/bootstrap.css';
 import axios from 'axios';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
+
 import {
   TableStyled,
   ButtonCross,
 } from './DiaryProductsList.styled';
 import { AlertModal } from '../AlertModal';
+import { languageSelectors } from '../../redux/language';
 
 export const DiaryProductsList = ({
   productsForDay,
@@ -15,17 +18,18 @@ export const DiaryProductsList = ({
   setSummary,
   isPickedDateToday,
 }) => {
-  const productList = makeRows();
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const [productIndex, setProductIndex] = useState('');
+  const lang = useSelector(languageSelectors.getLanguage);
+  const productList = makeRows(lang);
 
-  function makeRows() {
+  function makeRows(lang) {
     const rowsData = productsForDay?.reduce(
       (acc, product) => {
         acc.push({
-          title: product.product_id.title.en,
+          title: product.product_id.title[lang],
           weight: `${product.weight} g`,
           calories: `${product.calories} kcal`,
           key: product._id,

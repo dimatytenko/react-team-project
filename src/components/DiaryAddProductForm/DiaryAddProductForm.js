@@ -4,6 +4,8 @@ import { DebounceInput } from 'react-debounce-input';
 import { nanoid } from 'nanoid';
 import axios from 'axios';
 import { css } from '@emotion/css';
+import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 import { createToast } from '../../functions/toasts';
 import { mediaMaxPhone } from '../../functions/media';
@@ -20,6 +22,8 @@ import {
 import { useWindowDimensions } from '../../customHooks';
 import { addProduct } from '../../services/productsAPI';
 import { breakPoints } from '../../libs/constants';
+import { languageSelectors } from '../../redux/language';
+import '../../utils/i18next';
 
 export function DiaryAddProductForm({
   theme,
@@ -33,6 +37,8 @@ export function DiaryAddProductForm({
   const [grams, setGrams] = useState('');
   const [productsArray, setProductsArray] = useState([]);
   const [isFocus, setIsFocus] = useState(true);
+  const lang = useSelector(languageSelectors.getLanguage);
+  const { t } = useTranslation();
 
   // ===== fetch products ==== //
   useEffect(() => {
@@ -43,7 +49,9 @@ export function DiaryAddProductForm({
 
     async function fetchProducts(productValue) {
       const { data } = await axios
-        .get(`/products?search=${productValue}`)
+        .get(
+          `/products?search=${productValue}&lang=${lang}`
+        )
         .then(res => res.data);
       const productsArray = data.products.map(obj => obj);
       await setProductsArray(productsArray);
@@ -51,7 +59,7 @@ export function DiaryAddProductForm({
     }
 
     fetchProducts(product);
-  }, [product]);
+  }, [product, lang]);
   // =================================== //
 
   // ===== choose product ==== //
@@ -63,7 +71,7 @@ export function DiaryAddProductForm({
     }
 
     const currentProduct = productsArray.find(obj => {
-      return obj.title.en === currentTitle;
+      return obj.title[lang] === currentTitle;
     });
 
     setProduct(currentTitle);
@@ -79,7 +87,7 @@ export function DiaryAddProductForm({
     e.preventDefault();
 
     const isList = productsArray.some(
-      obj => obj.title.en === product
+      obj => obj.title[lang] === product
     );
     if (date !== formatDateForFetch(new Date())) {
       createToast(
@@ -160,7 +168,7 @@ export function DiaryAddProductForm({
             onFocus={() => setIsFocus(true)}
             value={product}
             name="product"
-            placeholder="Enter product name"
+            placeholder={t('diary.productInput')}
             disabled={
               date !== formatDateForFetch(new Date())
             }
@@ -179,7 +187,7 @@ export function DiaryAddProductForm({
                 display: none;
               }
             `}
-            placeholder="Grams"
+            placeholder={t('diary.gramInput')}
             value={grams}
             onChange={e => {
               setGrams(e.target.value);
@@ -217,7 +225,7 @@ export function DiaryAddProductForm({
                     key={obj._id}
                     onClick={e => handleTitleClick(e)}
                   >
-                    {obj.title.en}
+                    {obj.title[lang]}
                   </ProductsItem>
                 );
               })}

@@ -11,12 +11,20 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import { themeReducer } from './theme';
 import { authReducer } from './auth';
+import { themeReducer } from './theme';
+import { languageReducer } from './language';
 
 //* config theme persist
 const themePersistConfig = {
   key: 'theme',
+  storage,
+  whitelist: ['value'],
+};
+
+//* config language persist
+const languagePersistConfig = {
+  key: 'language',
   storage,
   whitelist: ['value'],
 };
@@ -37,6 +45,10 @@ export const store = configureStore({
     theme: persistReducer(
       themePersistConfig,
       themeReducer.theme
+    ),
+    language: persistReducer(
+      languagePersistConfig,
+      languageReducer.language
     ),
   },
   middleware: getDefaultMiddleware =>
