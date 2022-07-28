@@ -4,6 +4,7 @@ import 'rc-tooltip/assets/bootstrap.css';
 import axios from 'axios';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 import {
   TableStyled,
@@ -11,6 +12,7 @@ import {
 } from './DiaryProductsList.styled';
 import { AlertModal } from '../AlertModal';
 import { languageSelectors } from '../../redux/language';
+import '../../utils/i18next';
 
 export const DiaryProductsList = ({
   productsForDay,
@@ -24,6 +26,7 @@ export const DiaryProductsList = ({
   const [productIndex, setProductIndex] = useState('');
   const lang = useSelector(languageSelectors.getLanguage);
   const productList = makeRows(lang);
+  const { t } = useTranslation();
 
   function makeRows(lang) {
     const rowsData = productsForDay?.reduce(
@@ -135,13 +138,13 @@ export const DiaryProductsList = ({
         columns={columns}
         data={productList}
         showHeader={false}
-        emptyText={'No products in diary for this day'}
+        emptyText={t('diary.emptyField')}
       />
       <AlertModal
         open={open}
         handleClose={handleClose}
         handleConfirm={() => confirmDeleting(productIndex)}
-        text={'Are you sure you want to delete?'}
+        text={t('diary.delete')}
       ></AlertModal>
     </>
   );

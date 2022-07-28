@@ -1,4 +1,7 @@
 import { useSelector } from 'react-redux';
+import propTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
+
 import { authSelectors } from '../../redux/auth';
 import { Container } from '../Container';
 import { ROUTES } from '../../routes';
@@ -15,9 +18,10 @@ import {
   NavDrawerWrapper,
   NavigationNotSigned,
 } from './Navigation.styled';
-import propTypes from 'prop-types';
+import '../../utils/i18next';
 
 export const NavInHeader = () => {
+  const { t } = useTranslation();
   const isLoggedIn = useSelector(
     authSelectors.getIsLoggedIn
   );
@@ -29,12 +33,12 @@ export const NavInHeader = () => {
           <NavListNotSigned>
             <NavItem>
               <NavLinkBlack to={ROUTES.login.path}>
-                {ROUTES.login.title}
+                {t('auth.signTitle')}
               </NavLinkBlack>
             </NavItem>
             <NavItem>
               <NavLinkGrey to={ROUTES.register.path}>
-                {ROUTES.register.title}
+                {t('auth.registerTitle')}
               </NavLinkGrey>
             </NavItem>
           </NavListNotSigned>
@@ -44,12 +48,12 @@ export const NavInHeader = () => {
           <NavListSigned>
             <NavItem>
               <NavLinkBlack to={ROUTES.diary.path}>
-                {ROUTES.diary.title}
+                {t('nav.diary')}
               </NavLinkBlack>
             </NavItem>
             <NavItem>
               <NavLinkGrey to={ROUTES.calculator.path}>
-                {ROUTES.calculator.title}
+                {t('nav.calc')}
               </NavLinkGrey>
             </NavItem>
           </NavListSigned>
@@ -63,6 +67,8 @@ export const NavInDrawer = ({
   setMenuOpen,
   isMenuOpen,
 }) => {
+  const { t } = useTranslation();
+
   return (
     <Container>
       <NavDrawerWrapper>
@@ -73,7 +79,7 @@ export const NavInDrawer = ({
                 to="/diary"
                 onClick={event => setMenuOpen(!isMenuOpen)}
               >
-                diary
+                {t('nav.diary')}
               </NavLinkDrawerGrey>
             </NavItemDrawer>
             <NavItemDrawer>
@@ -81,7 +87,7 @@ export const NavInDrawer = ({
                 to="/calculator"
                 onClick={event => setMenuOpen(!isMenuOpen)}
               >
-                calculator
+                {t('nav.calc')}
               </NavLinkDrawerWhite>
             </NavItemDrawer>
           </NavListDrawer>

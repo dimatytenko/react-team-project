@@ -1,5 +1,13 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import GoogleAuth from './GoogleAuth';
+import InputAdornment from '@mui/material/InputAdornment';
+import IconButton from '@mui/material/IconButton';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import { useFormik } from 'formik';
+import { useTranslation } from 'react-i18next';
+
 import { logIn } from '../../redux/auth/authOperations';
 import { Container } from '../Container';
 import {
@@ -12,16 +20,17 @@ import {
   ButtonLink,
   MyInput,
 } from './forms.styled';
-import { validationsSchemaSignInEn } from './validationShema';
-import { useFormik } from 'formik';
-import InputAdornment from '@mui/material/InputAdornment';
-import IconButton from '@mui/material/IconButton';
-import Visibility from '@mui/icons-material/Visibility';
-import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import {
+  validationsSchemaSignInEn,
+  validationsSchemaSignInUA,
+} from './validationShema';
 import { createToast } from '../../functions';
-import GoogleAuth from './GoogleAuth';
+import '../../utils/i18next';
+import { languageSelectors } from '../../redux/language';
 
 export default function Login(props) {
+  const { t } = useTranslation();
+  const lang = useSelector(languageSelectors.getLanguage);
   const dispatch = useDispatch();
   const [showPassword, setShow] = useState(false);
 
@@ -30,7 +39,10 @@ export default function Login(props) {
       email: '',
       password: '',
     },
-    validationSchema: validationsSchemaSignInEn,
+    validationSchema:
+      lang === 'en'
+        ? validationsSchemaSignInEn
+        : validationsSchemaSignInUA,
     onSubmit: values => {
       const { email, password } = values;
       dispatch(logIn({ email, password }))
@@ -39,7 +51,7 @@ export default function Login(props) {
           if (error) {
             return createToast(
               'error',
-              'Incorrect credentials!'
+              `${t('auth.credentials')}`
             );
           }
         });
@@ -53,7 +65,7 @@ export default function Login(props) {
   return (
     <Container>
       <Wrapper>
-        <FormTitle>sign in</FormTitle>
+        <FormTitle>{t('auth.signTitle')}</FormTitle>
         <AuthForm
           noValidate
           component="form"
@@ -65,7 +77,7 @@ export default function Login(props) {
               fullWidth
               autoComplete="off"
               variant="standard"
-              label="Email"
+              label={t('auth.email')}
               id="email"
               value={formik.email}
               onChange={formik.handleChange}
@@ -82,7 +94,7 @@ export default function Login(props) {
               fullWidth
               autoComplete="off"
               variant="standard"
-              label="Password"
+              label={t('auth.password')}
               id="password"
               type={showPassword ? 'text' : 'password'}
               value={formik.password}
@@ -119,9 +131,11 @@ export default function Login(props) {
             />
           </FormFlexContainer>
           <BtnWrapp>
-            <Button type="submit">Login</Button>
+            <Button type="submit">{t('auth.login')}</Button>
             <GoogleAuth />
-            <ButtonLink to="/register">Register</ButtonLink>
+            <ButtonLink to="/register">
+              {t('auth.register')}
+            </ButtonLink>
           </BtnWrapp>
         </AuthForm>
       </Wrapper>

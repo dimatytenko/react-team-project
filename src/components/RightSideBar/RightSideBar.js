@@ -106,7 +106,7 @@ export function RightSideBar({ date, summary }) {
       <NotHelthyGroup>
         <Title>{t('summary.notRecommended')}</Title>
         {notHelthy.length < 1 && (
-          <p>Your diet will be displayed here</p>
+          <p>{t('summary.displayed')}</p>
         )}
         {notHelthy.length > 1 && (
           <List>

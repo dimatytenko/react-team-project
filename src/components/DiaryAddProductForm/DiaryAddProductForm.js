@@ -90,25 +90,19 @@ export function DiaryAddProductForm({
       obj => obj.title[lang] === product
     );
     if (date !== formatDateForFetch(new Date())) {
-      createToast(
-        'warning',
-        'You can not add product in past days!'
-      );
+      createToast('warning', `${t('diary.pastDay')}`);
       return;
     }
     if (!isList) {
-      createToast('warning', 'Select an existing product!');
+      createToast('warning', `${t('diary.selectProduct')}`);
       return;
     }
     if (grams.length === 0) {
-      createToast('warning', 'Fill in the grams field!');
+      createToast('warning', `${t('diary.fillGrams')}`);
       return;
     }
     if (grams <= 0 || grams > 99999) {
-      createToast(
-        'warning',
-        'You can enter from 1 to 99999!'
-      );
+      createToast('warning', `${t('diary.enterGrams')}`);
       return;
     }
 
@@ -215,7 +209,7 @@ export function DiaryAddProductForm({
                     key={nanoid()}
                     onClick={e => handleTitleClick(e)}
                   >
-                    not Found
+                    {t('diary.notFound')}
                   </ProductsItem>
                 )}
 

@@ -1,6 +1,8 @@
 import React from 'react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
+import { useTranslation } from 'react-i18next';
+
 import {
   MyTextInput,
   MyRadioButton,
@@ -14,12 +16,15 @@ import {
   CalculatorForm,
   Button,
 } from './DailyCaloriesForm.styled';
+import '../../utils/i18next';
 
 export const DailyCaloriesForm = ({
   onFormSubmit,
   data,
   isLoading,
 }) => {
+  const { t } = useTranslation();
+
   const {
     height,
     age,
@@ -30,9 +35,7 @@ export const DailyCaloriesForm = ({
 
   return (
     <FormContainer>
-      <FormTitle>
-        Calculate your daily calorie intake right now
-      </FormTitle>
+      <FormTitle>{t('calculator.title')}</FormTitle>
       <Formik
         initialValues={{
           height: height || '',
@@ -44,28 +47,28 @@ export const DailyCaloriesForm = ({
         validationSchema={Yup.object({
           height: Yup.number('Only numbers allowed')
             .positive()
-            .integer('Enter an integer number')
-            .min(100, 'Height must be more than 100cm')
-            .max(250, 'Height must be less than 250cm')
-            .required('Required'),
+            .integer(`${t('calculator.integer')}`)
+            .min(100, `${t('calculator.heightMin')}`)
+            .max(250, `${t('calculator.heightMax')}`)
+            .required(`${t('calculator.required')}`),
           age: Yup.number()
             .positive()
-            .integer('Enter an integer number')
-            .min(18, 'Age must be over 18 years old')
-            .max(100, 'Age must be less than 100 years old')
-            .required('Required'),
+            .integer(`${t('calculator.integer')}`)
+            .min(18, `${t('calculator.ageMin')}`)
+            .max(100, `${t('calculator.ageMax')}`)
+            .required(`${t('calculator.required')}`),
           weight_current: Yup.number()
             .positive()
-            .integer('Enter an integer number')
-            .min(20, 'Weight must be more than 20kg')
-            .max(500, 'Weight must be less than 500kg')
-            .required('Required'),
+            .integer(`${t('calculator.integer')}`)
+            .min(20, `${t('calculator.weightMin')}`)
+            .max(500, `${t('calculator.weightMax')}`)
+            .required(`${t('calculator.required')}`),
           weight_desired: Yup.number()
             .positive()
-            .integer('Enter an integer number')
-            .min(20, 'Weight must be more than 20kg')
-            .max(500, 'Weight must be less than 500kg')
-            .required('Required'),
+            .integer(`${t('calculator.integer')}`)
+            .min(20, `${t('calculator.weightDesiredMin')}`)
+            .max(500, `${t('calculator.weightDesiredMax')}`)
+            .required(`${t('calculator.required')}`),
           blood: Yup.string().oneOf(
             ['1', '2', '3', '4'],
             'Invalid Blood Type'
@@ -81,29 +84,29 @@ export const DailyCaloriesForm = ({
               <FormFlexContainer>
                 <FormFlexContainerLeft>
                   <MyTextInput
-                    label="Height, cm *"
+                    label={t('calculator.height')}
                     name="height"
                     type="number"
                   />
                   <MyTextInput
-                    label="Age *"
+                    label={t('calculator.age')}
                     name="age"
                     type="number"
                   />
                   <MyTextInput
-                    label="Current weight, kg *"
+                    label={t('calculator.currentWeight')}
                     name="weight_current"
                     type="number"
                   />
                 </FormFlexContainerLeft>
                 <div>
                   <MyTextInput
-                    label="Desired weight, kg *"
+                    label={t('calculator.desireWeight')}
                     name="weight_desired"
                     type="number"
                   />
                   <RadioButtonsTitle id="my-radio-group">
-                    Blood type *
+                    {t('calculator.blood')}
                   </RadioButtonsTitle>
                   <div
                     role="group"
@@ -154,8 +157,8 @@ export const DailyCaloriesForm = ({
               </FormFlexContainer>
               <Button type="submit">
                 {isLoading
-                  ? 'Calculating...'
-                  : 'Start losing weight'}
+                  ? `${t('calculator.calculating')}`
+                  : `${t('calculator.start')}`}
               </Button>
             </CalculatorForm>
           );

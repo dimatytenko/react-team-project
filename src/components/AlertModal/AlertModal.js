@@ -1,11 +1,14 @@
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
+import { useTranslation } from 'react-i18next';
+
 import {
   ButtonConfirm,
   Button,
   ButtonWrapper,
   AlertTitle,
 } from './AlertModal.styled';
+import '../../utils/i18next';
 
 const style = {
   position: 'absolute',
@@ -27,6 +30,8 @@ export function AlertModal({
   text,
   handleConfirm,
 }) {
+  const { t } = useTranslation();
+
   return (
     <>
       <Modal open={open} onClose={handleClose}>
@@ -34,9 +39,12 @@ export function AlertModal({
           <AlertTitle>{text}</AlertTitle>
           <ButtonWrapper>
             <ButtonConfirm onClick={handleConfirm}>
-              YES
+              {t('modal.yes')}
             </ButtonConfirm>
-            <Button onClick={handleClose}>NO</Button>
+            <Button onClick={handleClose}>
+              {' '}
+              {t('modal.no')}
+            </Button>
           </ButtonWrapper>
         </Box>
       </Modal>

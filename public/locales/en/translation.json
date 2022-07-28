@@ -1,7 +1,15 @@
 {
   "diary": {
     "productInput": "Enter product name",
-    "gramInput": "Grams"
+    "gramInput": "Grams",
+    "emptyField": "No products in diary for this day",
+    "delete": "Are you sure you want to delete?",
+    "notFound": "not Found",
+    "add": "Add",
+    "pastDay": "You can not add product in past days!",
+    "selectProduct": "Select an existing product!",
+    "fillGrams": "Fill in the grams field!",
+    "enterGrams": "You can enter from 1 to 99999!"
   },
   "summary": {
     "summuryTitle": "Summary for",
@@ -11,6 +19,51 @@
     "dailyRate": "Daily rate",
     "normal": "n % of normal",
     "kcal": "kcal",
-    "notRecommended": "Food not recommended"
+    "notRecommended": "Food not recommended",
+    "displayed": "Your diet will be displayed here"
+  },
+  "modal": {
+    "yes": "YES",
+    "no": "NO"
+  },
+  "calculator": {
+    "title": "Calculate your daily calorie intake right now",
+    "height": "Height, cm *",
+    "age": "Age",
+    "currentWeight": "Current weight, kg *",
+    "desireWeight": "Desired weight, kg *",
+    "blood": "Blood type *",
+    "calculating": "Calculating...",
+    "start": "Start losing weight",
+    "integer": "Enter an integer number",
+    "required": "Required",
+    "heightMin": "Height must be more than 100cm",
+    "heightMax": "Height must be less than 250cm",
+    "ageMin": "Age must be over 18 years old",
+    "ageMax": "Age must be less than 100 years old",
+    "weightMin": "Weight must be more than 20kg",
+    "weightMax": "Weight must be less than 500kg",
+    "weightDesiredMin": "Weight must be more than 20kg",
+    "weightDesiredMax": "Weight must be less than 500kg"
+  },
+  "userInfo": {
+    "exit": "Exit",
+    "wantExit": "Are you sure you want to exit?"
+  },
+  "auth": {
+    "google": "SignIn with",
+    "login": "Login",
+    "register": "Register",
+    "email": "Email",
+    "password": "Password",
+    "confirm": "Confirm password",
+    "name": "Name",
+    "signTitle": "sign in",
+    "registerTitle": "register",
+    "credentials": "Incorrect credentials!"
+  },
+  "nav": {
+    "diary": "diary",
+    "calc": "calculator"
   }
 }
