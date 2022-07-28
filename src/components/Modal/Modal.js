@@ -17,13 +17,20 @@ import {
 } from './Modal.styled';
 import arrow from '../../assets/icons/arrow.svg';
 import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { css } from '@emotion/css';
+import { useTranslation } from 'react-i18next';
+import '../../utils/i18next';
+import { languageSelectors } from '../../redux/language';
 
 export function Modal({
   modalData,
   onClick,
   modalCloseBtn,
 }) {
+  const { t } = useTranslation();
+  const lang = useSelector(languageSelectors.getLanguage);
+
   useEffect(() => {
     window.addEventListener('keydown', cleanEventListener);
   });
@@ -53,23 +60,23 @@ export function Modal({
           animation: ${sink} 0.5s ease;
         `}
       >
-        <Title>
-          Your recommended daily calorie intake is
-        </Title>
+        <Title>{t('modal.title')}</Title>
         <DailyRate>
           {Math.round(modalData.dailyRate)}
-          <Kcal> kcal</Kcal>
+          <Kcal>{t('summary.kcal')}</Kcal>
         </DailyRate>
-        <TitleNotEat>Foods you should not eat</TitleNotEat>
+        <TitleNotEat>{t('modal.notEat')}</TitleNotEat>
         <ListNotEat start="1">
           {modalData.notHealthy.map(item => (
             <ListNotEatItem key={item._id}>
-              {item.title.en}
+              {item.title[lang]}
             </ListNotEatItem>
           ))}
         </ListNotEat>
         <LinkHome to="/register">
-          <Button type="button">Start losing weight</Button>
+          <Button type="button">
+            {t('calculator.start')}
+          </Button>
         </LinkHome>
         <BtnCloseModal
           type="button"

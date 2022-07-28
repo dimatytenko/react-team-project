@@ -24,7 +24,9 @@
   },
   "modal": {
     "yes": "YES",
-    "no": "NO"
+    "no": "NO",
+    "title": "Your recommended daily calorie intake is",
+    "notEat": "Foods you should not eat"
   },
   "calculator": {
     "title": "Calculate your daily calorie intake right now",
@@ -60,7 +62,9 @@
     "name": "Name",
     "signTitle": "sign in",
     "registerTitle": "register",
-    "credentials": "Incorrect credentials!"
+    "credentials": "Incorrect credentials!",
+    "invalid": "Invalid email format!",
+    "alreadyUse": "This mail is already in use. Please, login!"
   },
   "nav": {
     "diary": "diary",

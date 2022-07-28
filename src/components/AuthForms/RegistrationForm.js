@@ -59,13 +59,13 @@ export default function RegistrationForm() {
           if (error.status === 400) {
             return createToast(
               'error',
-              'Invalid email format!'
+              `${t('auth.invalid')}`
             );
           }
           if (error.status === 409) {
             return createToast(
               'error',
-              'This mail is already in use. Please, login!'
+              `${t('auth.alreadyUse')}`
             );
           }
         });
