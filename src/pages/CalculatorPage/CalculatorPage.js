@@ -31,12 +31,9 @@ export default function CalculatorPage() {
     JSON.parse(
       window.localStorage.getItem('calculatingData')
     ) ?? {};
-
-  const isLsDataAvailable =
-    Object.keys(parsedData).length !== 0;
-  const calculatingData = isLsDataAvailable
-    ? parsedData
-    : userData;
+  const calculatingData = userData.height
+    ? userData
+    : parsedData;
 
   const calculatorSubmitHandler = async calculatingData => {
     try {
