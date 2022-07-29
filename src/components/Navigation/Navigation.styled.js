@@ -28,7 +28,7 @@ export const NavListSigned = styled.ul`
     content: '';
     position: absolute;
     top: 50%;
-    left: -19%;
+    left: -32px;
     height: 2px;
     width: 32px;
     background-color: #e0e0e0;
@@ -49,7 +49,7 @@ export const NavListNotSigned = styled.ul`
     content: '';
     position: absolute;
     top: 50%;
-    left: -19%;
+    left: -32px;
     height: 2px;
     width: 32px;
     background-color: #e0e0e0;
