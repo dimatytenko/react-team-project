@@ -25,6 +25,8 @@ export const SwitchSubContainer = styled.div`
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
+  just
+
 
   ${mediaTablet(`
     position: relative;
@@ -48,33 +50,30 @@ export const SwitchLanguages = styled(Switch)(
       margin: 1,
       padding: 0,
       transform: 'translateX(6px)',
+
       '&.Mui-checked': {
         color: '#fff',
         transform: 'translateX(22px)',
-        '& .MuiSwitch-thumb:after': {
-          content: "'ua'",
+        '& .MuiSwitch-thumb:before': {
+          backgroundImage: `url('https://cdn-icons-png.flaticon.com/24/197/197572.png')`,
         },
       },
     },
     '& .MuiSwitch-thumb': {
-      backgroundColor:
-        theme.palette.mode === 'dark'
-          ? '#003892'
-          : '#001e3c',
+      backgroundColor: '#003892',
+
       width: 28,
       height: 28,
-      '&:after': {
-        content: "'en'",
+      '&:before': {
+        content: "''",
         position: 'absolute',
         width: '100%',
         height: '100%',
-        color:
-          theme.palette.mode === 'dark'
-            ? '#ffffff'
-            : '#aab4be',
-        left: '50%',
-        top: '50%',
-        transform: 'translate(-35%, -35%)',
+        left: 0,
+        top: 0,
+        backgroundPosition: 'center',
+        backgroundSize: 'contain',
+        backgroundImage: `url('https://cdn-icons-png.flaticon.com/24/323/323310.png')`,
       },
     },
     '& .MuiSwitch-track': {

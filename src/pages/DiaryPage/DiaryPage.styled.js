@@ -4,8 +4,8 @@ import {
   mediaDesktop,
 } from '../../functions/media';
 
-import leaves_sidebar from '../../assets/images/bg-pictures/tablet/leaves_sidebar.png';
-import leaves_sidebar_desk from '../../assets/images/bg-pictures/desktop/leaves_sidebar_desk.png';
+// import leaves_sidebar from '../../assets/images/bg-pictures/tablet/leaves_sidebar.png';
+// import leaves_sidebar_desk from '../../assets/images/bg-pictures/desktop/leaves_sidebar_desk.png';
 
 export const DiaryPagesWrapper = styled.div`
   width: 100%;
