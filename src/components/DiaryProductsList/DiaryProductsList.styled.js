@@ -27,14 +27,22 @@ export const TableStyled = styled(Table)`
   max-height: 306px;
 `)}
 
-  &::-webkit-scrollbar {
-    width: 6px;
-    height: 3px;
-    background-color: #f0f1f3;
+    &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: #264061;
+    background: #264061;
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #264061;
   }
 
   & td + td {

@@ -77,6 +77,25 @@ export const ProductsList = styled.ul`
   border: 1px solid #e0e0e0;
   padding: 0 10px 0 10px;
   border-radius: 5px;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #264061;
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #264061;
+  }
+
   background-color: ${props =>
     props.theme.backgrounds.bodyPrimary};
 
