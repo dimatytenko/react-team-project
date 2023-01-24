@@ -4,7 +4,8 @@ export const breakPoints = {
   DESKTOP: 1280,
 };
 
-export const baseURL = 'https://slim-moms-api.onrender.com';
+export const baseURL =
+  'https://slim-moms-api.onrender.com/api';
 // 'https://slim-moms.herokuapp.com/api';
 // 'http://localhost:8080/api';
 
