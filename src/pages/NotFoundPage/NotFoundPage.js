@@ -9,8 +9,11 @@ import {
   NotFoundContent,
 } from './NotFoundPage.styled';
 import meditation from '../../assets/images/notFound/meditation.png';
+import { useTranslation } from 'react-i18next';
 
 export default function NotFoundPage() {
+  const { t } = useTranslation();
+
   useEffect(() => {
     document.title = '404 - SlimMom ';
   }, []);
@@ -20,10 +23,11 @@ export default function NotFoundPage() {
       <Container>
         <NotFoundContainer>
           <NotFoundBoxContent>
-            <NotFoundContentMod>Oops!</NotFoundContentMod>
+            <NotFoundContentMod>
+              {t('notFound.title')}
+            </NotFoundContentMod>
             <NotFoundContent>
-              We can't seem to find the page you're looking
-              for.
+              {t('notFound.description')}
             </NotFoundContent>
           </NotFoundBoxContent>
         </NotFoundContainer>

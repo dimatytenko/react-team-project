@@ -69,5 +69,9 @@
   "nav": {
     "diary": "diary",
     "calc": "calculator"
+  },
+  "notFound": {
+    "title": "Oops!",
+    "description": "We can't seem to find the page you're looking for."
   }
 }
